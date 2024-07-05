@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://sxq6nbt1thvm"]
+[gd_scene load_steps=3 format=3 uid="uid://sxq6nbt1thvm"]
+
+[ext_resource type="PackedScene" uid="uid://bmgb44mjeck5g" path="res://Assets/Player/Farm/Player_farm.tscn" id="1_25rqv"]
+[ext_resource type="PackedScene" uid="uid://xe47faicgkl1" path="res://Assets/Farm/Plot/Plot.tscn" id="2_rhhvb"]
 
 [node name="Farm" type="Node2D"]
+
+[node name="PlayerFarm" parent="." instance=ExtResource("1_25rqv")]
+position = Vector2(0, 4)
+
+[node name="Plot" parent="." instance=ExtResource("2_rhhvb")]
+position = Vector2(332, 178)

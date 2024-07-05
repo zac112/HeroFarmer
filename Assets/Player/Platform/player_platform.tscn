@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dosibav3620rd"]
+
+[ext_resource type="Script" path="res://Assets/Player/Platform/player_platform.gd" id="1_uttb6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vjcqq"]
+load_path = "res://.godot/imported/laserRed02.png-f24f910460a3fa777d07afe48ef65719.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e5pg"]
+
+[node name="player_platform" type="CharacterBody2D"]
+script = ExtResource("1_uttb6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_vjcqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0e5pg")
