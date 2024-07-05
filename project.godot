@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="HF"
+run/main_scene="res://Assets/Enemies/Melee.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbc54ppjckeld"]
+
+[ext_resource type="Script" path="res://Assets/Enemies/Melee.gd" id="1_4kuc1"]
+[ext_resource type="Texture2D" uid="uid://dx2xtnk0he5jk" path="res://Assets/Enemies/Asteriski_merkki_1.png" id="1_dcwa0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0cu2"]
+size = Vector2(120, 120)
+
+[node name="Melee" type="CharacterBody2D"]
+script = ExtResource("1_4kuc1")
+
+[node name="AsteriskiMerkki1" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_dcwa0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e0cu2")
