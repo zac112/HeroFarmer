@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CropItem" load_steps=3 format=3 uid="uid://c5iw4nngjou5e"]
+
+[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="1_ryod1"]
+[ext_resource type="Script" path="res://Assets/Inventory/crop_inventory/crop_item.gd" id="2_04uaa"]
+
+[resource]
+script = ExtResource("2_04uaa")
+crop_sprite = ExtResource("1_ryod1")
+crop_name = "porkkana"

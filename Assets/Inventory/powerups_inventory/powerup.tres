@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PowerupItem" load_steps=3 format=3 uid="uid://cggacw8tuoqrw"]
+
+[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="1_kfxt3"]
+[ext_resource type="Script" path="res://Assets/Inventory/powerups_inventory/powerup_item.gd" id="2_2xb7p"]
+
+[resource]
+script = ExtResource("2_2xb7p")
+Powerup_sprite = ExtResource("1_kfxt3")
+Powerup_name = "powerup"
