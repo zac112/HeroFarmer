@@ -4,18 +4,21 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle = $Marker2D
 @onready var particle = preload("res://Assets/Player/Platform/particle.tscn")
+@onready var farm_scene = preload("res://Assets/Farm/Farm.tscn")
 var par
 var muzzle_position
 
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var inventory = {}
+
 
 enum State {Idle, Run, Jump, Shoot}
 var current_state
 
 var last_dir = 1
+
+var playerHealth := 3
 
 
 @onready var playerName = %Label
@@ -26,12 +29,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	muzzle_position = muzzle.position
 	current_state = State.Idle
-	inventory["gold"] = 1
-	inventory["seed"] = 2
-	inventory["powerup"] = 3
+
 	
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("Farm_down"):
+		take_damage()
 	
 
 func player_shooting(delta):
@@ -122,3 +124,12 @@ func _physics_process(delta):
 func input_movement():
 	var direction: float = Input.get_axis("Platform_left", "Platform_right")
 	return direction
+	
+	
+func take_damage():
+	playerHealth -= 1
+	$AnimatedSprite2D.modulate.a -= 0.33
+	print("HEALTH ", playerHealth, " ", $AnimatedSprite2D.modulate.a)
+	if playerHealth <= 0:
+		print("GAME OVER")
+		get_tree().change_scene_to_packed(farm_scene)
