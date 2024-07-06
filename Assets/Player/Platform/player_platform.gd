@@ -10,8 +10,9 @@ var can_shoot := true
 var inventory = {}
 
 enum State {Idle, Run, Jump}
-
 var current_state
+
+signal particle(pos)
 
 
 @onready var playerName = %Label
@@ -28,6 +29,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("Platform_shoot") and can_shoot:
 		print("SHOOT", can_shoot)
+		particle.emit($RightShootMarker.global_position)
 	
 
 func _physics_process(delta):
