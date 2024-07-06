@@ -35,6 +35,7 @@ func _ready():
 	add_seeds_from_inventory()
 	seed = FarmData.plot_list[id]
 	display_seed_list.select(0)
+	select_seed_id = 0
 	display_seed_list.icon_scale=0.1
 	if seed:
 		seed.growth_stage += 1
