@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpeudpmjgp7gl"]
+[gd_scene load_steps=24 format=3 uid="uid://dpeudpmjgp7gl"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="1_n5est"]
 [ext_resource type="Script" path="res://Assets/Platform/level_1.gd" id="1_weief"]
@@ -332,6 +332,48 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_mysnq")
 sources/2 = SubResource("TileSetAtlasSource_ioso4")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x1744"]
+polygon = PackedVector2Array(418, -203, 540, -203, 561, -187, 401, -187)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pvktd"]
+polygon = PackedVector2Array(-497, 5, -496, -535, -967, -511, -966, 79)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lso5w"]
+polygon = PackedVector2Array(-155, -63, -154, -63, -159, -75, -255, -74, -261, -62)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wysqb"]
+polygon = PackedVector2Array(-285, -189, -292, -201, -413, -201, -417, -190)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o7gvf"]
+polygon = PackedVector2Array(-94, -256, -87, -267, 64, -264, 69, -256)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ce1f1"]
+polygon = PackedVector2Array(799, -220, 806, -236, 1017, -236, 1024, -224)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3roof"]
+polygon = PackedVector2Array(1182, -351, 1190, -363, 1342, -362, 1347, -352)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t7w8o"]
+polygon = PackedVector2Array(1425, -128, 1483, -127, 1768, -228, 2067, -230, 2296, -132, 2362, -130, 2089, -258, 1714, -260)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8n7hq"]
+polygon = PackedVector2Array(2525, -94, 2530, -110, 2651, -108, 2657, -96)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ayeh5"]
+polygon = PackedVector2Array(3169, -128, 3178, -145, 3319, -144, 3329, -129)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4ux7g"]
+polygon = PackedVector2Array(3070, -265, 3072, -20, 2792, -31, 2797, -247)
+
+[sub_resource type="Gradient" id="Gradient_8hrvo"]
+offsets = PackedFloat32Array(0.0714286, 0.772727)
+colors = PackedColorArray(1, 0.952941, 0.54902, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tnp4w"]
+gradient = SubResource("Gradient_8hrvo")
+fill = 1
+fill_from = Vector2(0.504587, 0.481651)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_weief")
 
@@ -384,3 +426,108 @@ position = Vector2(2649, -159)
 
 [node name="Enemy_melee_walking8" parent="." instance=ExtResource("6_ul227")]
 position = Vector2(3028, -350)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-44.9999, -746)
+rotation = -0.6353
+energy = 0.31
+shadow_enabled = true
+shadow_item_cull_mask = 3
+height = 0.63
+max_distance = 1.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_x1744")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_pvktd")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_lso5w")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_wysqb")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_o7gvf")
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ce1f1")
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_3roof")
+
+[node name="LightOccluder2D8" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_t7w8o")
+
+[node name="LightOccluder2D9" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_8n7hq")
+
+[node name="LightOccluder2D10" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ayeh5")
+
+[node name="LightOccluder2D11" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_4ux7g")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-14, -180)
+color = Color(1, 1, 0.847059, 1)
+energy = 4.46
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 2.76
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(901, -129)
+color = Color(1, 1, 0.847059, 1)
+energy = 4.46
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 2.76
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(1885, -377)
+color = Color(1, 1, 0.847059, 1)
+energy = 4.46
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 2.76
+
+[node name="PointLight2D7" type="PointLight2D" parent="."]
+position = Vector2(2978, -381)
+color = Color(1, 1, 0.847059, 1)
+energy = 4.46
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 2.76
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(483, -288)
+color = Color(1, 1, 0.847059, 1)
+energy = 4.46
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 2.76
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(1706, -85)
+color = Color(1, 1, 0.847059, 1)
+energy = 4.46
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 4.11
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(2077, -84)
+color = Color(1, 1, 0.847059, 1)
+energy = 4.46
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 4.11
