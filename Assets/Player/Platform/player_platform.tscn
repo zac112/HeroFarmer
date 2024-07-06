@@ -81,3 +81,8 @@ shape = SubResource("RectangleShape2D_me8ic")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(17, 0)
+
+[node name="Invisibility" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Invisibility" to="." method="_on_invisibility_timeout"]

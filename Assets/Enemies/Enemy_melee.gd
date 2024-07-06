@@ -9,6 +9,7 @@ var direction = 1
 @export var moving = true
 @export var following = false
 var player = null
+var colliding = false
 
 var health = 50
 
@@ -35,6 +36,10 @@ func _physics_process(delta):
 	velocity.y = GRAVITY
 
 	move_and_slide()
+	
+	# Does damage if collides with player
+	if colliding:
+		player.take_damage()
 
 
 func _on_player_detection_body_entered(body):
@@ -49,10 +54,20 @@ func _on_player_detection_body_exited(body):
 
 func _on_player_collision_body_entered(body):
 	if body.has_method("take_damage"):
+<<<<<<< Updated upstream
 		SfxHandler.play(OOF, get_tree().current_scene)
 		body.take_damage()
 		
 		
+=======
+		colliding = true
+
+
+func _on_player_collision_body_exited(body):
+	if body.has_method("take_damage"):
+		colliding = false
+	
+>>>>>>> Stashed changes
 
 func hit(damage:int):
 	health -= damage

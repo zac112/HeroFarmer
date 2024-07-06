@@ -19,7 +19,7 @@ var current_state
 var last_dir = 1
 
 var playerHealth := 3
-
+var invincible = false
 
 @onready var playerName = %Label
 
@@ -32,9 +32,8 @@ func _ready():
 
 	
 func _process(delta):
-	if Input.is_action_just_pressed("Farm_down"):
-		take_damage()
-	
+	pass
+
 
 func player_shooting(delta):
 	
@@ -127,9 +126,17 @@ func input_movement():
 	
 	
 func take_damage():
-	playerHealth -= 1
-	$AnimatedSprite2D.modulate.a -= 0.33
-	print("HEALTH ", playerHealth, " ", $AnimatedSprite2D.modulate.a)
-	if playerHealth <= 0:
-		print("GAME OVER")
-		get_tree().change_scene_to_packed(farm_scene)
+	if not invincible:
+		playerHealth -= 1
+		$AnimatedSprite2D.modulate.a -= 0.33
+		print("HEALTH ", playerHealth, " ", $AnimatedSprite2D.modulate.a)
+		if playerHealth <= 0:
+			print("GAME OVER")
+			get_tree().change_scene_to_packed(farm_scene)
+		
+		invincible = true
+		$Invisibility.start()
+
+
+func _on_invisibility_timeout():
+	invincible = false
