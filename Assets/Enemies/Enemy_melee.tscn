@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbc54ppjckeld"]
+[gd_scene load_steps=8 format=3 uid="uid://dgc3dnychgmd4"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Enemy_melee.gd" id="1_r8o2w"]
 [ext_resource type="Texture2D" uid="uid://dx2xtnk0he5jk" path="res://Assets/Enemies/Asteriski_merkki_1.png" id="2_1xme5"]
-[ext_resource type="PackedScene" uid="uid://dj5esbs4onldu" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_82gou"]
+[ext_resource type="PackedScene" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_82gou"]
+[ext_resource type="AudioStream" uid="uid://dxpjwjklvdu6d" path="res://Assets/Audio/Music Box Game Over 2.wav" id="3_nrhqp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3e88"]
 radius = 60.0
@@ -50,6 +51,11 @@ target_position = Vector2(0, 76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 shape = SubResource("CircleShape2D_nucr3")
+
+[node name="EnemyProximitySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nrhqp")
+volume_db = 10.351
+max_distance = 444.0
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

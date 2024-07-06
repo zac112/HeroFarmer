@@ -46,6 +46,7 @@ func _physics_process(delta):
 
 
 func _on_player_detection_body_entered(body):
+	$EnemyProximitySound.play()
 	if body.name == "player_platform":
 		player = body
 		following = true
