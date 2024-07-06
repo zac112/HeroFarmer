@@ -1,5 +1,7 @@
 extends Area2D
 
+const HARVEST = preload("res://Assets/Audio/snow-harvesting-47809.wav")
+const PLANT = preload("res://Assets/Audio/moving-plant-75923.wav")
 
 # Label for UI
 @onready var plant_seed_label = %Label
@@ -75,7 +77,7 @@ func plant_seed(new_seed:Seed):
 		update_growth_label()
 		growth_stage_label.visible = true
 		FarmData.plot_list[id] = temp_seed
-		
+		SfxHandler.play(PLANT, get_tree().current_scene)
 	else:
 		seed_sprite.texture = null
 		seed = null
@@ -87,6 +89,7 @@ func harvest_plant():
 	ready_to_harvest = false
 	harvest_cooldown = 0.2
 	plant_seed_label.visible = true
+	SfxHandler.play(HARVEST, get_tree().current_scene)
 	pass
 	
 func update_growth_label():
