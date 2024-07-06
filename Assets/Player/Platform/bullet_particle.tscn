@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciqkl5oiycy2g"]
+
+[sub_resource type="Gradient" id="Gradient_mg8aj"]
+offsets = PackedFloat32Array(0, 0.540984, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.603426, 0.722055, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xjnki"]
+gradient = SubResource("Gradient_mg8aj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g5xii"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color = Color(3.65794e-06, 0.69495, 0.873855, 1)
+color_ramp = SubResource("GradientTexture1D_xjnki")
+
+[node name="BulletParticle" type="GPUParticles2D"]
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_g5xii")

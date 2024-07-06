@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyhusui5udohi"]
+[gd_scene load_steps=10 format=3 uid="uid://dpeudpmjgp7gl"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="1_n5est"]
 [ext_resource type="Script" path="res://Assets/Platform/level_1.gd" id="1_weief"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="2_scurm"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="3_4alr1"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="5_x24v0"]
+[ext_resource type="PackedScene" uid="uid://cbc54ppjckeld" path="res://Assets/Enemies/Enemy_melee.tscn" id="6_ul227"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
 texture = ExtResource("2_scurm")
@@ -350,3 +351,6 @@ layer_0/tile_data = PackedInt32Array(3, 65538, 0, 2, 65538, 0, 1, 65538, 0, 0, 6
 [node name="SceneTransition" parent="." instance=ExtResource("5_x24v0")]
 position = Vector2(3251, -282)
 targetScene = "res://Assets/Farm/Farm.tscn"
+
+[node name="Enemy_melee_walking" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(268, -37)
