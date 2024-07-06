@@ -8,6 +8,8 @@ var direction = 1
 @export var following = false
 var player = null
 
+signal collision
+
 var health = 50
 
 
@@ -45,6 +47,9 @@ func _on_player_detection_body_exited(body):
 	if body.name == "player_platform":
 		following = false
 
+func _on_player_collision_body_entered(body):
+	if body.name == "player_platform":
+		collision.emit()
 
 func hit(damage:int):
 	health -= damage
