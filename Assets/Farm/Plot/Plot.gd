@@ -11,6 +11,8 @@ var seed : Seed
 
 var ready_to_harvest := false
 
+# Harvest cooldown so player doesn't instantly plant a new plant
+var harvest_cooldown : float = 0.0
 # Is player in range
 var player_in_range := false
 
@@ -19,9 +21,7 @@ var player_in_range := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	seed = FarmData.plot_list[id]
-	print(FarmData.plot_list)
 	if seed:
-		print(seed.growth_stage)
 		seed.growth_stage += 1
 		seed_sprite.texture = seed.seed_sprite
 		update_growth_label()
@@ -30,10 +30,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
+	harvest_cooldown -= delta
 	if player_in_range:
 		if Input.is_action_pressed("Farm_action"):
-			if !seed:
+			if !seed and harvest_cooldown <= 0:
 				var seeds = player.get_seeds()
 				plant_seed(seeds[0])
 			if ready_to_harvest:
@@ -83,6 +84,9 @@ func plant_seed(new_seed:Seed):
 func harvest_plant():
 	plant_seed(null)
 	harvest_seed_label.visible = false
+	ready_to_harvest = false
+	harvest_cooldown = 0.2
+	plant_seed_label.visible = true
 	pass
 	
 func update_growth_label():

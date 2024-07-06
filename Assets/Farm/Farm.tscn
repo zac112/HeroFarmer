@@ -37,14 +37,18 @@ script = ExtResource("6_62ewd")
 
 [node name="Plot2" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(-150, 202)
+id = 1
 
 [node name="Plot3" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(12, 203)
+id = 2
 
 [node name="Plot4" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(173, 202)
+id = 3
 
 [node name="Plot5" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(-12, -194)
+id = 4
 
 [node name="Vendor" parent="." instance=ExtResource("8_s1s0d")]
