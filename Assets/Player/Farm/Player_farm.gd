@@ -2,16 +2,6 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-
-func _ready():
-	print("OnReady")
-	MessageHandler.registerListener(ScoreEvent, self.ok)
-	var event = ScoreEvent.new()
-	event.scoreIncrease = 34
-	MessageHandler.broadcastEvent(event)
-	
-func ok(event):
-	print("OK event:",event)
 	
 func _physics_process(_delta):
 	
