@@ -31,4 +31,12 @@ target_position = Vector2(-67, 0)
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(66, 0)
 
+[node name="RayCastDownLeft" type="RayCast2D" parent="."]
+position = Vector2(-62, 0)
+target_position = Vector2(0, 76)
+
+[node name="RayCastDownRight" type="RayCast2D" parent="."]
+position = Vector2(62, 0)
+target_position = Vector2(0, 76)
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
