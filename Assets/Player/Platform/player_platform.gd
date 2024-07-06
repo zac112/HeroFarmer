@@ -2,17 +2,20 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var muzzle = $Marker2D
 @onready var particle = preload("res://Assets/Player/Platform/particle.tscn")
 var par
+var muzzle_position
 
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var can_shoot := true
 var inventory = {}
 
-enum State {Idle, Run, Jump}
+enum State {Idle, Run, Jump, Shoot}
 var current_state
+
+var last_dir = 1
 
 
 @onready var playerName = %Label
@@ -21,27 +24,35 @@ var current_state
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	muzzle_position = muzzle.position
 	current_state = State.Idle
 	inventory["gold"] = 1
 	inventory["seed"] = 2
 	inventory["powerup"] = 3
 	
 func _process(delta):
-	shoot()
+	pass
 	
 
-func shoot():
-	if Input.is_action_just_pressed("Platform_shoot") and can_shoot:
-		print("SHOOT", can_shoot)
+func player_shooting(delta):
+	
+	var direction = input_movement()
+	
+	if Input.is_action_just_pressed("Platform_shoot"):
 		par = particle.instantiate()
+		par.direction = last_dir	
+		par.global_position = muzzle.global_position
 		get_parent().add_child(par)
-		if input_movement() > 0:
-			par.shoot_dir = 1
-		else:
-			par.shoot_dir = 0
-		par.global_position = $Marker2D.global_position
+		current_state = State.Shoot
 		
-		
+func player_muzzle_position():
+	
+	var direction = input_movement()
+	
+	if direction > 0:
+		muzzle.position.x = muzzle_position.x
+	elif direction < 0:
+		muzzle.position.x = -muzzle_position.x
 
 func player_falling(delta):
 	if !is_on_floor():
@@ -85,7 +96,7 @@ func player_jump(delta):
 		
 	if dire != 0:
 		animated_sprite_2d.flip_h = false if dire > 0 else true
-	
+		last_dir = dire
 
 func player_animation():
 	if current_state == State.Idle:
@@ -105,6 +116,8 @@ func _physics_process(delta):
 	move_and_slide()
 	player_animation()
 	move_and_slide()
+	player_muzzle_position()
+	player_shooting(delta)
 	
 func input_movement():
 	var direction: float = Input.get_axis("Platform_left", "Platform_right")

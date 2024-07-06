@@ -1,14 +1,11 @@
 extends Node2D
 
 var speed = 750
-var shoot_dir = 1
+var direction = 1
 var damage = 10
 
 func _physics_process(delta):
-	if shoot_dir == 1:
-		position.x += speed * delta
-	else:
-		position.x -= speed * delta
+	move_local_x(direction * speed * delta)
 
 
 func _on_body_entered(body):
