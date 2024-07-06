@@ -4,6 +4,8 @@ const SPEED = 300
 const GRAVITY = 500
 var direction = 1
 
+var health = 50
+
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_down_left = $RayCastDownLeft
@@ -18,3 +20,9 @@ func _physics_process(delta):
 		velocity.y = GRAVITY
 
 	move_and_slide()
+
+
+func hit(damage:int):
+	health -= damage
+	if health <= 0:
+		queue_free()
