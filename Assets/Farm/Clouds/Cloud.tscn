@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwx013crwhs02"]
+
+[ext_resource type="Texture2D" uid="uid://bhcn30hv3r3kv" path="res://Assets/Farm/Clouds/Cloud1.png" id="1_ftdxc"]
+[ext_resource type="Script" path="res://Assets/Farm/Clouds/Cloud.gd" id="2_wehsl"]
+
+[node name="Cloud1" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.341176)
+position = Vector2(-402, 58)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ftdxc")
+script = ExtResource("2_wehsl")
