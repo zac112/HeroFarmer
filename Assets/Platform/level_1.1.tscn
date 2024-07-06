@@ -544,6 +544,7 @@ occluder = SubResource("OccluderPolygon2D_ayeh5")
 occluder = SubResource("OccluderPolygon2D_4ux7g")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visibility_layer = 3
 position = Vector2(-16, -202)
 color = Color(1, 0.988061, 0.942845, 1)
 energy = 3.16
@@ -607,24 +608,34 @@ texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
 [node name="Hanginglightall" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.454524, 0.454524, 0.454524, 1)
+self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
+top_level = true
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-15, -234)
 sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
-frame_progress = 0.805196
 
 [node name="Hanginglightall2" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.454524, 0.454524, 0.454524, 1)
+self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
 position = Vector2(907, -202)
 sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
 frame_progress = 0.681045
 
 [node name="Hanginglightall3" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.454524, 0.454524, 0.454524, 1)
+self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
 position = Vector2(1697, -170)
 sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
 frame_progress = 0.53384
 
 [node name="Hanginglightall4" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.454524, 0.454524, 0.454524, 1)
+self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
 position = Vector2(2081, -170)
 sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
