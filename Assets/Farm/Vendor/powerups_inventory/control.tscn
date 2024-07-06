@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8twh3se8vqx"]
+
+[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="1_5i5py"]
+[ext_resource type="PackedScene" uid="uid://dumils8tflfir" path="res://Assets/Farm/Vendor/powerups_inventory/panel.tscn" id="2_h2d23"]
+
+[node name="VendorUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 133.0
+offset_right = 283.0
+offset_bottom = 291.0
+texture = ExtResource("1_5i5py")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 218.0
+offset_bottom = 150.0
+columns = 3
+
+[node name="Panel" parent="NinePatchRect/GridContainer" instance=ExtResource("2_h2d23")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Panel2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_h2d23")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Panel3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_h2d23")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Panel4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_h2d23")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Panel5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_h2d23")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2

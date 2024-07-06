@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://coxo0dquxqgjc"]
+[gd_scene load_steps=8 format=3 uid="uid://coxo0dquxqgjc"]
 
 [ext_resource type="Texture2D" uid="uid://c72ld1sukp7c5" path="res://Assets/Farm/Vendor/vendor.png" id="1_8o6xs"]
 [ext_resource type="Script" path="res://Assets/Farm/Vendor/Vendor.gd" id="2_8tfg7"]
+[ext_resource type="PackedScene" uid="uid://c8twh3se8vqx" path="res://Assets/Farm/Vendor/powerups_inventory/control.tscn" id="3_lnnvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bye47"]
 atlas = ExtResource("1_8o6xs")
@@ -33,21 +34,16 @@ position = Vector2(354, 208)
 sprite_frames = SubResource("SpriteFrames_b5qnj")
 script = ExtResource("2_8tfg7")
 
+[node name="VendorUI" parent="." instance=ExtResource("3_lnnvj")]
+offset_left = -313.0
+offset_top = -502.0
+offset_right = -28.0
+offset_bottom = -146.0
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_6oy8e")
-
-[node name="Container" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(20, 25)
-offset_left = -220.0
-offset_top = -335.0
-offset_right = 101.0
-offset_bottom = -76.0
-columns = 5
-
-[node name="Panel" type="Panel" parent="Container"]
-layout_mode = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
