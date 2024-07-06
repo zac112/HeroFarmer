@@ -553,7 +553,7 @@ texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(901, -129)
+position = Vector2(906, -166)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
 blend_mode = 2
@@ -589,7 +589,7 @@ texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
-position = Vector2(1706, -85)
+position = Vector2(1695, -117)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
 blend_mode = 2
@@ -598,7 +598,7 @@ texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
 [node name="PointLight2D4" type="PointLight2D" parent="."]
-position = Vector2(2077, -84)
+position = Vector2(2087, -110)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
 blend_mode = 2
@@ -609,9 +609,41 @@ texture_scale = 4.11
 [node name="Hanginglightall" type="AnimatedSprite2D" parent="."]
 position = Vector2(-15, -234)
 sprite_frames = SubResource("SpriteFrames_0edfc")
-frame_progress = 0.972179
+autoplay = "default"
+frame_progress = 0.805196
+
+[node name="Hanginglightall2" type="AnimatedSprite2D" parent="."]
+position = Vector2(907, -202)
+sprite_frames = SubResource("SpriteFrames_0edfc")
+autoplay = "default"
+frame_progress = 0.681045
+
+[node name="Hanginglightall3" type="AnimatedSprite2D" parent="."]
+position = Vector2(1697, -170)
+sprite_frames = SubResource("SpriteFrames_0edfc")
+autoplay = "default"
+frame_progress = 0.53384
+
+[node name="Hanginglightall4" type="AnimatedSprite2D" parent="."]
+position = Vector2(2081, -170)
+sprite_frames = SubResource("SpriteFrames_0edfc")
+autoplay = "default"
+frame_progress = 0.403485
 
 [node name="Standingtorchall" type="AnimatedSprite2D" parent="."]
 position = Vector2(479, -234)
 sprite_frames = SubResource("SpriteFrames_f243x")
-frame_progress = 0.69443
+autoplay = "default"
+frame_progress = 0.527441
+
+[node name="Standingtorchall2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1875, -330)
+sprite_frames = SubResource("SpriteFrames_f243x")
+autoplay = "default"
+frame_progress = 0.623783
+
+[node name="Standingtorchall3" type="AnimatedSprite2D" parent="."]
+position = Vector2(2977, -330)
+sprite_frames = SubResource("SpriteFrames_f243x")
+autoplay = "default"
+frame_progress = 0.839094
