@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqkl5oiycy2g" path="res://Assets/Player/Platform/bullet_particle.tscn" id="3_5sqiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2kt"]
-size = Vector2(129, 125)
+size = Vector2(27, 26)
 
 [node name="Particle" type="Area2D"]
 collision_layer = 2
@@ -18,7 +18,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_xrsva")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ix2kt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
