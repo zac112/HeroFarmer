@@ -2,7 +2,11 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
+<<<<<<< HEAD
 uid="uid://cxm854l55e6si"
+=======
+uid="uid://cvpk07wgw7h37"
+>>>>>>> d5264a2 (bullet sound)
 path="res://.godot/imported/Rifleprimary2.ogg-ba3e158dcee94d26a1a0789118fef826.oggvorbisstr"
 
 [deps]
