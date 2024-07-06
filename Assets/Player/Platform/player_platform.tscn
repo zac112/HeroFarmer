@@ -21,3 +21,9 @@ offset_top = -57.0
 offset_right = 29.0
 offset_bottom = -34.0
 text = "Player1"
+
+[node name="RightShootMarker" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="LeftShootMarker" type="Marker2D" parent="."]
+position = Vector2(-33, -1)
