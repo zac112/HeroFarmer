@@ -34,6 +34,8 @@ var player_in_range := false
 func _ready():
 	add_seeds_from_inventory()
 	seed = FarmData.plot_list[id]
+	display_seed_list.select(0)
+	display_seed_list.icon_scale=0.1
 	if seed:
 		seed.growth_stage += 1
 		seed_sprite.texture = seed.seed_sprite
@@ -44,7 +46,7 @@ func _ready():
 func add_seeds_from_inventory():
 	for i in SeedInventory.inventory:
 		if i.quantity > 0:
-			display_seed_list.add_item(i.seed_name)
+			display_seed_list.add_item(i.seed_name, i.seed_sprite)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
