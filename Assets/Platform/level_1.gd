@@ -11,8 +11,14 @@ func _process(delta):
 	
 	
 
-func _on_player_platform_particle(pos):
+func _on_player_platform_particle(pos, direction):
 	var particle = particle_scene.instantiate()
 	$".".add_child(particle)
-	particle.position = pos
-	print(pos)
+	if direction == 1:
+		particle.position = pos
+		particle.shoot_direction = 1
+		print(pos)
+	else:
+		particle.position = pos
+		particle.shoot_direction = 0
+		print(pos)
