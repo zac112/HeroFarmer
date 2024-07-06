@@ -9,3 +9,5 @@ extends Resource
 @export var growth_time : int
 # How long seed has been growing
 @export var growth_stage : int
+# Id of the seed
+@export var id : int

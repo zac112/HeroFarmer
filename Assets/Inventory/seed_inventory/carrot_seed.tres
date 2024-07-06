@@ -7,3 +7,4 @@
 script = ExtResource("1_kgd2r")
 seed_sprite = ExtResource("2_wqfiw")
 seed_name = "Carrot Seed"
+id = 0

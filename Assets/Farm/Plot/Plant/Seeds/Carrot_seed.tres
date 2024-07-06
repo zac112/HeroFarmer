@@ -9,3 +9,4 @@ seed_name = "Carrot seed"
 seed_sprite = ExtResource("2_5n14j")
 growth_time = 1
 growth_stage = 0
+id = 0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SeedItem" load_steps=3 format=3 uid="uid://do50eq1j8xb5l"]
+
+[ext_resource type="Script" path="res://Assets/Inventory/seed_inventory/seed_item.gd" id="1_8w5ha"]
+[ext_resource type="Texture2D" uid="uid://c43uu0uviwmny" path="res://Assets/Farm/Background.png" id="2_pej20"]
+
+[resource]
+script = ExtResource("1_8w5ha")
+seed_sprite = ExtResource("2_pej20")
+seed_name = "Turnip Seed"
+id = 1

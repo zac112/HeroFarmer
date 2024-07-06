@@ -9,3 +9,4 @@ seed_name = "Turnip seed"
 seed_sprite = ExtResource("2_bl71u")
 growth_time = 3
 growth_stage = 0
+id = 1

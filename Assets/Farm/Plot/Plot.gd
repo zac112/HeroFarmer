@@ -8,10 +8,20 @@ const PLANT = preload("res://Assets/Audio/moving-plant-75923.wav")
 @onready var harvest_seed_label = %Label2
 @onready var growth_stage_label = %Label3
 @onready var seed_sprite = %SeedSprite
+
 var seed : Seed
 @export var id : int
 
+@onready var display_seed_list = %ItemList
+
+var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
+var turnip_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Turnip_seed.tres")
+var seed_list = [carrot_seed, turnip_seed]
+
+
 var ready_to_harvest := false
+
+var select_seed_id = -1
 
 # Harvest cooldown so player doesn't instantly plant a new plant
 var harvest_cooldown : float = 0.0
@@ -22,6 +32,7 @@ var player_in_range := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_seeds_from_inventory()
 	seed = FarmData.plot_list[id]
 	if seed:
 		seed.growth_stage += 1
@@ -30,15 +41,18 @@ func _ready():
 		if seed.growth_stage >= seed.growth_time:
 			ready_to_harvest = true
 
+func add_seeds_from_inventory():
+	for i in SeedInventory.inventory:
+		if i.quantity > 0:
+			display_seed_list.add_item(i.seed_name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	harvest_cooldown -= delta
 	if player_in_range:
 		if Input.is_action_pressed("Farm_action"):
-			if !seed and harvest_cooldown <= 0:
-				var seeds = player.get_seeds()
-				plant_seed(seeds[0])
+			if !seed and harvest_cooldown <= 0 and select_seed_id != -1:
+				plant_seed(select_seed_id)
 			if ready_to_harvest:
 				harvest_plant()
 
@@ -46,6 +60,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if !seed:
 		plant_seed_label.visible = true
+		display_seed_list.visible = true
 	elif ready_to_harvest:
 		harvest_seed_label.visible = true
 	else:
@@ -55,13 +70,19 @@ func _on_body_entered(body):
 
 func _on_body_exited(_body):
 	plant_seed_label.visible = false
+	display_seed_list.visible = false
 	harvest_seed_label.visible = false
 	growth_stage_label.visible = false
 	player_in_range = false
 
-func plant_seed(new_seed:Seed):
+func plant_seed(seed_id:int):
+	var new_seed = null
+	if seed_id != -1:
+		new_seed = seed_list[seed_id]
+		
 	if new_seed:
 		plant_seed_label.visible = false
+		display_seed_list.visible = false
 		update_growth_label()
 		growth_stage_label.visible = true
 		seed_sprite.visible = true
@@ -84,7 +105,7 @@ func plant_seed(new_seed:Seed):
 		FarmData.plot_list[id] = null
 
 func harvest_plant():
-	plant_seed(null)
+	plant_seed(-1)
 	harvest_seed_label.visible = false
 	ready_to_harvest = false
 	harvest_cooldown = 0.2
@@ -95,3 +116,7 @@ func harvest_plant():
 func update_growth_label():
 	if seed:
 		growth_stage_label.text = "Growth stage: " + str(seed.growth_stage) + "/" + str(seed.growth_time)
+
+
+func _on_item_list_item_selected(index):
+	select_seed_id = SeedInventory.inventory[index].id

@@ -47,5 +47,17 @@ offset_right = 66.0
 offset_bottom = -65.0
 text = "Growth stage: "
 
+[node name="ItemList" type="ItemList" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(20, 20)
+offset_left = -73.0
+offset_top = -235.0
+offset_right = 73.0
+offset_bottom = -105.0
+max_columns = 3
+metadata/_edit_use_anchors_ = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
