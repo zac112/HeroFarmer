@@ -3,10 +3,21 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+var inventory = {}
+@onready var playerName = %Label
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	inventory["gold"] = 1
+	inventory["seed"] = 2
+	inventory["powerup"] = 3
+	
+func _process(delta):
+	for k in inventory.keys():
+		print(k, " ", inventory[k])
+	
 
 func _physics_process(delta):
 	# Add the gravity.
