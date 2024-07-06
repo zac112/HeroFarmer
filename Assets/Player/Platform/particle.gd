@@ -1,5 +1,7 @@
 extends Node2D
 
+const BULLET = preload("res://Assets/Audio/Rifleprimary2.ogg")
+
 var speed = 750
 var direction = 1
 var damage = 10
@@ -19,4 +21,4 @@ func _on_body_entered(body):
 	queue_free()
 
 func _ready():
-	$BulletAudio.play()
+	SfxHandler.play(BULLET, get_tree().current_scene)
