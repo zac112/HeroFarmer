@@ -14,10 +14,14 @@ spread = 180.0
 initial_velocity_min = 80.0
 initial_velocity_max = 120.0
 gravity = Vector3(0, 0, 0)
-scale_max = 2.0
+scale_min = 2.0
+scale_max = 4.0
 color = Color(3.65794e-06, 0.69495, 0.873855, 1)
 color_ramp = SubResource("GradientTexture1D_xjnki")
 
 [node name="BulletParticle" type="GPUParticles2D"]
+emitting = false
 amount = 80
 process_material = SubResource("ParticleProcessMaterial_g5xii")
+lifetime = 0.1
+one_shot = true

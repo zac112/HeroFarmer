@@ -11,6 +11,8 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	var particle = bullet_particle.instantiate()
+	particle.emitting = true
+	particle.position = position
 	get_parent().add_child(particle)
 	if body.has_method("hit"):
 		body.hit(damage)
