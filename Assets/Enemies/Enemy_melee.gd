@@ -45,6 +45,9 @@ func _on_player_detection_body_exited(body):
 	if body.name == "player_platform":
 		following = false
 
+func _on_player_collision_body_entered(body):
+	if body.has_method("take_damage"):
+		body.take_damage()
 
 func hit(damage:int):
 	health -= damage
