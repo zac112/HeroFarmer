@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://coxo0dquxqgjc"]
+[gd_scene load_steps=9 format=3 uid="uid://coxo0dquxqgjc"]
 
 [ext_resource type="Texture2D" uid="uid://c72ld1sukp7c5" path="res://Assets/Farm/Vendor/vendor.png" id="1_8o6xs"]
 [ext_resource type="Script" path="res://Assets/Farm/Vendor/Vendor.gd" id="2_8tfg7"]
 [ext_resource type="PackedScene" uid="uid://c8twh3se8vqx" path="res://Assets/Farm/Vendor/powerups_inventory/control.tscn" id="3_lnnvj"]
+[ext_resource type="AudioStream" uid="uid://c7xqk332ppwo3" path="res://Assets/Audio/E2M9 Cammy - Cookie Fangs.ogg" id="4_ymumn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bye47"]
 atlas = ExtResource("1_8o6xs")
@@ -44,6 +45,9 @@ offset_bottom = -146.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_6oy8e")
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ymumn")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
