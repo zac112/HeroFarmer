@@ -15,6 +15,10 @@ run/main_scene="res://Test.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MessageHandler="*res://Assets/MessageHandler/MessageHandler.gd"
+
 [input]
 
 Farm_left={
