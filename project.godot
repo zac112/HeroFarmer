@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 MessageHandler="*res://Assets/MessageHandler/MessageHandler.gd"
 SceneHandler="*res://Assets/SceneHandler/SceneHandler.gd"
 FarmData="*res://Assets/Farm/FarmData.gd"
+SfxHandler="*res://Assets/Audio/SFXHandler.tscn"
 
 [display]
 
