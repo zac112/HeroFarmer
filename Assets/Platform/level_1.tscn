@@ -225,5 +225,3 @@ layer_0/tile_data = PackedInt32Array(-1, 327680, 2, -131072, 327680, 2, 65535, 1
 [node name="SceneTransition" parent="." instance=ExtResource("4_5j2rg")]
 position = Vector2(201, -162)
 targetScene = "res://Assets/Farm/Farm.tscn"
-
-[connection signal="particle" from="player_platform" to="." method="_on_player_platform_particle"]
