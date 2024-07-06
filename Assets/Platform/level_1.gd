@@ -1,6 +1,6 @@
 extends Node2D
 
-var particle_scene: PackedScene = load("res://Assets/Player/Platform/particle.tscn")
+#var particle_scene: PackedScene = load("res://Assets/Player/Platform/particle.tscn")
 
 
 func _ready():
@@ -10,7 +10,7 @@ func _process(delta):
 	pass
 	
 	
-
+"""
 func _on_player_platform_particle(pos, direction):
 	var particle = particle_scene.instantiate()
 	$".".add_child(particle)
@@ -22,3 +22,4 @@ func _on_player_platform_particle(pos, direction):
 		particle.position = pos
 		particle.shoot_direction = 0
 		print(pos)
+"""

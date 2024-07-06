@@ -70,12 +70,6 @@ offset_right = 29.0
 offset_bottom = -34.0
 text = "Player1"
 
-[node name="RightShootMarker" type="Marker2D" parent="."]
-position = Vector2(32, 0)
-
-[node name="LeftShootMarker" type="Marker2D" parent="."]
-position = Vector2(-33, -1)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_82py8")
 animation = &"idle"
@@ -84,3 +78,5 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -2)
 shape = SubResource("CapsuleShape2D_am200")
+
+[node name="Marker2D" type="Marker2D" parent="."]

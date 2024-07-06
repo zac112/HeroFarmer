@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-
+@onready var particle = preload("res://Assets/Player/Platform/particle.tscn")
+var par
 
 
 const SPEED = 300.0
@@ -12,8 +13,6 @@ var inventory = {}
 
 enum State {Idle, Run, Jump}
 var current_state
-
-signal particle(pos, direction)
 
 
 @onready var playerName = %Label
@@ -28,13 +27,22 @@ func _ready():
 	inventory["powerup"] = 3
 	
 func _process(delta):
+	shoot()
+	
+
+func shoot():
 	if Input.is_action_just_pressed("Platform_shoot") and can_shoot:
 		print("SHOOT", can_shoot)
-		if animated_sprite_2d.flip_h == false:
-			particle.emit($RightShootMarker.global_position, 1)
+		par = particle.instantiate()
+		get_parent().add_child(par)
+		if input_movement() > 0:
+			par.shoot_dir = 1
 		else:
-			particle.emit($LeftShootMarker.global_position, 0)
-	
+			par.shoot_dir = 0
+		par.global_position = $Marker2D.global_position
+		
+		
+
 func player_falling(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
