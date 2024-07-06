@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbc54ppjckeld"]
+[gd_scene load_steps=5 format=3 uid="uid://dgc3dnychgmd4"]
 
-[ext_resource type="Script" path="res://Assets/Enemies/Enemy_melee_walking.gd" id="1_r8o2w"]
+[ext_resource type="Script" path="res://Assets/Enemies/Enemy_melee.gd" id="1_r8o2w"]
 [ext_resource type="Texture2D" uid="uid://dx2xtnk0he5jk" path="res://Assets/Enemies/Asteriski_merkki_1.png" id="2_1xme5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3e88"]
