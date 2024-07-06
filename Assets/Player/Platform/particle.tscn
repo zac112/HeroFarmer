@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Assets/Player/Platform/particle.gd" id="1_de88d"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="2_xrsva"]
 [ext_resource type="PackedScene" uid="uid://ciqkl5oiycy2g" path="res://Assets/Player/Platform/bullet_particle.tscn" id="3_5sqiq"]
+[ext_resource type="AudioStream" uid="uid://cvpk07wgw7h37" path="res://Assets/Audio/Rifleprimary2.ogg" id="3_naxqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2kt"]
 size = Vector2(129, 125)
@@ -22,3 +23,6 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_ix2kt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[node name="BulletAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_naxqo")

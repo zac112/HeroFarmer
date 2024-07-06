@@ -17,3 +17,6 @@ func _on_body_entered(body):
 	if body.has_method("hit"):
 		body.hit(damage)
 	queue_free()
+
+func _ready():
+	$BulletAudio.play()
