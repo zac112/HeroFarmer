@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var particleMoveSpeed := 500
+@export var particleMoveSpeed := 700
 
 @export var shoot_direction := 1
 

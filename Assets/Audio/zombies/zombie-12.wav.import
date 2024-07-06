@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://p7drsjeag7vw"
-path="res://.godot/imported/zombie-12.wav-1a8c1c797eaf19c9b65587138ee29f7a.sample"
+path="res://.godot/imported/zombie-12.wav-8a9117ef00114c8cc2257dfdfd0b53c9.sample"
 
 [deps]
 
-source_file="res://audio/zombies/zombie-12.wav"
-dest_files=["res://.godot/imported/zombie-12.wav-1a8c1c797eaf19c9b65587138ee29f7a.sample"]
+source_file="res://Assets/Audio/zombies/zombie-12.wav"
+dest_files=["res://.godot/imported/zombie-12.wav-8a9117ef00114c8cc2257dfdfd0b53c9.sample"]
 
 [params]
 
