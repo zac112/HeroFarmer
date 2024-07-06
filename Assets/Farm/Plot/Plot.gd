@@ -34,8 +34,6 @@ var player_in_range := false
 func _ready():
 	add_seeds_from_inventory()
 	seed = FarmData.plot_list[id]
-	display_seed_list.select(0)
-	select_seed_id = 0
 	display_seed_list.icon_scale=0.1
 	if seed:
 		seed.growth_stage += 1
@@ -45,9 +43,12 @@ func _ready():
 			ready_to_harvest = true
 
 func add_seeds_from_inventory():
+	display_seed_list.clear()
 	for i in SeedInventory.inventory:
 		if i.quantity > 0:
 			display_seed_list.add_item(i.seed_name, i.seed_sprite)
+		else:
+			display_seed_list.add_item(i.seed_name, i.seed_sprite, false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -61,6 +62,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	add_seeds_from_inventory()
 	if !seed:
 		plant_seed_label.visible = true
 		display_seed_list.visible = true
@@ -100,6 +102,7 @@ func plant_seed(seed_id:int):
 		plant_seed_label.visible = false
 		update_growth_label()
 		growth_stage_label.visible = true
+		SeedInventory.remove_seed(seed_id)
 		FarmData.plot_list[id] = temp_seed
 		SfxHandler.play(PLANT, get_tree().current_scene)
 	else:

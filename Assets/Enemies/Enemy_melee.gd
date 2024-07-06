@@ -13,6 +13,9 @@ var colliding = false
 
 var health = 50
 
+var rng = RandomNumberGenerator.new()
+@export var seed_item : PackedScene
+var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
 
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
@@ -69,5 +72,14 @@ func _on_player_collision_body_exited(body):
 func hit(damage:int):
 	health -= damage
 	if health <= 0:
+		var drop = rng.randi_range(1,2)
+		if drop == 2:
+			var seed = seed_item.instantiate()
+			seed.position = position
+			get_parent().add_child(seed)
+			seed.change_sprite(carrot_seed.seed_sprite)
+			seed.seed = carrot_seed
+			print("Get seed")
+			
 		queue_free()
 
