@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw3ikyswygkd5"]
+
+[ext_resource type="Script" path="res://Assets/Platform/Boss/particle.gd" id="1_15ajx"]
+[ext_resource type="PackedScene" uid="uid://ciqkl5oiycy2g" path="res://Assets/Player/Platform/bullet_particle.tscn" id="2_fgdyn"]
+[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="3_nmji3"]
+[ext_resource type="AudioStream" uid="uid://cvpk07wgw7h37" path="res://Assets/Audio/Rifleprimary2.ogg" id="4_wfx2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2kt"]
+size = Vector2(129, 125)
+
+[node name="Particle" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_15ajx")
+bullet_particle = ExtResource("2_fgdyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_nmji3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_ix2kt")
+
+[node name="BulletAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wfx2j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
