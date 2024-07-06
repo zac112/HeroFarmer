@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 MessageHandler="*res://Assets/MessageHandler/MessageHandler.gd"
 
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=768
+
 [input]
 
 Farm_left={
