@@ -19,11 +19,33 @@ shape = SubResource("RectangleShape2D_0rxip")
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
-offset_left = -44.0
-offset_top = -103.0
+offset_left = -42.0
+offset_top = -94.0
 offset_right = 39.0
-offset_bottom = -77.0
+offset_bottom = -70.0
 text = "Plant seed"
+
+[node name="SeedSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.1)
+
+[node name="Label2" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -48.0
+offset_top = -94.0
+offset_right = 60.0
+offset_bottom = -71.0
+text = "Harvest plant"
+
+[node name="Label3" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -71.0
+offset_top = -92.0
+offset_right = 66.0
+offset_bottom = -65.0
+text = "Growth stage: "
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
