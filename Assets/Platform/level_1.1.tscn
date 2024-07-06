@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="2_scurm"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="3_4alr1"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="5_x24v0"]
-[ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="6_ul227"]
+[ext_resource type="PackedScene" uid="uid://cbc54ppjckeld" path="res://Assets/Enemies/Enemy_melee.tscn" id="6_ul227"]
 [ext_resource type="AudioStream" uid="uid://cqbp5erqj0hua" path="res://Assets/Audio/E1M1 Bloo - Stricken Commission.ogg" id="7_l1c6a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
@@ -353,10 +353,34 @@ layer_0/tile_data = PackedInt32Array(3, 65538, 0, 2, 65538, 0, 1, 65538, 0, 0, 6
 position = Vector2(3251, -282)
 targetScene = "res://Assets/Farm/Farm.tscn"
 
-[node name="Enemy_melee_walking" parent="." instance=ExtResource("6_ul227")]
-position = Vector2(268, -37)
-
 [node name="Background" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_l1c6a")
 volume_db = 8.0
 autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.241156, 0.241156, 0.241156, 1)
+
+[node name="Enemy_melee_walking" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(268, -37)
+
+[node name="Enemy_melee_walking2" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(1053, -67)
+
+[node name="Enemy_melee_walking3" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(1011, -287)
+
+[node name="Enemy_melee_walking4" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(1798, -2)
+
+[node name="Enemy_melee_walking5" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(1979, -2)
+
+[node name="Enemy_melee_walking6" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(2063, -351)
+
+[node name="Enemy_melee_walking7" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(2649, -159)
+
+[node name="Enemy_melee_walking8" parent="." instance=ExtResource("6_ul227")]
+position = Vector2(3028, -350)
