@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgc3dnychgmd4"]
+[gd_scene load_steps=6 format=3 uid="uid://dgc3dnychgmd4"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Enemy_melee.gd" id="1_r8o2w"]
 [ext_resource type="Texture2D" uid="uid://dx2xtnk0he5jk" path="res://Assets/Enemies/Asteriski_merkki_1.png" id="2_1xme5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3e88"]
-radius = 63.1269
+radius = 60.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eury0"]
 radius = 536.239
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nucr3"]
+radius = 62.0322
 
 [node name="Enemy_melee" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -41,5 +44,11 @@ target_position = Vector2(0, 76)
 position = Vector2(18, 0)
 target_position = Vector2(0, 76)
 
+[node name="PlayerCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+shape = SubResource("CircleShape2D_nucr3")
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]
