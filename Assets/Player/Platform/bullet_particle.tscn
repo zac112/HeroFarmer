@@ -1,27 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciqkl5oiycy2g"]
+[gd_scene load_steps=2 format=3 uid="uid://ciqkl5oiycy2g"]
 
-[sub_resource type="Gradient" id="Gradient_mg8aj"]
-offsets = PackedFloat32Array(0, 0.540984, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0.603426, 0.722055, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_tcole"]
+colors = PackedColorArray(0.731354, 0.453183, 0.0419308, 1, 0.36529, 0.84913, 7.70092e-07, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xjnki"]
-gradient = SubResource("Gradient_mg8aj")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g5xii"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 180.0
-initial_velocity_min = 80.0
-initial_velocity_max = 120.0
-gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 4.0
-color = Color(3.65794e-06, 0.69495, 0.873855, 1)
-color_ramp = SubResource("GradientTexture1D_xjnki")
-
-[node name="BulletParticle" type="GPUParticles2D"]
+[node name="BulletParticle" type="CPUParticles2D"]
 emitting = false
-amount = 80
-process_material = SubResource("ParticleProcessMaterial_g5xii")
-lifetime = 0.1
+amount = 40
+lifetime = 0.25
 one_shot = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 25.0
+scale_amount_min = 5.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_tcole")
