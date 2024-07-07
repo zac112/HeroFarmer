@@ -15,7 +15,7 @@
 position = Vector2(0, 4)
 
 [node name="Plot" parent="." instance=ExtResource("2_rhhvb")]
-position = Vector2(-306, 202)
+position = Vector2(-290, 181)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
@@ -28,18 +28,26 @@ z_index = 3
 script = ExtResource("6_62ewd")
 
 [node name="Plot2" parent="." instance=ExtResource("2_rhhvb")]
-position = Vector2(-150, 202)
+position = Vector2(-286, 268)
+id = 1
 
 [node name="Plot3" parent="." instance=ExtResource("2_rhhvb")]
-position = Vector2(12, 203)
+position = Vector2(-166, 173)
+id = 2
 
 [node name="Plot4" parent="." instance=ExtResource("2_rhhvb")]
-position = Vector2(173, 202)
+position = Vector2(-166, 264)
+id = 3
 
 [node name="Plot5" parent="." instance=ExtResource("2_rhhvb")]
-position = Vector2(73, -205)
+position = Vector2(-50, 170)
+id = 4
+
+[node name="Plot6" parent="." instance=ExtResource("2_rhhvb")]
+position = Vector2(-40, 261)
+id = 5
 
 [node name="Vendor" parent="." instance=ExtResource("8_s1s0d")]
 
-[node name="Background2" type="AudioStreamPlayer" parent="."]
+[node name="FarmMusic" type="AudioStreamPlayer" parent="."]
 autoplay = true

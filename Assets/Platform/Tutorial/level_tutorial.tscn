@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="4_vqa5e"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="5_4mui3"]
 [ext_resource type="PackedScene" uid="uid://dfocn8dg2df5y" path="res://Assets/Enemies/Enemy_ranged.tscn" id="6_c72ti"]
-[ext_resource type="Texture2D" uid="uid://waa77cjqnkaq" path="res://Assets/kuvat/Platform_leaves.png" id="7_78wpb"]
+[ext_resource type="Texture2D" uid="uid://clvhyo3v1yce5" path="res://Assets/kuvat/Platform_leaves (1).png" id="7_78wpb"]
 [ext_resource type="Texture2D" uid="uid://bycctqxinog3q" path="res://Assets/kuvat/Backdrop_tree.png" id="8_gy75j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
