@@ -80,6 +80,9 @@ func _on_player_detection_body_entered(body):
 		shooting = true
 		moving = false
 
+	if $SoundCooldown.is_stopped():
+		$SoundCooldown.start()
+
 
 func _on_player_detection_body_exited(body):
 	if body.name == "player_platform":
@@ -134,3 +137,8 @@ func _on_flee_zone_body_exited(body):
 	if body.name == "player_platform":
 		flee = false
 		moving = false
+
+
+func _on_sound_cooldown_timeout():
+	$EnemyProximitySound.play()
+	$SoundCooldown.start()

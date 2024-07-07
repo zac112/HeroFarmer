@@ -63,16 +63,12 @@ func _physics_process(delta):
 
 
 func _on_player_detection_body_entered(body):
-	if $SoundCooldown.is_stopped():
-		$SoundCooldown.start()
-		
 	if body.name == "player_platform":
 		player = body
 		following = true
 
-func _on_sound_cooldown_timeout():
-	$EnemyProximitySound.play()
-	$SoundCooldown.start()
+	if $SoundCooldown.is_stopped():
+		$SoundCooldown.start()
 
 func _on_player_detection_body_exited(body):
 	if body.name == "player_platform":
@@ -124,6 +120,10 @@ func hit(damage:int):
 		queue_free()
 
 
-
 func _on_follow_cooldown_timeout():
 	can_follow = true
+
+
+func _on_sound_cooldown_timeout():
+	$EnemyProximitySound.play()
+	$SoundCooldown.start()
