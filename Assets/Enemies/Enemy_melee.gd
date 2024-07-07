@@ -4,25 +4,27 @@ const PLAYER_HURT = preload("res://Assets/Audio/01._damage_grunt_male.wav")
 
 @export var SPEED = 150
 const GRAVITY = 500
+var health = 50
 var direction = 1
 
 @export var moving = true
-@export var following = false
 var player = null
-var colliding = false
 
-var health = 50
-
+# Seed spawning
 var rng = RandomNumberGenerator.new()
 @export var seed_item : PackedScene
 @export var seed_drop_rate = 4
 var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
 
+# Raycast
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_down_left = $RayCastDownLeft
 @onready var ray_cast_down_right = $RayCastDownRight
 
+# Melee only
+@export var following = false
+var colliding = false
 var can_follow = true
 
 func _physics_process(delta):

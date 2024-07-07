@@ -2,7 +2,7 @@ extends Node2D
 
 const BULLET = preload("res://Assets/Audio/Rifleprimary2.ogg")
 
-var speed = 750
+var speed = 500
 var direction = 1
 var damage = 10
 

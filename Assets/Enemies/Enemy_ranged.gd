@@ -2,30 +2,38 @@ extends CharacterBody2D
 
 const OOF = preload("res://Assets/Audio/01._damage_grunt_male.wav")
 
-const SPEED = 150
+const SPEED = 75
 const GRAVITY = 500
+var health = 30
 var direction = 1
-const FLEE_SPEED = 50
 
 @export var moving = true
-@export var shooting = false
 var player = null
-var colliding = false # Melee only
-var can_shoot = true
-var flee = false
 
-var health = 30
+# Seed spawning
+var rng = RandomNumberGenerator.new()
+@export var seed_item : PackedScene
+@export var seed_drop_rate = 4
+var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
 
+# Raycasts
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_down_left = $RayCastDownLeft
 @onready var ray_cast_down_right = $RayCastDownRight
 
-# Shooting
+# Ranged only
+const FLEE_SPEED = 50
+@export var shooting = false
+var can_shoot = true
+var flee = false
+
+# For shooting
 @onready var muzzle = $Marker2D
 @onready var particle = preload("res://Assets/Enemies/particle_enemy.tscn")
 var par
 var muzzle_position
+#
 
 func _ready():
 	muzzle_position = muzzle.position
@@ -77,6 +85,15 @@ func _on_player_detection_body_exited(body):
 func hit(damage:int):
 	health -= damage
 	if health <= 0:
+		var drop = rng.randi_range(1,seed_drop_rate)
+		if drop == 1:
+			var seed = seed_item.instantiate()
+			seed.position = position
+			get_parent().add_child(seed)
+			seed.change_sprite(carrot_seed.seed_sprite)
+			seed.seed = carrot_seed
+			print("Get seed")
+			
 		queue_free()
 
 func enemy_shooting(player):

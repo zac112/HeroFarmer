@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfocn8dg2df5y"]
+[gd_scene load_steps=8 format=3 uid="uid://dfocn8dg2df5y"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Enemy_ranged.gd" id="1_76qk3"]
 [ext_resource type="Texture2D" uid="uid://dp4pks7x2njtj" path="res://Assets/Enemies/Asteriski_merkki_2.png" id="2_6ab8f"]
+[ext_resource type="PackedScene" uid="uid://dj5esbs4onldu" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_qwwnt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3e88"]
 radius = 60.0
@@ -20,6 +21,7 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("1_76qk3")
+seed_item = ExtResource("2_qwwnt")
 
 [node name="AsteriskiMerkki1" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
