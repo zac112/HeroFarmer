@@ -5,7 +5,7 @@ const PLAYER_HURT = preload("res://Assets/Audio/01._damage_grunt_male.wav")
 
 @export var SPEED = 150
 const GRAVITY = 500
-var health = 50
+@export var health = 50
 var direction = 1
 
 @export var moving = true
