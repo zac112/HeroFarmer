@@ -74,15 +74,17 @@ func player_shooting(delta):
 	var direction = input_movement()
 
 	
-	if Input.is_action_just_pressed("Platform_shoot") and can_melee:
+	if Input.is_action_pressed("Platform_shoot") and can_melee:
 		# TODO melee animation
 		$Marker2D/Area2D/melee_hitbox.disabled = false
 		can_melee = false
 		current_state = State.Shoot
 		$MeleeTimer.start()
+		if PowerupInventory.has_rapid_fire:
+			$ShootTimer.wait_time = 0.3
 
 
-	if Input.is_action_just_pressed("Platform_shoot") and can_shoot and !is_dead and has_shoot():
+	if Input.is_action_pressed("Platform_shoot") and can_shoot and !is_dead and has_shoot():
 		par = particle.instantiate()
 		par.direction = last_dir	
 		par.global_position = muzzle.global_position
@@ -90,6 +92,8 @@ func player_shooting(delta):
 		current_state = State.Shoot
 		can_shoot = false
 		$ShootTimer.start()
+		if PowerupInventory.has_rapid_fire:
+			$ShootTimer.wait_time = 0.3
 
 
 		

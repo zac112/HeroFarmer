@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Seed" load_steps=3 format=3 uid="uid://bbmecsd5my32x"]
 
 [ext_resource type="Script" path="res://Assets/Farm/Plot/Plant/Seeds/Seed.gd" id="1_0wt3v"]
-[ext_resource type="Texture2D" uid="uid://dmj8ot647hnvp" path="res://Assets/Farm/Background.png" id="2_bl71u"]
+[ext_resource type="Texture2D" uid="uid://d3ocfv3c01q5t" path="res://Assets/Farm/Plot/Plant/turnip.png" id="2_qqbgs"]
 
 [resource]
 script = ExtResource("1_0wt3v")
 seed_name = "Turnip seed"
-seed_sprite = ExtResource("2_bl71u")
+seed_sprite = ExtResource("2_qqbgs")
 growth_time = 3
 growth_stage = 0
 id = 1

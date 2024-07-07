@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dj5esbs4onldu"]
 
-[ext_resource type="Texture2D" uid="uid://dx2xtnk0he5jk" path="res://Assets/Enemies/Asteriski_merkki_1.png" id="1_50i41"]
 [ext_resource type="Script" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.gd" id="1_xfvyq"]
+[ext_resource type="Texture2D" uid="uid://b1rq6i015x7pc" path="res://Assets/Farm/Plot/Plant/carrot.png" id="2_hu2i6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu7kd"]
 radius = 13.0384
@@ -16,8 +16,10 @@ shape = SubResource("CircleShape2D_cu7kd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(4.47035e-07, -6.25849e-07)
-scale = Vector2(0.052, 0.052)
-texture = ExtResource("1_50i41")
+position = Vector2(2.84217e-14, -13)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_hu2i6")
+region_enabled = true
+region_rect = Rect2(0, 0, 15.5629, 17.2502)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

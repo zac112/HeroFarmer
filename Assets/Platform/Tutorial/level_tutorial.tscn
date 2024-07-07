@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="3_3ebw3"]
 [ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="4_vqa5e"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="5_4mui3"]
-[ext_resource type="PackedScene" uid="uid://6t0qfartelq0" path="res://Assets/Enemies/Enemy_ranged.tscn" id="6_c72ti"]
+[ext_resource type="PackedScene" uid="uid://dfocn8dg2df5y" path="res://Assets/Enemies/Enemy_ranged.tscn" id="6_c72ti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
 texture = ExtResource("1_cc30p")
