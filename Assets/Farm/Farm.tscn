@@ -12,7 +12,6 @@
 [node name="Farm" type="Node2D"]
 
 [node name="SceneTransition" parent="." instance=ExtResource("1_eyvf1")]
-targetScene = 1
 
 [node name="PlayerFarm" parent="." groups=["Player"] instance=ExtResource("1_25rqv")]
 position = Vector2(0, 4)
