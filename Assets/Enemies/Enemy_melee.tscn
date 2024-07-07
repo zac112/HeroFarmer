@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgc3dnychgmd4"]
+[gd_scene load_steps=13 format=3 uid="uid://dgc3dnychgmd4"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Enemy_melee.gd" id="1_r8o2w"]
+[ext_resource type="PackedScene" uid="uid://dvpf7x83svwdm" path="res://Assets/Enemies/enemy_melee_death_particles.tscn" id="2_4onty"]
 [ext_resource type="PackedScene" uid="uid://dj5esbs4onldu" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_82gou"]
 [ext_resource type="Texture2D" uid="uid://8a8ri53hk7eq" path="res://Assets/Enemies/spider_melee.png" id="3_wa5kb"]
 [ext_resource type="AudioStream" uid="uid://d3tqfwllemat7" path="res://Assets/Audio/monster-10.wav" id="4_ad7gd"]
@@ -50,6 +51,7 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("1_r8o2w")
+death_particles = ExtResource("2_4onty")
 seed_item = ExtResource("2_82gou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

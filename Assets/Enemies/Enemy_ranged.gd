@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const OOF = preload("res://Assets/Audio/01._damage_grunt_male.wav")
+@export var death_particles : PackedScene
 
 const SPEED = 75
 const GRAVITY = 500
@@ -117,7 +118,13 @@ func hit(damage:int):
 				elif drop_seed == 3:
 					seed.change_sprite(pumpkin_seed.seed_sprite)
 					seed.seed = pumpkin_seed
-			
+
+		# Death particles
+		var deathp = death_particles.instantiate()
+		deathp.position = position
+		deathp.emitting = true
+		get_parent().add_child(deathp)
+
 		queue_free()
 
 func enemy_shooting(player):
