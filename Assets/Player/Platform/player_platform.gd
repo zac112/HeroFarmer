@@ -140,6 +140,9 @@ func player_jump(delta):
 	disabled below until powerup works from inventory
 	"""
 	
+	if current_state == State.NONE and !is_on_floor():
+		current_state = State.Jump
+	
 	if Input.is_action_just_pressed("Platform_jump") and is_on_floor() and !is_dead:
 		doublejump = true
 		velocity.y = JUMP_VELOCITY
@@ -175,7 +178,7 @@ func player_animation():
 		animated_sprite_2d.play("run")
 
 	elif current_state == State.Jump:
-		animated_sprite_2d.play("idle")
+		animated_sprite_2d.play("jump")
 
 	elif current_state == State.Shoot:
 		animated_sprite_2d.play("hit")
