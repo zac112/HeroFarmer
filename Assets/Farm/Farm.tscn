@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://sxq6nbt1thvm"]
+[gd_scene load_steps=9 format=3 uid="uid://sxq6nbt1thvm"]
 
 [ext_resource type="PackedScene" uid="uid://bmgb44mjeck5g" path="res://Assets/Player/Farm/Player_farm.tscn" id="1_25rqv"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="1_eyvf1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c43uu0uviwmny" path="res://Assets/Farm/Background.png" id="3_tfr44"]
 [ext_resource type="Texture2D" uid="uid://dy65lngyia1iq" path="res://Assets/Farm/House.png" id="4_j2vln"]
 [ext_resource type="Script" path="res://Assets/Farm/Clouds/Cloudspawner.gd" id="6_62ewd"]
+[ext_resource type="AudioStream" uid="uid://cugy4qnjt623h" path="res://Assets/Audio/Snowland Loop Short.wav" id="8_01yxi"]
 [ext_resource type="PackedScene" uid="uid://coxo0dquxqgjc" path="res://Assets/Farm/Vendor/Vendor.tscn" id="8_s1s0d"]
 
 [node name="Farm" type="Node2D"]
@@ -51,5 +52,6 @@ id = 4
 
 [node name="Vendor" parent="." instance=ExtResource("8_s1s0d")]
 
-[node name="Background2" type="AudioStreamPlayer" parent="."]
+[node name="FarmMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_01yxi")
 autoplay = true
