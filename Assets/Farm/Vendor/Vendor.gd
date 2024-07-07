@@ -10,13 +10,16 @@ var select_powerup_id = -1
 func _ready():
 	$ItemList.visible = false
 	$ItemList.set_item_text(0, "Shooting \n Price: 1 Carrot ("+str(CropInventory.crop_inventory[0].quantity) +")")
-	
+	$ItemList.set_item_text(1, "Double Jump \n Price: 1 Turnip ("+str(CropInventory.crop_inventory[1].quantity) +")")
+	$ItemList.set_item_text(2, "Rapid Fire \n Price: 1 Pumpkin ("+str(CropInventory.crop_inventory[2].quantity) +")")
 func _process(delta):
 	pass
 
 func update_items():
 	$ItemList.set_item_text(0, "Shooting \n Price: 1 Carrot ("+str(CropInventory.crop_inventory[0].quantity) +")")
-
+	$ItemList.set_item_text(1, "Double Jump \n Price: 1 Turnip ("+str(CropInventory.crop_inventory[1].quantity) +")")
+	$ItemList.set_item_text(2, "Rapid Fire \n Price: 1 Pumpkin ("+str(CropInventory.crop_inventory[2].quantity) +")")
+	
 func _on_area_2d_body_entered(body):
 	$ItemList.visible = true
 	$VendorMusic.play()
@@ -32,7 +35,7 @@ func _on_area_2d_body_exited(body):
 
 func buy_powerup(select_powerup_id: int):
 	update_items()
-	if CropInventory.carrot.quantity > 0:
+	if CropInventory.crop_inventory[select_powerup_id].quantity > 0:
 		CropInventory.remove_crop(select_powerup_id)
 		PowerupsInventory.add_powerup(select_powerup_id)
 	select_powerup_id = -1	

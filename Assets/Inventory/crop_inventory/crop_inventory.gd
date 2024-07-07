@@ -7,7 +7,7 @@ var tomato : CropItem = load("res://Assets/Inventory/crop_inventory/tomato.tres"
 var wheat : CropItem = load("res://Assets/Inventory/crop_inventory/wheat.tres")
 
 
-var crop_inventory = [carrot, pumpkin, tomato, turnip, wheat] 
+var crop_inventory = [carrot, turnip, pumpkin, tomato, wheat] 
 
 
 func pickup_crop(crop_id : int):
@@ -15,4 +15,4 @@ func pickup_crop(crop_id : int):
 	
 func remove_crop(crop_id : int):
 	crop_inventory[crop_id].quantity -= 1
-	print  ("Removed crop")
+
