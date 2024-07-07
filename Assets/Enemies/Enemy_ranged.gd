@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 const OOF = preload("res://Assets/Audio/01._damage_grunt_male.wav")
+const death_sound = preload("res://Assets/Audio/01._damage_grunt_male.wav")
 @export var death_particles : PackedScene
 
-const SPEED = 75
+@export var speed = 75
 const GRAVITY = 500
-var health = 30
+@export var health = 50
 var direction = 1
 
 @export var moving = true
@@ -26,7 +27,6 @@ var pumpkin_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Pumpkin_seed.tres")
 @onready var ray_cast_down_right = $RayCastDownRight
 
 # Ranged only
-const FLEE_SPEED = 50
 @export var shooting = false
 var can_shoot = true
 var flee = false
@@ -62,7 +62,7 @@ func _physics_process(delta):
 			elif player.position.x - position.x < 0:
 				direction = 1
 
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
 		velocity.x = 0
 	

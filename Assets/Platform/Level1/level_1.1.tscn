@@ -289,12 +289,12 @@ polygon = PackedVector2Array(3169, -128, 3178, -145, 3319, -144, 3329, -129)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4ux7g"]
 polygon = PackedVector2Array(3070, -265, 3072, -20, 2792, -31, 2797, -247)
 
-[sub_resource type="Gradient" id="Gradient_8hrvo"]
+[sub_resource type="Gradient" id="Gradient_hfpef"]
 offsets = PackedFloat32Array(0.0714286, 0.772727)
 colors = PackedColorArray(1, 0.952941, 0.54902, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tnp4w"]
-gradient = SubResource("Gradient_8hrvo")
+gradient = SubResource("Gradient_hfpef")
 fill = 1
 fill_from = Vector2(0.504587, 0.481651)
 
