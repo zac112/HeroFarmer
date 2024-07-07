@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://beo3uxyoem4jd"]
 
 [sub_resource type="Gradient" id="Gradient_tcole"]
-colors = PackedColorArray(0.731354, 0.453183, 0.0419308, 1, 0.36529, 0.84913, 7.70092e-07, 1)
+colors = PackedColorArray(0.662168, 0.677145, 0.692274, 1, 1, 1, 1, 1)
 
 [node name="BulletParticle" type="CPUParticles2D"]
 emitting = false
