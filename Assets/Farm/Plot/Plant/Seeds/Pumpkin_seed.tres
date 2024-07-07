@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=3 format=3 uid="uid://i2gn603hsagy"]
+
+[ext_resource type="Script" path="res://Assets/Farm/Plot/Plant/Seeds/Seed.gd" id="1_qifjh"]
+[ext_resource type="Texture2D" uid="uid://beald5cj0qs8i" path="res://Assets/Farm/Plot/Plant/pumpkin.png" id="2_a7sag"]
+
+[resource]
+script = ExtResource("1_qifjh")
+seed_name = ""
+seed_sprite = ExtResource("2_a7sag")
+growth_time = 4
+growth_stage = 0
+id = 2
