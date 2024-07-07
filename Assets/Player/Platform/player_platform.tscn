@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dosibav3620rd"]
+[gd_scene load_steps=23 format=3 uid="uid://dosibav3620rd"]
 
 [ext_resource type="Script" path="res://Assets/Player/Platform/player_platform.gd" id="1_uttb6"]
 [ext_resource type="Texture2D" uid="uid://b7hex7r7x46h6" path="res://Assets/Player/Platform/peli.png" id="2_86gsd"]
 [ext_resource type="PackedScene" uid="uid://bfkdqfodthehd" path="res://Assets/Player/Platform/player_death_particles.tscn" id="2_smvec"]
 [ext_resource type="PackedScene" uid="uid://dxmwdnavcymr7" path="res://Assets/Player/Platform/death_popup.tscn" id="3_15alw"]
 [ext_resource type="Texture2D" uid="uid://uncja65cv5yx" path="res://Assets/kuvat/Player_attacks 2.png" id="4_d60uk"]
+[ext_resource type="Texture2D" uid="uid://dtvdornl3c0oj" path="res://Assets/kuvat/Player_jump (1).png" id="5_q4ode"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3swc"]
 atlas = ExtResource("4_d60uk")
@@ -29,6 +30,18 @@ region = Rect2(256, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kqdy"]
 atlas = ExtResource("4_d60uk")
 region = Rect2(0, 0, 45, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7c8e"]
+atlas = ExtResource("5_q4ode")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2u57"]
+atlas = ExtResource("5_q4ode")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qs2w"]
+atlas = ExtResource("5_q4ode")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st4bs"]
 atlas = ExtResource("2_86gsd")
@@ -83,6 +96,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_a7c8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2u57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2u57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2u57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qs2w")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_st4bs")
 }, {
 "duration": 1.0,
@@ -114,7 +147,7 @@ death_popup = ExtResource("3_15alw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_82py8")
-animation = &"hit"
+animation = &"jump"
 autoplay = "idle"
 frame = 4
 frame_progress = 1.0
