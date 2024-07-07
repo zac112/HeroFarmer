@@ -7,4 +7,4 @@ var levels = ["res://Assets/Farm/Farm.tscn",
 @export_range(0,3) var targetScene : int
 
 func _on_body_entered(body):
-	SceneHandler.loadScene(targetScene)
+	SceneHandler.loadScene(levels[targetScene])
