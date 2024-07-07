@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Enemies/Enemy_melee.gd" id="1_r8o2w"]
 [ext_resource type="Texture2D" uid="uid://dx2xtnk0he5jk" path="res://Assets/Enemies/Asteriski_merkki_1.png" id="2_1xme5"]
-[ext_resource type="PackedScene" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_82gou"]
+[ext_resource type="PackedScene" uid="uid://dj5esbs4onldu" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_82gou"]
 [ext_resource type="AudioStream" uid="uid://d3tqfwllemat7" path="res://Assets/Audio/monster-10.wav" id="4_ad7gd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3e88"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfocn8dg2df5y"]
+[gd_scene load_steps=7 format=3 uid="uid://dfocn8dg2df5y"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Enemy_ranged.gd" id="1_76qk3"]
 [ext_resource type="Texture2D" uid="uid://dp4pks7x2njtj" path="res://Assets/Enemies/Asteriski_merkki_2.png" id="2_6ab8f"]
@@ -7,10 +7,13 @@
 radius = 60.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eury0"]
-radius = 536.239
+radius = 660.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nucr3"]
 radius = 62.0322
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pnijh"]
+radius = 273.562
 
 [node name="Enemy_ranged" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -61,8 +64,16 @@ position = Vector2(70, 0)
 [node name="ParticleCooldown" type="Timer" parent="."]
 wait_time = 1.5
 
+[node name="FleeZone" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FleeZone"]
+shape = SubResource("CircleShape2D_pnijh")
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]
 [connection signal="body_exited" from="PlayerCollision" to="." method="_on_player_collision_body_exited"]
 [connection signal="timeout" from="ParticleCooldown" to="." method="_on_particle_cooldown_timeout"]
+[connection signal="body_entered" from="FleeZone" to="." method="_on_flee_zone_body_entered"]
+[connection signal="body_exited" from="FleeZone" to="." method="_on_flee_zone_body_exited"]
