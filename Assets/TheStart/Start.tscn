@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6m8b8lh4fgmw"]
+[gd_scene load_steps=9 format=3 uid="uid://b6m8b8lh4fgmw"]
 
 [ext_resource type="Script" path="res://Assets/TheStart/Start.gd" id="1_7o5qv"]
 [ext_resource type="Texture2D" uid="uid://431v3dwt6xhv" path="res://Assets/TheStart/start_screen.png" id="2_3sied"]
 [ext_resource type="Texture2D" uid="uid://crpet0fak7pby" path="res://Assets/TheStart/play_button.png" id="3_ujclu"]
+[ext_resource type="Script" path="res://Assets/TheStart/PlayButton.gd" id="4_5kwrv"]
 [ext_resource type="Texture2D" uid="uid://d02tri8jm3afb" path="res://Assets/TheStart/start_screen_picture.png" id="4_kvm8p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v7ub"]
@@ -50,6 +51,7 @@ texture = ExtResource("2_3sied")
 [node name="PlayButton" type="AnimatedSprite2D" parent="."]
 position = Vector2(178, -101)
 sprite_frames = SubResource("SpriteFrames_jywj2")
+script = ExtResource("4_5kwrv")
 
 [node name="StartScreenPicture" type="Sprite2D" parent="."]
 position = Vector2(-304, 155)
