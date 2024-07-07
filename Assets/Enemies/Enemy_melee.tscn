@@ -1,18 +1,49 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgc3dnychgmd4"]
+[gd_scene load_steps=12 format=3 uid="uid://dgc3dnychgmd4"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Enemy_melee.gd" id="1_r8o2w"]
-[ext_resource type="Texture2D" uid="uid://dx2xtnk0he5jk" path="res://Assets/Enemies/Asteriski_merkki_1.png" id="2_1xme5"]
-[ext_resource type="PackedScene" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_82gou"]
+[ext_resource type="PackedScene" uid="uid://dj5esbs4onldu" path="res://Assets/Farm/Plot/Plant/Seeds/Seed_drop.tscn" id="2_82gou"]
+[ext_resource type="Texture2D" uid="uid://8a8ri53hk7eq" path="res://Assets/Enemies/spider_melee.png" id="3_wa5kb"]
 [ext_resource type="AudioStream" uid="uid://d3tqfwllemat7" path="res://Assets/Audio/monster-10.wav" id="4_ad7gd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m3e88"]
-radius = 60.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_iouug"]
+atlas = ExtResource("3_wa5kb")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfg8v"]
+atlas = ExtResource("3_wa5kb")
+region = Rect2(63, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg3fr"]
+atlas = ExtResource("3_wa5kb")
+region = Rect2(126, 0, 63, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kran"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iouug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfg8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg3fr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c30s7"]
+radius = 40.0
+height = 112.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eury0"]
 radius = 536.239
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nucr3"]
-radius = 62.0322
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55fht"]
+radius = 42.0
+height = 114.0
 
 [node name="Enemy_melee" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -21,12 +52,17 @@ collision_mask = 31
 script = ExtResource("1_r8o2w")
 seed_item = ExtResource("2_82gou")
 
-[node name="AsteriskiMerkki1" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_1xme5")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5kran")
+autoplay = "default"
+frame_progress = 0.16048
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_m3e88")
+position = Vector2(-5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c30s7")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 collision_mask = 2
@@ -35,28 +71,30 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_eury0")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-67, 0)
+target_position = Vector2(-70, 0)
 collision_mask = 8
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(66, 0)
+target_position = Vector2(58, 0)
 collision_mask = 8
 
 [node name="RayCastDownLeft" type="RayCast2D" parent="."]
-position = Vector2(-16, 1)
-target_position = Vector2(0, 76)
+position = Vector2(-64, 0)
+target_position = Vector2(0, 61)
 collision_mask = 8
 
 [node name="RayCastDownRight" type="RayCast2D" parent="."]
-position = Vector2(18, 0)
-target_position = Vector2(0, 76)
+position = Vector2(34, 0)
+target_position = Vector2(0, 60)
 collision_mask = 8
 
 [node name="PlayerCollision" type="Area2D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
-shape = SubResource("CircleShape2D_nucr3")
+position = Vector2(-5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_55fht")
 
 [node name="EnemyProximitySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ad7gd")

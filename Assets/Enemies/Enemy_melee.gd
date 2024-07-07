@@ -47,6 +47,11 @@ func _physics_process(delta):
 
 	if !is_on_floor():
 		velocity.y += GRAVITY * delta
+		
+	if direction > 0:
+		$AnimatedSprite2D.flip_h = true
+	elif direction < 0:
+		$AnimatedSprite2D.flip_h = false
 
 	move_and_slide()
 	
