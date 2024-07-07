@@ -467,6 +467,7 @@ layer_0/tile_data = PackedInt32Array(3, 65538, 0, 2, 65538, 0, 1, 65538, 0, 0, 6
 
 [node name="SceneTransition" parent="." instance=ExtResource("5_x24v0")]
 position = Vector2(3251, -282)
+levelEnd = true
 
 [node name="Background" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_l1c6a")
