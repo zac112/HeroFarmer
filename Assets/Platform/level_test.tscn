@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgglhhfpv14v2"]
+[gd_scene load_steps=10 format=3 uid="uid://bgglhhfpv14v2"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="1_n5est"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="2_scurm"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="3_4alr1"]
 [ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="4_rp443"]
+[ext_resource type="PackedScene" uid="uid://dfocn8dg2df5y" path="res://Assets/Enemies/Enemy_ranged.tscn" id="5_lk500"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1mqbb"]
 
@@ -278,15 +279,13 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_xvohk"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_1mqbb")
 sources/0 = SubResource("TileSetAtlasSource_mysnq")
 sources/1 = SubResource("TileSetAtlasSource_sttr8")
 
 [node name="Level1" type="Node2D"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="player_platform" parent="." instance=ExtResource("1_n5est")]
 position = Vector2(-16, -30)
@@ -302,3 +301,6 @@ layer_0/tile_data = PackedInt32Array(-131069, 1, 0, -65533, 1, 1, -131068, 65537
 
 [node name="Enemy_melee_walking" parent="." instance=ExtResource("4_rp443")]
 position = Vector2(310, -219)
+
+[node name="Enemy_ranged" parent="." instance=ExtResource("5_lk500")]
+position = Vector2(-457, -184)

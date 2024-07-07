@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://beo3uxyoem4jd"]
+
+[sub_resource type="Gradient" id="Gradient_tcole"]
+colors = PackedColorArray(0.731354, 0.453183, 0.0419308, 1, 0.36529, 0.84913, 7.70092e-07, 1)
+
+[node name="BulletParticle" type="CPUParticles2D"]
+emitting = false
+amount = 40
+lifetime = 0.25
+one_shot = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 25.0
+scale_amount_min = 5.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_tcole")
