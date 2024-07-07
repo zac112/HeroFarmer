@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const PLAYER_HURT = preload("res://Assets/Audio/01._damage_grunt_male.wav")
+const PLAYER_HURT = preload("res://Assets/Audio/1yell1.wav")
 @export var death_particles : PackedScene
 
 @export var SPEED = 150
