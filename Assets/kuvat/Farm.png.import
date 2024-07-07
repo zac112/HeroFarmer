@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://waa77cjqnkaq"
-path="res://.godot/imported/Platform_leaves.png-422bafa9c645e246f74361d4d9804b76.ctex"
+uid="uid://ttsrttj7tec6"
+path="res://.godot/imported/Farm.png-fe7ba111fd1254c8cc399f5c3ea71f70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kuvat/Platform_leaves.png"
-dest_files=["res://.godot/imported/Platform_leaves.png-422bafa9c645e246f74361d4d9804b76.ctex"]
+source_file="res://Assets/kuvat/Farm.png"
+dest_files=["res://.godot/imported/Farm.png-fe7ba111fd1254c8cc399f5c3ea71f70.ctex"]
 
 [params]
 

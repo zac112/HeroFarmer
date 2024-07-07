@@ -15,6 +15,8 @@ var rng = RandomNumberGenerator.new()
 @export var seed_item : PackedScene
 @export var seed_drop_rate = 4
 var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
+var turnip_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Turnip_seed.tres")
+var pumpkin_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Pumpkin_seed.tres")
 
 # Raycasts
 @onready var ray_cast_left = $RayCastLeft
@@ -93,14 +95,28 @@ func _on_player_detection_body_exited(body):
 func hit(damage:int):
 	health -= damage
 	if health <= 0:
-		var drop = rng.randi_range(1,seed_drop_rate)
-		if drop == 1:
+		if seed_drop_rate == 1:
 			var seed = seed_item.instantiate()
 			seed.position = position
 			get_parent().add_child(seed)
 			seed.change_sprite(carrot_seed.seed_sprite)
 			seed.seed = carrot_seed
-			print("Get seed")
+		else:
+			var drop = rng.randi_range(1,seed_drop_rate)
+			if drop == 1:
+				var drop_seed = rng.randi_range(1, 3)
+				var seed = seed_item.instantiate()
+				seed.position = position
+				get_parent().add_child(seed)
+				if drop_seed == 1:
+					seed.change_sprite(carrot_seed.seed_sprite)
+					seed.seed = carrot_seed
+				elif drop_seed == 2:
+					seed.change_sprite(turnip_seed.seed_sprite)
+					seed.seed = turnip_seed
+				elif drop_seed == 3:
+					seed.change_sprite(pumpkin_seed.seed_sprite)
+					seed.seed = pumpkin_seed
 			
 		queue_free()
 

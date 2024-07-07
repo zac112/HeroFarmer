@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://coxo0dquxqgjc"]
+[gd_scene load_steps=11 format=3 uid="uid://coxo0dquxqgjc"]
 
 [ext_resource type="Texture2D" uid="uid://c72ld1sukp7c5" path="res://Assets/Platform/Boss/vendor.png" id="1_8o6xs"]
 [ext_resource type="Script" path="res://Assets/Farm/Vendor/Vendor.gd" id="2_8tfg7"]
@@ -31,6 +31,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oy8e"]
 radius = 55.5788
 
+[sub_resource type="Theme" id="Theme_2j2bp"]
+
 [node name="Vendor" type="AnimatedSprite2D"]
 position = Vector2(354, 208)
 sprite_frames = SubResource("SpriteFrames_b5qnj")
@@ -47,10 +49,12 @@ stream = ExtResource("4_a5mra")
 [node name="ItemList" type="ItemList" parent="."]
 clip_contents = false
 offset_left = -342.0
-offset_top = -310.0
-offset_right = -13.0
+offset_top = -420.0
+offset_right = 73.0
 offset_bottom = -209.0
+theme = SubResource("Theme_2j2bp")
 item_count = 3
+icon_scale = 4.0
 item_0/text = "Shooting"
 item_0/icon = ExtResource("4_j512e")
 item_1/text = "Double Jump"
