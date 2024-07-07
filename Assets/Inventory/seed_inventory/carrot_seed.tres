@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="SeedItem" load_steps=3 format=3 uid="uid://dqii6vdmvsc82"]
 
 [ext_resource type="Script" path="res://Assets/Inventory/seed_inventory/seed_item.gd" id="1_kgd2r"]
-[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="2_wqfiw"]
+[ext_resource type="Texture2D" uid="uid://b1rq6i015x7pc" path="res://Assets/Farm/Plot/Plant/carrot.png" id="2_3r7p4"]
 
 [resource]
 script = ExtResource("1_kgd2r")
-seed_sprite = ExtResource("2_wqfiw")
+seed_sprite = ExtResource("2_3r7p4")
 seed_name = "Carrot Seed"
 id = 0

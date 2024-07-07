@@ -1,19 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://xe47faicgkl1"]
+[gd_scene load_steps=12 format=3 uid="uid://xe47faicgkl1"]
 
 [ext_resource type="Script" path="res://Assets/Farm/Plot/Plot.gd" id="1_fr6ra"]
-[ext_resource type="Texture2D" uid="uid://bli6c0l23xdmk" path="res://Assets/Farm/Plot/Plot.png" id="2_2e03s"]
+[ext_resource type="Texture2D" uid="uid://b1rq6i015x7pc" path="res://Assets/Farm/Plot/Plant/carrot.png" id="3_wwk4p"]
+[ext_resource type="Texture2D" uid="uid://d3ocfv3c01q5t" path="res://Assets/Farm/Plot/Plant/turnip.png" id="4_aq0x2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rxip"]
-size = Vector2(129, 129)
+size = Vector2(66.25, 33.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s05h0"]
+atlas = ExtResource("3_wwk4p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ue1e"]
+atlas = ExtResource("3_wwk4p")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnkkt"]
+atlas = ExtResource("3_wwk4p")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abu76"]
+atlas = ExtResource("4_aq0x2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2rxf"]
+atlas = ExtResource("4_aq0x2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02ske"]
+atlas = ExtResource("4_aq0x2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_818xs"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"-1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s05h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ue1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnkkt")
+}],
+"loop": true,
+"name": &"0",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abu76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2rxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02ske")
+}],
+"loop": false,
+"name": &"1",
+"speed": 0.0
+}]
 
 [node name="Plot" type="Area2D"]
 script = ExtResource("1_fr6ra")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2e03s")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0.5, 24.5)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_0rxip")
 
 [node name="Label" type="Label" parent="."]
@@ -25,9 +84,11 @@ offset_right = 39.0
 offset_bottom = -70.0
 text = "Plant seed"
 
-[node name="SeedSprite" type="Sprite2D" parent="."]
+[node name="SeedSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(0.1, 0.1)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_818xs")
+animation = &"0"
 
 [node name="Label2" type="Label" parent="."]
 unique_name_in_owner = true

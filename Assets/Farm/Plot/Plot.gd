@@ -32,14 +32,17 @@ var player_in_range := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	seed_sprite.animation = "-1"
 	add_seeds_from_inventory()
 	seed = FarmData.plot_list[id]
-	display_seed_list.icon_scale=0.1
+	display_seed_list.icon_scale=0.5
 	if seed:
 		seed.growth_stage += 1
-		seed_sprite.texture = seed.seed_sprite
+		seed_sprite.animation = str(seed.id)
+		seed_sprite.frame = 1
 		update_growth_label()
 		if seed.growth_stage >= seed.growth_time:
+			seed_sprite.frame = 2
 			ready_to_harvest = true
 
 func add_seeds_from_inventory():
@@ -91,13 +94,16 @@ func plant_seed(seed_id:int):
 		update_growth_label()
 		growth_stage_label.visible = true
 		seed_sprite.visible = true
-		seed_sprite.texture = new_seed.seed_sprite
+		seed_sprite.animation = str(seed_id)
+		seed_sprite.frame = 0
+		#seed_sprite.texture = new_seed.seed_sprite
 		# Create new instance of seed resource
 		var temp_seed = Seed.new()
 		temp_seed.seed_sprite = new_seed.seed_sprite
 		temp_seed.seed_name = new_seed.seed_name
 		temp_seed.growth_stage = new_seed.growth_stage
 		temp_seed.growth_time = new_seed.growth_time
+		temp_seed.id = seed_id
 		seed = new_seed
 		plant_seed_label.visible = false
 		update_growth_label()
@@ -106,7 +112,7 @@ func plant_seed(seed_id:int):
 		FarmData.plot_list[id] = temp_seed
 		SfxHandler.play(PLANT_SOUND, get_tree().current_scene)
 	else:
-		seed_sprite.texture = null
+		seed_sprite.animation = "-1"
 		seed = null
 		FarmData.plot_list[id] = null
 

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Seed" load_steps=3 format=3 uid="uid://bbmecsd5my32x"]
 
 [ext_resource type="Script" path="res://Assets/Farm/Plot/Plant/Seeds/Seed.gd" id="1_0wt3v"]
-[ext_resource type="Texture2D" uid="uid://c43uu0uviwmny" path="res://Assets/Farm/Background.png" id="2_bl71u"]
+[ext_resource type="Texture2D" uid="uid://dmj8ot647hnvp" path="res://Assets/Farm/Background.png" id="2_bl71u"]
 
 [resource]
 script = ExtResource("1_0wt3v")
