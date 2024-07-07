@@ -23,6 +23,10 @@ var playerHealth := 3
 var invincible = false
 var can_shoot = true
 
+@export var death_particles : PackedScene
+@export var death_popup : PackedScene
+var is_dead = false
+
 
 # TODO dummy var
 var doublejump = true
@@ -36,6 +40,8 @@ func _ready():
 
 	
 func _process(delta):
+	if is_dead and Input.is_action_just_pressed("Platform_shoot"):
+		SceneHandler.loadScene("res://Assets/Farm/Farm.tscn")
 	pass
 
 
@@ -43,7 +49,7 @@ func player_shooting(delta):
 	
 	var direction = input_movement()
 	
-	if Input.is_action_just_pressed("Platform_shoot") and can_shoot:
+	if Input.is_action_just_pressed("Platform_shoot") and can_shoot and !is_dead:
 		par = particle.instantiate()
 		par.direction = last_dir	
 		par.global_position = muzzle.global_position
@@ -98,17 +104,17 @@ func player_jump(delta):
 	"""
 	
 	doublejump = false
-	if Input.is_action_just_pressed("Platform_jump") and is_on_floor():
+	if Input.is_action_just_pressed("Platform_jump") and is_on_floor() and !is_dead:
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
 		SfxHandler.play(JUMP_SOUND, get_tree().current_scene)
-	elif Input.is_action_just_pressed("Platform_jump") and !is_on_floor() and doublejump:
+	elif Input.is_action_just_pressed("Platform_jump") and !is_on_floor() and doublejump and !is_dead:
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
 	
 	var dire = Input.get_axis("Platform_left", "Platform_right")
 	
-	if dire:
+	if dire and !is_dead:
 		velocity.x = dire * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -127,7 +133,6 @@ func player_animation():
 		
 
 func _physics_process(delta):
-	print(velocity.y)
 	player_falling(delta)
 	player_idle(delta)
 	player_run(delta)
@@ -139,6 +144,8 @@ func _physics_process(delta):
 	player_shooting(delta)
 	
 func input_movement():
+	if is_dead:
+		return 0
 	var direction: float = Input.get_axis("Platform_left", "Platform_right")
 	return direction
 	
@@ -147,10 +154,8 @@ func take_damage():
 	if not invincible:
 		playerHealth -= 1
 		$AnimatedSprite2D.modulate.a -= 0.33
-		print("HEALTH ", playerHealth, " ", $AnimatedSprite2D.modulate.a)
 		if playerHealth <= 0:
-			print("GAME OVER")
-			get_tree().change_scene_to_packed(farm_scene)
+			die()
 		
 		invincible = true
 		$Invisibility.start()
@@ -162,3 +167,16 @@ func _on_invisibility_timeout():
 
 func _on_shoot_timer_timeout():
 	can_shoot = true
+
+func die():
+	if is_dead:
+		return
+	is_dead = true
+	var deathp = death_particles.instantiate()
+	var deathpop = death_popup.instantiate()
+	deathpop.position = position
+	deathp.position = position
+	deathp.emitting = true
+	visible = false
+	get_parent().add_child(deathp)
+	get_parent().add_child(deathpop)
