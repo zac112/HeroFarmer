@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CropItem" load_steps=3 format=3 uid="uid://dpr48q0srlf54"]
+
+[ext_resource type="Texture2D" uid="uid://c0x633nlwh5q7" path="res://Assets/Farm/Plot/Plant/wheat.png" id="1_w520t"]
+[ext_resource type="Script" path="res://Assets/Inventory/crop_inventory/crop_item.gd" id="2_tkhbq"]
+
+[resource]
+script = ExtResource("2_tkhbq")
+crop_sprite = ExtResource("1_w520t")
+crop_name = "Wheat"

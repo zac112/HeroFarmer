@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CropItem" load_steps=3 format=3 uid="uid://bqohi4fxiq3jw"]
+
+[ext_resource type="Texture2D" uid="uid://cdqju6am2k7ev" path="res://Assets/Farm/Plot/Plant/tomato.png" id="1_l8ygd"]
+[ext_resource type="Script" path="res://Assets/Inventory/crop_inventory/crop_item.gd" id="2_wv8w4"]
+
+[resource]
+script = ExtResource("2_wv8w4")
+crop_sprite = ExtResource("1_l8ygd")
+crop_name = "Tomato"

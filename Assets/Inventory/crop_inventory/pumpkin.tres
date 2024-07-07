@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CropItem" load_steps=3 format=3 uid="uid://bc0njra31swmu"]
+
+[ext_resource type="Texture2D" uid="uid://beald5cj0qs8i" path="res://Assets/Farm/Plot/Plant/pumpkin.png" id="1_if0sj"]
+[ext_resource type="Script" path="res://Assets/Inventory/crop_inventory/crop_item.gd" id="2_t18ex"]
+
+[resource]
+script = ExtResource("2_t18ex")
+crop_sprite = ExtResource("1_if0sj")
+crop_name = "Pumpkin"

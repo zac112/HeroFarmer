@@ -13,6 +13,7 @@ func _ready():
 	
 func _process(delta):
 	pass
+
 	
 
 func _on_area_2d_body_entered(body):
@@ -21,17 +22,18 @@ func _on_area_2d_body_entered(body):
 	SfxHandler.play(HOW_SOUND, get_tree().current_scene)
 	FarmMusic.stop()
 
-
 func _on_area_2d_body_exited(body):
 	$ItemList.visible = false
 	$VendorMusic.stop()
 	FarmMusic.play()
 
 func buy_powerup(select_powerup_id: int):
-	if CropInventory.inventory[select_powerup_id].quantity > 0:
+	if CropInventory.carrot.quantity > 0:
 		CropInventory.remove_crop(select_powerup_id)
 		PowerupsInventory.add_powerup(select_powerup_id)
-		print ("purchase")
+	select_powerup_id = -1	
 
 func _on_item_list_item_selected(index):
-	select_powerup_id = PowerupsInventory.inventory[index].id
+	select_powerup_id = index
+	if select_powerup_id >= 0:
+		buy_powerup(select_powerup_id)
