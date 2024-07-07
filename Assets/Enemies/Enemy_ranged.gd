@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const OOF = preload("res://Assets/Audio/01._damage_grunt_male.wav")
-const death_sound = preload("res://Assets/Audio/01._damage_grunt_male.wav")
+const OOF = preload("res://Assets/Audio/1yell1.wav")
+const death_sound = preload("res://Assets/Audio/1yell1.wav")
 @export var death_particles : PackedScene
 
 @export var speed = 75
