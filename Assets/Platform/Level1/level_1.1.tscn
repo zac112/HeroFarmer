@@ -557,13 +557,13 @@ autoplay = "default"
 frame_progress = 0.839094
 
 [node name="Enemy_melee" parent="." instance=ExtResource("9_e3rn7")]
-position = Vector2(472, -294)
+position = Vector2(232, -35)
 
 [node name="Enemy_melee2" parent="." instance=ExtResource("9_e3rn7")]
 position = Vector2(1052, -66)
 
 [node name="Enemy_melee3" parent="." instance=ExtResource("9_e3rn7")]
-position = Vector2(1009, -287)
+position = Vector2(1267, -433)
 
 [node name="Enemy_melee4" parent="." instance=ExtResource("9_e3rn7")]
 position = Vector2(1787, -32)
@@ -581,4 +581,7 @@ position = Vector2(2625, -168)
 position = Vector2(3034, -351)
 
 [node name="Enemy_ranged" parent="." instance=ExtResource("10_rp17x")]
-position = Vector2(257, -72)
+position = Vector2(52, -797)
+
+[node name="Enemy_ranged2" parent="." instance=ExtResource("10_rp17x")]
+position = Vector2(895, -317)

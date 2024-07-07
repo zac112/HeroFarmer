@@ -10,11 +10,11 @@ const FLEE_SPEED = 50
 @export var moving = true
 @export var shooting = false
 var player = null
-var colliding = false
+var colliding = false # Melee only
 var can_shoot = true
 var flee = false
 
-var health = 50
+var health = 30
 
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
@@ -54,14 +54,11 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = 0
-
-	velocity.y = GRAVITY
+	
+	if !is_on_floor():
+		velocity.y += GRAVITY * delta
 
 	move_and_slide()
-	
-	# Does damage if collides with player
-	if colliding:
-		player.take_damage()
 
 
 func _on_player_detection_body_entered(body):
@@ -75,16 +72,6 @@ func _on_player_detection_body_exited(body):
 	if body.name == "player_platform":
 		shooting = false
 		moving = true
-
-func _on_player_collision_body_entered(body):
-	if body.has_method("take_damage"):
-		SfxHandler.play(OOF, get_tree().current_scene)
-		colliding = true
-
-
-func _on_player_collision_body_exited(body):
-	if body.has_method("take_damage"):
-		colliding = false
 
 
 func hit(damage:int):
