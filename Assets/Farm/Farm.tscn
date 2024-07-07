@@ -54,5 +54,5 @@ id = 5
 
 [node name="Vendor" parent="." instance=ExtResource("8_s1s0d")]
 
-[node name="Background2" type="AudioStreamPlayer" parent="."]
+[node name="FarmMusic" type="AudioStreamPlayer" parent="."]
 autoplay = true
