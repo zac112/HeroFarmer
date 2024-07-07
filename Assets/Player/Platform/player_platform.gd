@@ -165,12 +165,10 @@ func player_animation():
 	elif current_state == State.Jump:
 		animated_sprite_2d.play("idle")
 	elif current_state == State.Shoot:
-		print("hitting")
 		animated_sprite_2d.play("hit")
 		
 
 func _physics_process(delta):
-	print(State.keys()[current_state])
 	if canControl:
 		player_falling(delta)
 		player_idle(delta)
