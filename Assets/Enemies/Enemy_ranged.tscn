@@ -14,8 +14,8 @@ radius = 62.0322
 
 [node name="Enemy_ranged" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 31
 script = ExtResource("1_76qk3")
 
 [node name="AsteriskiMerkki1" type="Sprite2D" parent="."]
@@ -26,25 +26,31 @@ texture = ExtResource("2_6ab8f")
 shape = SubResource("CircleShape2D_m3e88")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_eury0")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-67, 0)
+collision_mask = 8
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(66, 0)
+collision_mask = 8
 
 [node name="RayCastDownLeft" type="RayCast2D" parent="."]
 position = Vector2(-16, 1)
 target_position = Vector2(0, 76)
+collision_mask = 8
 
 [node name="RayCastDownRight" type="RayCast2D" parent="."]
 position = Vector2(18, 0)
 target_position = Vector2(0, 76)
+collision_mask = 8
 
 [node name="PlayerCollision" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 shape = SubResource("CircleShape2D_nucr3")

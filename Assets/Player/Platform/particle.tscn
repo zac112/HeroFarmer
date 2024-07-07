@@ -8,8 +8,8 @@
 size = Vector2(26, 26)
 
 [node name="Particle" type="Area2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 60
 script = ExtResource("1_de88d")
 bullet_particle = ExtResource("3_5sqiq")
 
