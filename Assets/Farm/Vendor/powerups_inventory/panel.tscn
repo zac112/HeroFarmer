@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dumils8tflfir"]
+[gd_scene load_steps=3 format=3 uid="uid://dumils8tflfir"]
 
+[ext_resource type="Script" path="res://Assets/Farm/Vendor/powerups_inventory/ItemSlot.gd" id="1_aibq5"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="1_gijje"]
 
 [node name="Panel" type="Panel"]
@@ -7,6 +8,7 @@ custom_minimum_size = Vector2(16, 16)
 offset_left = -1.0
 offset_right = 86.0
 offset_bottom = 93.0
+script = ExtResource("1_aibq5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)

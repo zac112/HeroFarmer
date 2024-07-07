@@ -36,6 +36,7 @@ sprite_frames = SubResource("SpriteFrames_b5qnj")
 script = ExtResource("2_8tfg7")
 
 [node name="VendorUI" parent="." instance=ExtResource("3_lnnvj")]
+visible = false
 offset_left = -313.0
 offset_top = -502.0
 offset_right = -28.0
@@ -48,6 +49,18 @@ shape = SubResource("CircleShape2D_6oy8e")
 
 [node name="VendorMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_a5mra")
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = -262.0
+offset_top = -441.0
+offset_right = -76.0
+offset_bottom = -210.0
+item_count = 5
+item_0/text = "1"
+item_1/text = "2"
+item_2/text = "3"
+item_3/text = "4"
+item_4/text = "5"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

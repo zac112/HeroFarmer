@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("2_2xb7p")
 Powerup_sprite = ExtResource("1_kfxt3")
-Powerup_name = "powerup"
+Powerup_name = "tulipallo"
