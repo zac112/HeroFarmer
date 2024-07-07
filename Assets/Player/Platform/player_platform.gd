@@ -8,6 +8,8 @@ extends CharacterBody2D
 var par
 var muzzle_position
 
+const JUMP_SOUND = preload("res://Assets/Audio/029_Decline_09.wav")
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -99,6 +101,7 @@ func player_jump(delta):
 	if Input.is_action_just_pressed("Platform_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
+		SfxHandler.play(JUMP_SOUND, get_tree().current_scene)
 	elif Input.is_action_just_pressed("Platform_jump") and !is_on_floor() and doublejump:
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
