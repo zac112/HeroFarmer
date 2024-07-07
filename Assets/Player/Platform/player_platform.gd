@@ -21,7 +21,9 @@ var playerHealth := 3
 var invincible = false
 var can_shoot = true
 
-@onready var playerName = %Label
+
+# TODO dummy var
+var doublejump = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -87,7 +89,17 @@ func player_run(delta):
 
 func player_jump(delta):
 	# Handle jump.
+	
+	"""
+	doublejump power-up works via doublejump variable
+	disabled below until powerup works from inventory
+	"""
+	
+	doublejump = false
 	if Input.is_action_just_pressed("Platform_jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		current_state = State.Jump
+	elif Input.is_action_just_pressed("Platform_jump") and !is_on_floor() and doublejump:
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
 	
@@ -112,7 +124,7 @@ func player_animation():
 		
 
 func _physics_process(delta):
-	
+	print(velocity.y)
 	player_falling(delta)
 	player_idle(delta)
 	player_run(delta)
