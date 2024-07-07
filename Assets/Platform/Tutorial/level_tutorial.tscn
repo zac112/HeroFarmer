@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg1w77apqy1ai"]
+[gd_scene load_steps=10 format=3 uid="uid://bg1w77apqy1ai"]
 
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="1_cc30p"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="2_2q17w"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="4_vqa5e"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="5_4mui3"]
 [ext_resource type="PackedScene" uid="uid://dfocn8dg2df5y" path="res://Assets/Enemies/Enemy_ranged.tscn" id="6_c72ti"]
-[ext_resource type="Texture2D" uid="uid://waa77cjqnkaq" path="res://Assets/kuvat/Platform_leaves.png" id="7_78wpb"]
-[ext_resource type="Texture2D" uid="uid://bycctqxinog3q" path="res://Assets/kuvat/Backdrop_tree.png" id="8_gy75j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
 texture = ExtResource("1_cc30p")
@@ -351,35 +349,3 @@ levelEnd = true
 
 [node name="Enemy_ranged" parent="." instance=ExtResource("6_c72ti")]
 position = Vector2(2625, -297)
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="PlatformLeaves" type="Sprite2D" parent="Node2D"]
-position = Vector2(-472, -331)
-texture = ExtResource("7_78wpb")
-
-[node name="PlatformLeaves2" type="Sprite2D" parent="Node2D"]
-position = Vector2(556, -331)
-texture = ExtResource("7_78wpb")
-
-[node name="PlatformLeaves3" type="Sprite2D" parent="Node2D"]
-position = Vector2(1581, -331)
-texture = ExtResource("7_78wpb")
-
-[node name="PlatformLeaves4" type="Sprite2D" parent="Node2D"]
-position = Vector2(2607, -331)
-texture = ExtResource("7_78wpb")
-
-[node name="PlatformLeaves5" type="Sprite2D" parent="Node2D"]
-position = Vector2(3607, -331)
-texture = ExtResource("7_78wpb")
-
-[node name="BackdropTree" type="Sprite2D" parent="Node2D"]
-z_index = -1
-position = Vector2(-295, -312)
-texture = ExtResource("8_gy75j")
-
-[node name="BackdropTree2" type="Sprite2D" parent="Node2D"]
-z_index = -1
-position = Vector2(1986, -312)
-texture = ExtResource("8_gy75j")
