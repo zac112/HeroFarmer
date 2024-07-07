@@ -75,7 +75,9 @@ func player_shooting(delta):
 		# TODO melee animation
 		$Marker2D/Area2D/melee_hitbox.disabled = false
 		can_melee = false
+		current_state = State.Shoot
 		$MeleeTimer.start()
+
 
 	if Input.is_action_just_pressed("Platform_shoot") and can_shoot and !is_dead and has_shoot:
 		par = particle.instantiate()
@@ -85,6 +87,7 @@ func player_shooting(delta):
 		current_state = State.Shoot
 		can_shoot = false
 		$ShootTimer.start()
+
 
 		
 func player_muzzle_position():
@@ -155,15 +158,18 @@ func player_jump(delta):
 		last_dir = dire
 
 func player_animation():
-	if current_state == State.Idle:
+	if current_state == State.Idle and animated_sprite_2d.animation != "hit":
 		animated_sprite_2d.play("idle")
-	elif current_state == State.Run:
+	elif current_state == State.Run and animated_sprite_2d.animation != "hit":
 		animated_sprite_2d.play("run")
-	elif current_state == State.Jump:
+	elif current_state == State.Jump and animated_sprite_2d.animation != "hit":
 		animated_sprite_2d.play("idle")
+	elif current_state == State.Shoot:
+		animated_sprite_2d.play("hit")
 		
 
 func _physics_process(delta):
+	print(State.keys()[current_state])
 	if canControl:
 		player_falling(delta)
 		player_idle(delta)
@@ -222,4 +228,3 @@ func _on_melee_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if body.has_method("hit"):
 		body.hit(10000)
-
