@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5jqkm43ky0av"]
+[gd_scene load_steps=8 format=3 uid="uid://b5jqkm43ky0av"]
 
-[ext_resource type="Script" path="res://Assets/Platform/level_1.gd" id="1_p07vm"]
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="2_5ans7"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="3_levup"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="4_qob7w"]
@@ -331,7 +330,6 @@ sources/0 = SubResource("TileSetAtlasSource_mysnq")
 sources/2 = SubResource("TileSetAtlasSource_ioso4")
 
 [node name="Level_final" type="Node2D"]
-script = ExtResource("1_p07vm")
 
 [node name="player_platform" parent="." instance=ExtResource("2_5ans7")]
 position = Vector2(990, -127)
