@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://dpeudpmjgp7gl"]
+[gd_scene load_steps=37 format=3 uid="uid://dpeudpmjgp7gl"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="1_n5est"]
 [ext_resource type="Script" path="res://Assets/Platform/Level1/level_1.gd" id="1_weief"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="2_scurm"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="3_4alr1"]
+[ext_resource type="PackedScene" path="res://Assets/Player/Platform/death_popup.tscn" id="3_50d64"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="5_x24v0"]
 [ext_resource type="AudioStream" uid="uid://cqbp5erqj0hua" path="res://Assets/Audio/E1M1 Bloo - Stricken Commission.ogg" id="7_l1c6a"]
 [ext_resource type="Texture2D" uid="uid://6qi25blllc0o" path="res://Assets/Platform/HANGINGLIGHTALL.png" id="8_4yuyj"]
@@ -455,6 +456,7 @@ script = ExtResource("1_weief")
 
 [node name="player_platform" parent="." instance=ExtResource("1_n5est")]
 position = Vector2(-608, -579)
+death_popup = ExtResource("3_50d64")
 
 [node name="Camera2D" type="Camera2D" parent="player_platform"]
 position = Vector2(16, 29)
