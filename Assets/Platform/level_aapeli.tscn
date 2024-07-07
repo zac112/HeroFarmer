@@ -417,33 +417,53 @@ position = Vector2(178, -1462)
 occluder = SubResource("OccluderPolygon2D_x1744")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-1381, 202)
 occluder = SubResource("OccluderPolygon2D_pvktd")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3692, 1547)
 occluder = SubResource("OccluderPolygon2D_lso5w")
 
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
+occluder = SubResource("OccluderPolygon2D_wysqb")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
 [node name="LightOccluder2D5" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-4218, 906)
 occluder = SubResource("OccluderPolygon2D_o7gvf")
 
 [node name="LightOccluder2D6" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-1881, -1342)
 occluder = SubResource("OccluderPolygon2D_ce1f1")
 
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
 [node name="LightOccluder2D7" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-2657, -1333)
 occluder = SubResource("OccluderPolygon2D_3roof")
 
 [node name="LightOccluder2D8" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
+[node name="LightOccluder2D8" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-2279, -1193)
 occluder = SubResource("OccluderPolygon2D_t7w8o")
 
 [node name="LightOccluder2D9" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
+[node name="LightOccluder2D9" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-195, -983)
 occluder = SubResource("OccluderPolygon2D_8n7hq")
 
+[node name="LightOccluder2D10" type="LightOccluder2D" parent="Graphics/Shadows"]
+position = Vector2(-3680, 2063)
 [node name="LightOccluder2D10" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(2283, -1407)
 occluder = SubResource("OccluderPolygon2D_ayeh5")

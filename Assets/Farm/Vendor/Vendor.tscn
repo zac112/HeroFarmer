@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://coxo0dquxqgjc"]
+[gd_scene load_steps=10 format=3 uid="uid://coxo0dquxqgjc"]
 
 [ext_resource type="Texture2D" uid="uid://c72ld1sukp7c5" path="res://Assets/Platform/Boss/vendor.png" id="1_8o6xs"]
 [ext_resource type="Script" path="res://Assets/Farm/Vendor/Vendor.gd" id="2_8tfg7"]
 [ext_resource type="AudioStream" uid="uid://bkbb3e8cogamu" path="res://Assets/Audio/8bit Bossa.wav" id="4_a5mra"]
-[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="5_nukq8"]
+[ext_resource type="Texture2D" uid="uid://ctdpatycld2wi" path="res://Assets/kuvat/shooting.png" id="4_j512e"]
+[ext_resource type="Texture2D" uid="uid://cdkbojs4ccjs" path="res://Assets/kuvat/double_jump.png" id="5_iwsas"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bye47"]
 atlas = ExtResource("1_8o6xs")
@@ -44,17 +45,18 @@ shape = SubResource("CircleShape2D_6oy8e")
 stream = ExtResource("4_a5mra")
 
 [node name="ItemList" type="ItemList" parent="."]
-offset_left = -296.0
-offset_top = -604.0
-offset_right = 122.0
-offset_bottom = -206.0
+clip_contents = false
+offset_left = -342.0
+offset_top = -310.0
+offset_right = -13.0
+offset_bottom = -209.0
 item_count = 3
 item_0/text = "Shooting"
-item_0/icon = ExtResource("5_nukq8")
+item_0/icon = ExtResource("4_j512e")
 item_1/text = "Double Jump"
-item_1/icon = ExtResource("5_nukq8")
+item_1/icon = ExtResource("5_iwsas")
 item_2/text = "Rapid Fire"
-item_2/icon = ExtResource("5_nukq8")
+item_2/icon = ExtResource("4_j512e")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

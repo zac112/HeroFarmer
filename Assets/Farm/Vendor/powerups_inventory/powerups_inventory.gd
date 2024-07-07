@@ -5,7 +5,6 @@ extends Node
 
 
 func add_powerup(powerup_id : int):
-	print ("Added powerup")
 	if powerup_id == 0:
 		PowerupInventory.has_shoot = true
 	if powerup_id == 1:
