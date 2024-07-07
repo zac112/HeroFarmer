@@ -16,7 +16,8 @@ var seed : Seed
 
 var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
 var turnip_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Turnip_seed.tres")
-var seed_list = [carrot_seed, turnip_seed]
+var pumpkin_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Pumpkin_seed.tres")
+var seed_list = [carrot_seed, turnip_seed, pumpkin_seed]
 
 
 var ready_to_harvest := false
@@ -117,6 +118,7 @@ func plant_seed(seed_id:int):
 		FarmData.plot_list[id] = null
 
 func harvest_plant():
+	CropInventory.pickup_crop(seed.id)
 	plant_seed(-1)
 	harvest_seed_label.visible = false
 	ready_to_harvest = false

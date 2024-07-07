@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SeedItem" load_steps=3 format=3 uid="uid://dfxb0om4uwjiq"]
+
+[ext_resource type="Script" path="res://Assets/Inventory/seed_inventory/seed_item.gd" id="1_lfkav"]
+[ext_resource type="Texture2D" uid="uid://beald5cj0qs8i" path="res://Assets/Farm/Plot/Plant/pumpkin.png" id="2_63mj3"]
+
+[resource]
+script = ExtResource("1_lfkav")
+seed_sprite = ExtResource("2_63mj3")
+seed_name = "Pumpkin Seed"
+id = 2
