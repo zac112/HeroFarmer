@@ -43,6 +43,7 @@ func shoot(dir):
 func spiral():
 	$Sprite.play("front")
 	for i in range(30):
+		i = i*2
 		await get_tree().create_timer(0.2).timeout		
 		shoot(Vector2(cos(i/TAU),sin(i/TAU)))
 		shoot(Vector2(cos(i/TAU+PI),sin(i/TAU+PI)))

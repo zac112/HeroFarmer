@@ -40,7 +40,7 @@ bullet_particle = ExtResource("2_fgdyn")
 sprite_frames = SubResource("SpriteFrames_llk5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+scale = Vector2(0.18, 0.18)
 shape = SubResource("RectangleShape2D_ix2kt")
 
 [node name="BulletAudio" type="AudioStreamPlayer2D" parent="."]

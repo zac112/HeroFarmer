@@ -70,6 +70,14 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_eury0")
 
+[node name="PlayerCollision" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+position = Vector2(-5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_55fht")
+
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-70, 0)
 collision_mask = 8
@@ -87,14 +95,6 @@ collision_mask = 8
 position = Vector2(34, 0)
 target_position = Vector2(0, 60)
 collision_mask = 8
-
-[node name="PlayerCollision" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
-position = Vector2(-5, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_55fht")
 
 [node name="EnemyProximitySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ad7gd")

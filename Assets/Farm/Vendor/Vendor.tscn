@@ -46,10 +46,10 @@ stream = ExtResource("4_a5mra")
 
 [node name="ItemList" type="ItemList" parent="."]
 clip_contents = false
-offset_left = -262.0
-offset_top = -477.0
-offset_right = 122.0
-offset_bottom = -206.0
+offset_left = -342.0
+offset_top = -310.0
+offset_right = -13.0
+offset_bottom = -209.0
 item_count = 3
 item_0/text = "Shooting"
 item_0/icon = ExtResource("4_j512e")
