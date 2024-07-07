@@ -454,7 +454,7 @@ script = ExtResource("1_weief")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="player_platform" parent="." instance=ExtResource("1_n5est")]
-position = Vector2(-758, -578)
+position = Vector2(-608, -579)
 
 [node name="Camera2D" type="Camera2D" parent="player_platform"]
 position = Vector2(16, 29)

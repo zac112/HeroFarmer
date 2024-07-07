@@ -20,6 +20,7 @@ var last_dir = 1
 var playerHealth := 3
 var invincible = false
 var can_shoot = true
+var canControl = false
 
 @onready var playerName = %Label
 
@@ -29,10 +30,18 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	muzzle_position = muzzle.position
 	current_state = State.Idle
+	startLevel()
 
 	
-func _process(delta):
-	pass
+func startLevel(): 
+	animated_sprite_2d.play("run")
+	for i in range(50):
+		velocity.x = 1*SPEED
+		player_falling(0.01)
+		move_and_slide()
+		await get_tree().process_frame
+	animated_sprite_2d.play("idle")
+	canControl = true
 
 
 func player_shooting(delta):
@@ -112,16 +121,15 @@ func player_animation():
 		
 
 func _physics_process(delta):
-	
-	player_falling(delta)
-	player_idle(delta)
-	player_run(delta)
-	player_jump(delta)
-	move_and_slide()
-	player_animation()
-	move_and_slide()
-	player_muzzle_position()
-	player_shooting(delta)
+	if canControl:
+		player_falling(delta)
+		player_idle(delta)
+		player_run(delta)
+		player_jump(delta)
+		player_animation()
+		move_and_slide()
+		player_muzzle_position()
+		player_shooting(delta)
 	
 func input_movement():
 	var direction: float = Input.get_axis("Platform_left", "Platform_right")

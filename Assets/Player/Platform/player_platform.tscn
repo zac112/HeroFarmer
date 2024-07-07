@@ -73,7 +73,6 @@ text = "Player1"
 sprite_frames = SubResource("SpriteFrames_82py8")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.204928
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)
