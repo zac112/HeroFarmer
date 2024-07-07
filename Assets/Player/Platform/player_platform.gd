@@ -16,8 +16,9 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 
-enum State {Idle, Run, Jump, Shoot}
+enum State {Idle, Run, Jump, Shoot, NONE}
 var current_state
+
 
 var last_dir = 1
 
@@ -49,6 +50,7 @@ func _ready():
 	startLevel()
 
 func _process(delta):
+
 	if $MeleeTimer.time_left < 0.4:
 		$Marker2D/Area2D/melee_hitbox.disabled = true
 
@@ -68,14 +70,16 @@ func startLevel():
 
 
 func player_shooting(delta):
-	
+
 	var direction = input_movement()
+
 	
 	if Input.is_action_just_pressed("Platform_shoot") and can_melee:
 		# TODO melee animation
 		$Marker2D/Area2D/melee_hitbox.disabled = false
 		can_melee = false
 		current_state = State.Shoot
+		print("MELEE")
 		$MeleeTimer.start()
 
 
@@ -85,6 +89,7 @@ func player_shooting(delta):
 		par.global_position = muzzle.global_position
 		get_parent().add_child(par)
 		current_state = State.Shoot
+		print("SHOOT")
 		can_shoot = false
 		$ShootTimer.start()
 
@@ -107,8 +112,9 @@ func player_falling(delta):
 		
 
 func player_idle(delta):
-	if is_on_floor():
-		current_state = State.Idle
+	#if is_on_floor() and current_state == State.NONE:
+	#	current_state = State.Idle
+	pass
 
 func player_run(delta):
 	
@@ -124,7 +130,7 @@ func player_run(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 		
-	if direction != 0:
+	if direction != 0 and current_state == State.NONE:
 		current_state = State.Run
 		animated_sprite_2d.flip_h = false if direction > 0 else true
 
@@ -139,11 +145,13 @@ func player_jump(delta):
 	if Input.is_action_just_pressed("Platform_jump") and is_on_floor() and !is_dead:
 		doublejump = true
 		velocity.y = JUMP_VELOCITY
-		current_state = State.Jump
+		if current_state == State.NONE:
+			current_state = State.Jump
 		SfxHandler.play(JUMP_SOUND, get_tree().current_scene)
 	elif Input.is_action_just_pressed("Platform_jump") and !is_on_floor() and doublejump and !is_dead and has_double_jump:
 		velocity.y = JUMP_VELOCITY
-		current_state = State.Jump
+		if current_state == State.NONE:
+			current_state = State.Jump
 		doublejump = false
 	
 	var dire = Input.get_axis("Platform_left", "Platform_right")
@@ -158,15 +166,23 @@ func player_jump(delta):
 		last_dir = dire
 
 func player_animation():
-	if current_state == State.Idle:
+	
+	if animated_sprite_2d.animation == "hit" and animated_sprite_2d.is_playing():
+		return
+	
+	if current_state == State.NONE:
 		animated_sprite_2d.play("idle")
+
 	elif current_state == State.Run:
 		animated_sprite_2d.play("run")
+
 	elif current_state == State.Jump:
 		animated_sprite_2d.play("idle")
+
 	elif current_state == State.Shoot:
 		animated_sprite_2d.play("hit")
 		
+	current_state = State.NONE
 
 func _physics_process(delta):
 	if canControl:
@@ -227,3 +243,4 @@ func _on_melee_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if body.has_method("hit"):
 		body.hit(10000)
+
