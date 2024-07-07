@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpeudpmjgp7gl"]
+[gd_scene load_steps=39 format=3 uid="uid://dpeudpmjgp7gl"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="1_n5est"]
 [ext_resource type="Script" path="res://Assets/Platform/Level1/level_1.gd" id="1_weief"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bv4kpht1v4uv5" path="res://Assets/Platform/STANDINGTORCHALL.png" id="9_ata8m"]
 [ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="9_e3rn7"]
 [ext_resource type="PackedScene" uid="uid://dfocn8dg2df5y" path="res://Assets/Enemies/Enemy_ranged.tscn" id="10_rp17x"]
+[ext_resource type="Texture2D" uid="uid://waa77cjqnkaq" path="res://Assets/kuvat/Platform_leaves.png" id="11_b7kia"]
+[ext_resource type="Texture2D" uid="uid://bycctqxinog3q" path="res://Assets/kuvat/Backdrop_tree.png" id="12_7njad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
 texture = ExtResource("2_scurm")
@@ -583,3 +585,46 @@ position = Vector2(895, -317)
 [node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_l1c6a")
 autoplay = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 37.125)
+
+[node name="PlatformLeaves" type="Sprite2D" parent="Node2D"]
+position = Vector2(-472, -311.665)
+texture = ExtResource("11_b7kia")
+
+[node name="PlatformLeaves2" type="Sprite2D" parent="Node2D"]
+position = Vector2(552, -312.125)
+texture = ExtResource("11_b7kia")
+
+[node name="PlatformLeaves3" type="Sprite2D" parent="Node2D"]
+position = Vector2(1576, -310.665)
+texture = ExtResource("11_b7kia")
+
+[node name="PlatformLeaves4" type="Sprite2D" parent="Node2D"]
+position = Vector2(2599, -310.665)
+texture = ExtResource("11_b7kia")
+
+[node name="PlatformLeaves5" type="Sprite2D" parent="Node2D"]
+position = Vector2(3607, -311.665)
+texture = ExtResource("11_b7kia")
+
+[node name="BackdropTree" type="Sprite2D" parent="Node2D"]
+z_index = -1
+position = Vector2(-508.85, -312)
+texture = ExtResource("12_7njad")
+
+[node name="BackdropTree2" type="Sprite2D" parent="Node2D"]
+z_index = -1
+position = Vector2(536, -345.125)
+texture = ExtResource("12_7njad")
+
+[node name="BackdropTree3" type="Sprite2D" parent="Node2D"]
+z_index = -1
+position = Vector2(2414, -346.125)
+texture = ExtResource("12_7njad")
+
+[node name="BackdropTree4" type="Sprite2D" parent="Node2D"]
+z_index = -1
+position = Vector2(3358, -343.125)
+texture = ExtResource("12_7njad")
