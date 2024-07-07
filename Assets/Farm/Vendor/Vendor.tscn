@@ -46,7 +46,7 @@ offset_bottom = -146.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_6oy8e")
 
-[node name="Background" type="AudioStreamPlayer" parent="."]
+[node name="VendorMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_a5mra")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
