@@ -391,8 +391,7 @@ layer_0/tile_data = PackedInt32Array(-1048608, 65538, 0, -983072, 65538, 1, -917
 position = Vector2(5781, -1495)
 levelEnd = true
 
-[node name="Background" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-1069, -1697)
+[node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_serup")
 volume_db = 7.0
 autoplay = true
