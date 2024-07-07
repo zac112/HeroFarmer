@@ -413,53 +413,58 @@ shadow_item_cull_mask = 3
 height = 0.63
 max_distance = 1.0
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Graphics"]
+[node name="Shadows" type="Node" parent="Graphics"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_x1744")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_pvktd")
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_lso5w")
 
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_wysqb")
 
-[node name="LightOccluder2D5" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_o7gvf")
 
-[node name="LightOccluder2D6" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_ce1f1")
 
-[node name="LightOccluder2D7" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_3roof")
 
-[node name="LightOccluder2D8" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D8" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_t7w8o")
 
-[node name="LightOccluder2D9" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D9" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_8n7hq")
 
-[node name="LightOccluder2D10" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D10" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_ayeh5")
 
-[node name="LightOccluder2D11" type="LightOccluder2D" parent="Graphics"]
+[node name="LightOccluder2D11" type="LightOccluder2D" parent="Graphics/Shadows"]
 position = Vector2(-3680, 2063)
 occluder = SubResource("OccluderPolygon2D_4ux7g")
 
-[node name="PointLight2D" type="PointLight2D" parent="Graphics"]
+[node name="Lights" type="Node" parent="Graphics"]
+
+[node name="PointLight2D" type="PointLight2D" parent="Graphics/Lights"]
 visibility_layer = 3
-position = Vector2(739, 775)
+position = Vector2(569, 735)
+scale = Vector2(2.23358, 1)
 color = Color(1, 0.988061, 0.942845, 1)
 energy = 3.16
 blend_mode = 2
@@ -467,7 +472,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
-[node name="PointLight2D2" type="PointLight2D" parent="Graphics"]
+[node name="PointLight2D2" type="PointLight2D" parent="Graphics/Lights"]
 position = Vector2(-857, -402)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
@@ -476,8 +481,9 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
-[node name="PointLight2D5" type="PointLight2D" parent="Graphics"]
-position = Vector2(306, 725)
+[node name="PointLight2D3" type="PointLight2D" parent="Graphics/Lights"]
+position = Vector2(-44.26, -152.24)
+scale = Vector2(2.11572, 1.95225)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
 blend_mode = 2
@@ -485,8 +491,8 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
-[node name="PointLight2D7" type="PointLight2D" parent="Graphics"]
-position = Vector2(66, 726)
+[node name="PointLight2D4" type="PointLight2D" parent="Graphics/Lights"]
+position = Vector2(-1036, 350)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
 blend_mode = 2
@@ -494,7 +500,17 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
-[node name="PointLight2D6" type="PointLight2D" parent="Graphics"]
+[node name="PointLight2D5" type="PointLight2D" parent="Graphics/Lights"]
+position = Vector2(-80, 729)
+scale = Vector2(2.0511, 1)
+color = Color(1, 1, 0.847059, 1)
+energy = 3.16
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tnp4w")
+texture_scale = 4.11
+
+[node name="PointLight2D6" type="PointLight2D" parent="Graphics/Lights"]
 position = Vector2(-1230, -909)
 scale = Vector2(5.68552, 4.80353)
 color = Color(1, 1, 0.847059, 1)
@@ -504,8 +520,9 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
-[node name="PointLight2D3" type="PointLight2D" parent="Graphics"]
-position = Vector2(-191, -27)
+[node name="PointLight2D7" type="PointLight2D" parent="Graphics/Lights"]
+position = Vector2(-672, 506)
+scale = Vector2(3.60219, 1.24513)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
 blend_mode = 2
@@ -513,16 +530,9 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
-[node name="PointLight2D4" type="PointLight2D" parent="Graphics"]
-position = Vector2(-1036, 350)
-color = Color(1, 1, 0.847059, 1)
-energy = 3.16
-blend_mode = 2
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_tnp4w")
-texture_scale = 4.11
+[node name="Torches" type="Node" parent="Graphics"]
 
-[node name="Hanginglightall" type="AnimatedSprite2D" parent="Graphics"]
+[node name="Hanginglightall" type="AnimatedSprite2D" parent="Graphics/Torches"]
 modulate = Color(0.454524, 0.454524, 0.454524, 1)
 self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
 top_level = true
@@ -532,7 +542,7 @@ position = Vector2(-1203, 295)
 sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
 
-[node name="Hanginglightall2" type="AnimatedSprite2D" parent="Graphics"]
+[node name="Hanginglightall2" type="AnimatedSprite2D" parent="Graphics/Torches"]
 modulate = Color(0.454524, 0.454524, 0.454524, 1)
 self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
 position = Vector2(-1444, 909)
@@ -540,7 +550,7 @@ sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
 frame_progress = 0.681045
 
-[node name="Hanginglightall3" type="AnimatedSprite2D" parent="Graphics"]
+[node name="Hanginglightall3" type="AnimatedSprite2D" parent="Graphics/Torches"]
 modulate = Color(0.454524, 0.454524, 0.454524, 1)
 self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
 position = Vector2(-1635, 895)
@@ -548,7 +558,7 @@ sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
 frame_progress = 0.53384
 
-[node name="Hanginglightall4" type="AnimatedSprite2D" parent="Graphics"]
+[node name="Hanginglightall4" type="AnimatedSprite2D" parent="Graphics/Torches"]
 modulate = Color(0.454524, 0.454524, 0.454524, 1)
 self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
 position = Vector2(-230, -619)
@@ -557,19 +567,19 @@ sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
 frame_progress = 0.403485
 
-[node name="Standingtorchall" type="AnimatedSprite2D" parent="Graphics"]
+[node name="Standingtorchall" type="AnimatedSprite2D" parent="Graphics/Torches"]
 position = Vector2(-1445, 1003)
 sprite_frames = SubResource("SpriteFrames_f243x")
 autoplay = "default"
 frame_progress = 0.527441
 
-[node name="Standingtorchall2" type="AnimatedSprite2D" parent="Graphics"]
+[node name="Standingtorchall2" type="AnimatedSprite2D" parent="Graphics/Torches"]
 position = Vector2(-1214, 1006)
 sprite_frames = SubResource("SpriteFrames_f243x")
 autoplay = "default"
 frame_progress = 0.623783
 
-[node name="Standingtorchall3" type="AnimatedSprite2D" parent="Graphics"]
+[node name="Standingtorchall3" type="AnimatedSprite2D" parent="Graphics/Torches"]
 position = Vector2(-868.5, -141.75)
 scale = Vector2(45.0312, 25.1094)
 sprite_frames = SubResource("SpriteFrames_f243x")
