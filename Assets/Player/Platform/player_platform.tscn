@@ -85,4 +85,9 @@ position = Vector2(17, 0)
 [node name="Invisibility" type="Timer" parent="."]
 one_shot = true
 
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Invisibility" to="." method="_on_invisibility_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

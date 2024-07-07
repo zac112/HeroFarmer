@@ -8,7 +8,6 @@ extends CharacterBody2D
 var par
 var muzzle_position
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -20,6 +19,7 @@ var last_dir = 1
 
 var playerHealth := 3
 var invincible = false
+var can_shoot = true
 
 @onready var playerName = %Label
 
@@ -39,12 +39,15 @@ func player_shooting(delta):
 	
 	var direction = input_movement()
 	
-	if Input.is_action_just_pressed("Platform_shoot"):
+	if Input.is_action_just_pressed("Platform_shoot") and can_shoot:
 		par = particle.instantiate()
 		par.direction = last_dir	
 		par.global_position = muzzle.global_position
 		get_parent().add_child(par)
 		current_state = State.Shoot
+		can_shoot = false
+		$ShootTimer.start()
+
 		
 func player_muzzle_position():
 	
@@ -140,3 +143,7 @@ func take_damage():
 
 func _on_invisibility_timeout():
 	invincible = false
+
+
+func _on_shoot_timer_timeout():
+	can_shoot = true
