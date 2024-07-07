@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnb48i1wwifdu"
-path="res://.godot/imported/Player_attacks.png-52ef82f7e56a7b51d5802d94f8fad733.ctex"
+uid="uid://uncja65cv5yx"
+path="res://.godot/imported/Player_attacks 2.png-87237dd2c2313b85e236c637e39de9f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kuvat/Player_attacks.png"
-dest_files=["res://.godot/imported/Player_attacks.png-52ef82f7e56a7b51d5802d94f8fad733.ctex"]
+source_file="res://Assets/kuvat/Player_attacks 2.png"
+dest_files=["res://.godot/imported/Player_attacks 2.png-87237dd2c2313b85e236c637e39de9f5.ctex"]
 
 [params]
 

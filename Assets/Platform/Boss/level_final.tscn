@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5jqkm43ky0av"]
+[gd_scene load_steps=9 format=3 uid="uid://b5jqkm43ky0av"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="2_5ans7"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="3_levup"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="4_qob7w"]
+[ext_resource type="AudioStream" uid="uid://bdfqkc1f6s8e6" path="res://Assets/Audio/E1M2 MFG38 - Dread Factory.ogg" id="5_edxqs"]
 [ext_resource type="PackedScene" uid="uid://cbc54ppjckeld" path="res://Assets/Platform/Boss/Enemy_boss.tscn" id="6_h5ids"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
@@ -354,3 +355,7 @@ position = Vector2(530, -52)
 
 [node name="Waypoint3" type="Node2D" parent="."]
 position = Vector2(1325, -274)
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_edxqs")
+autoplay = true
