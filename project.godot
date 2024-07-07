@@ -23,6 +23,8 @@ FarmData="*res://Assets/Farm/FarmData.gd"
 SfxHandler="*res://Assets/Audio/SFXHandler.tscn"
 SeedInventory="*res://Assets/Inventory/seed_inventory/seed_inventory.gd"
 PowerupInventory="*res://Assets/Inventory/powerups/powerup_inventory.gd"
+PowerupsInventory="*res://Assets/Farm/Vendor/powerups_inventory/powerups_inventory.gd"
+CropInventory="*res://Assets/Inventory/crop_inventory/crop_inventory.gd"
 
 [display]
 

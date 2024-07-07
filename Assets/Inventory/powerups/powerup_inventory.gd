@@ -1,7 +1,8 @@
 extends Node
 
-var has_shoot := true
-var has_double_jump := true
-var has_rapid_fire := true
-var has_double_dmg := true
-var has_shield := true
+var has_shoot := false
+var has_double_jump := false
+var has_rapid_fire := false
+var has_double_dmg := false
+var has_shield := false
+
