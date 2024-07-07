@@ -116,7 +116,7 @@ death_popup = ExtResource("3_15alw")
 sprite_frames = SubResource("SpriteFrames_82py8")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.243273
+frame_progress = 0.150832
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)

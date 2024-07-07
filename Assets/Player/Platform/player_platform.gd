@@ -158,13 +158,14 @@ func player_jump(delta):
 		last_dir = dire
 
 func player_animation():
-	if current_state == State.Idle and animated_sprite_2d.animation != "hit":
+	if current_state == State.Idle:
 		animated_sprite_2d.play("idle")
-	elif current_state == State.Run and animated_sprite_2d.animation != "hit":
+	elif current_state == State.Run:
 		animated_sprite_2d.play("run")
-	elif current_state == State.Jump and animated_sprite_2d.animation != "hit":
+	elif current_state == State.Jump:
 		animated_sprite_2d.play("idle")
 	elif current_state == State.Shoot:
+		print("hitting")
 		animated_sprite_2d.play("hit")
 		
 
