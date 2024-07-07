@@ -79,7 +79,6 @@ func player_shooting(delta):
 		$Marker2D/Area2D/melee_hitbox.disabled = false
 		can_melee = false
 		current_state = State.Shoot
-		print("MELEE")
 		$MeleeTimer.start()
 
 
@@ -89,7 +88,6 @@ func player_shooting(delta):
 		par.global_position = muzzle.global_position
 		get_parent().add_child(par)
 		current_state = State.Shoot
-		print("SHOOT")
 		can_shoot = false
 		$ShootTimer.start()
 
