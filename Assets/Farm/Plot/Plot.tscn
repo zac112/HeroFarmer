@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xe47faicgkl1"]
+[gd_scene load_steps=17 format=3 uid="uid://xe47faicgkl1"]
 
 [ext_resource type="Script" path="res://Assets/Farm/Plot/Plot.gd" id="1_fr6ra"]
 [ext_resource type="Texture2D" uid="uid://b1rq6i015x7pc" path="res://Assets/Farm/Plot/Plant/carrot.png" id="3_wwk4p"]
@@ -94,6 +94,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_sgy45"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Plot" type="Area2D"]
 script = ExtResource("1_fr6ra")
 
@@ -134,17 +138,22 @@ offset_top = -92.0
 offset_right = 66.0
 offset_bottom = -65.0
 text = "Growth stage: "
+label_settings = SubResource("LabelSettings_sgy45")
 
 [node name="ItemList" type="ItemList" parent="."]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(20, 20)
-offset_left = -73.0
-offset_top = -235.0
-offset_right = 73.0
-offset_bottom = -105.0
+offset_left = -131.0
+offset_top = -327.0
+offset_right = 15.0
+offset_bottom = -197.0
+scale = Vector2(1.79124, 1.6)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+max_text_lines = 3
+auto_height = true
 max_columns = 3
-metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
