@@ -2,7 +2,11 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
+<<<<<<< HEAD
 uid="uid://do03tpre3gvf0"
+=======
+uid="uid://dx1yhsxkr3b8g"
+>>>>>>> 58618a1 (spider death import tracked)
 path="res://.godot/imported/spider_death_fastzombie1.ogg-3ba148912c9235ee10f13b9b3d07a3cf.oggvorbisstr"
 
 [deps]
