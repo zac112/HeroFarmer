@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://d35hvc1j8miim"]
+[gd_scene load_steps=2 format=3 uid="uid://d35hvc1j8miim"]
+
+[ext_resource type="AudioStream" uid="uid://c2a2wdrywdwck" path="res://Assets/Audio/Won!.wav" id="1_ndvhr"]
 
 [node name="TheEnd" type="Node2D"]
 
@@ -8,3 +10,6 @@ offset_bottom = 23.0
 text = "You win!"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ndvhr")
