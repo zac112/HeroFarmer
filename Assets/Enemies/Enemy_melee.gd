@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-const OOF = preload("res://Assets/Audio/01._damage_grunt_male.wav")
-@onready var bg2 = $"../Background"
+const PLAYER_HURT = preload("res://Assets/Audio/01._damage_grunt_male.wav")
 
 const SPEED = 250
 const GRAVITY = 500
@@ -48,8 +47,6 @@ func _physics_process(delta):
 
 func _on_player_detection_body_entered(body):
 	$EnemyProximitySound.play()
-	bg2.stop()
-	
 	if body.name == "player_platform":
 		player = body
 		following = true
@@ -58,12 +55,10 @@ func _on_player_detection_body_entered(body):
 func _on_player_detection_body_exited(body):
 	if body.name == "player_platform":
 		following = false
-	$EnemyProximitySound.stop()
-	bg2.play()
 
 func _on_player_collision_body_entered(body):
 	if body.has_method("take_damage"):
-		SfxHandler.play(OOF, get_tree().current_scene)
+		SfxHandler.play(PLAYER_HURT, get_tree().current_scene)
 		body.take_damage()
 
 
