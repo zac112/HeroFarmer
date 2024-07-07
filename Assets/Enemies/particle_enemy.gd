@@ -1,6 +1,6 @@
 extends Node2D
 
-const BULLET = preload("res://Assets/Audio/Rifleprimary2.ogg")
+const BULLET = preload("res://Assets/Audio/Voicy_Spider-Man web shoot sound effect.wav")
 
 var speed = 500
 var direction = 1
