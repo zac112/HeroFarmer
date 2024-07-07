@@ -22,6 +22,7 @@ SceneHandler="*res://Assets/SceneHandler/SceneHandler.gd"
 FarmData="*res://Assets/Farm/FarmData.gd"
 SfxHandler="*res://Assets/Audio/SFXHandler.tscn"
 SeedInventory="*res://Assets/Inventory/seed_inventory/seed_inventory.gd"
+PowerupInventory="*res://Assets/Inventory/powerups/powerup_inventory.gd"
 
 [display]
 

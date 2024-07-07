@@ -30,11 +30,13 @@ var is_dead = false
 
 # TODO dummy var
 var doublejump = true
+var has_double_jump = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	has_double_jump = PowerupInventory.has_double_jump
 	muzzle_position = muzzle.position
 	current_state = State.Idle
 
@@ -103,14 +105,15 @@ func player_jump(delta):
 	disabled below until powerup works from inventory
 	"""
 	
-	doublejump = false
 	if Input.is_action_just_pressed("Platform_jump") and is_on_floor() and !is_dead:
+		doublejump = true
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
 		SfxHandler.play(JUMP_SOUND, get_tree().current_scene)
-	elif Input.is_action_just_pressed("Platform_jump") and !is_on_floor() and doublejump and !is_dead:
+	elif Input.is_action_just_pressed("Platform_jump") and !is_on_floor() and doublejump and !is_dead and has_double_jump:
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
+		doublejump = false
 	
 	var dire = Input.get_axis("Platform_left", "Platform_right")
 	
