@@ -186,7 +186,7 @@ func take_damage():
 		playerHealth -= 1
 		$AnimatedSprite2D.modulate.a -= 0.33
 		if playerHealth <= 0:
-			pass
+			die()
 		
 		invincible = true
 		$Invisibility.start()
@@ -220,7 +220,6 @@ func _on_melee_timer_timeout():
 	
 
 func _on_area_2d_body_entered(body):
-
 	if body.has_method("hit"):
 		body.hit(10000)
 

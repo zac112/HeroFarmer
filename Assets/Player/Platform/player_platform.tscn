@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://Assets/Player/Platform/player_platform.gd" id="1_uttb6"]
 [ext_resource type="Texture2D" uid="uid://b7hex7r7x46h6" path="res://Assets/Player/Platform/peli.png" id="2_86gsd"]
-
 [ext_resource type="PackedScene" uid="uid://bfkdqfodthehd" path="res://Assets/Player/Platform/player_death_particles.tscn" id="2_smvec"]
-[ext_resource type="PackedScene" uid="uid://dxmwdnavcymr7" path="res://Assets/Player/Platform/death_popup.tscn" id="3_15alw"]
+[ext_resource type="PackedScene" uid="uid://cq4o80vmyg1w7" path="res://Assets/Player/Platform/death_popup.tscn" id="3_15alw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtt0y"]
 atlas = ExtResource("2_86gsd")
@@ -85,6 +84,7 @@ shape = SubResource("RectangleShape2D_me8ic")
 position = Vector2(17, 0)
 
 [node name="Area2D" type="Area2D" parent="Marker2D"]
+collision_mask = 5
 
 [node name="melee_hitbox" type="CollisionShape2D" parent="Marker2D/Area2D"]
 position = Vector2(1, -1)

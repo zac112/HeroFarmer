@@ -25,7 +25,9 @@ var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
 var can_follow = true
 
 func _physics_process(delta):
-	if !can_follow:
+	if $FollowCooldown.time_left < 0.8 and !can_follow and is_on_floor():
+		velocity.y = -100
+	elif !can_follow:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	elif following:
 		if player.position.x - position.x > 0:
