@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6m8b8lh4fgmw"]
+
+[ext_resource type="Script" path="res://Assets/TheStart/Start.gd" id="1_7o5qv"]
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_7o5qv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 448.0
+offset_top = 348.0
+offset_right = 540.0
+offset_bottom = 371.0
+text = "Start Game!"
+
+[node name="Credits" type="Label" parent="."]
+offset_left = 418.0
+offset_top = 516.0
+offset_right = 529.0
+offset_bottom = 565.0
+text = "Art:
+
+Programming:"
