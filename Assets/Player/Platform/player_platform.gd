@@ -224,7 +224,8 @@ func die():
 	visible = false
 	get_parent().add_child(deathp)
 	get_parent().add_child(deathpop)
-	background_music.stop()
+	if background_music:
+		background_music.stop()
 	SfxHandler.play(DEATH_SOUND, get_tree().current_scene)
 
 func _on_invisibility_timeout():
