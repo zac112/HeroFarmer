@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Assets/Player/Platform/player_platform.gd" id="1_uttb6"]
 [ext_resource type="Texture2D" uid="uid://b7hex7r7x46h6" path="res://Assets/Player/Platform/peli.png" id="2_86gsd"]
 [ext_resource type="PackedScene" path="res://Assets/Player/Platform/player_death_particles.tscn" id="2_smvec"]
-[ext_resource type="PackedScene" path="res://Assets/Player/Platform/death_popup.tscn" id="3_15alw"]
+[ext_resource type="PackedScene" uid="uid://dxmwdnavcymr7" path="res://Assets/Player/Platform/death_popup.tscn" id="3_15alw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtt0y"]
 atlas = ExtResource("2_86gsd")

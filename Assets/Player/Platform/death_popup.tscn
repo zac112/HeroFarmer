@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cq4o80vmyg1w7"]
+[gd_scene format=3 uid="uid://dxmwdnavcymr7"]
 
 [node name="DeathPopup" type="Control"]
 layout_mode = 3

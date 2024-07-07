@@ -9,6 +9,8 @@ var par
 var muzzle_position
 
 const JUMP_SOUND = preload("res://Assets/Audio/029_Decline_09.wav")
+const DEATH_SOUND = preload("res://Assets/Audio/game_over_bad_chest.wav")
+@onready var background_music = $"../Background"
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -197,3 +199,5 @@ func die():
 	visible = false
 	get_parent().add_child(deathp)
 	get_parent().add_child(deathpop)
+	background_music.stop()
+	SfxHandler.play(DEATH_SOUND, get_tree().current_scene)
