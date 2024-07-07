@@ -231,6 +231,9 @@ func die():
 		background_music.stop()
 	SfxHandler.play(DEATH_SOUND, get_tree().current_scene)
 
+func hit(damage):
+	take_damage()
+	
 func _on_invisibility_timeout():
 	invincible = false
 
