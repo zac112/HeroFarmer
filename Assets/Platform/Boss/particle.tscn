@@ -28,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2kt"]
-size = Vector2(129, 125)
+size = Vector2(16, 17)
 
 [node name="Particle2" type="Area2D"]
 collision_layer = 32
@@ -40,7 +40,7 @@ bullet_particle = ExtResource("2_fgdyn")
 sprite_frames = SubResource("SpriteFrames_llk5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.18, 0.18)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ix2kt")
 
 [node name="BulletAudio" type="AudioStreamPlayer2D" parent="."]

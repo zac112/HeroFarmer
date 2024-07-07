@@ -24,8 +24,8 @@ func _on_body_entered(body):
 		particle.emitting = true
 		particle.position = position
 		get_parent().add_child(particle)
-		if body.has_method("hit"):
-			body.hit(damage)
+		if body.has_method("take_damage"):
+			body.take_damage()
 		destroy()
 		
 func destroy():

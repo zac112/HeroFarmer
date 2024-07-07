@@ -50,9 +50,9 @@ func add_seeds_from_inventory():
 	display_seed_list.clear()
 	for i in SeedInventory.inventory:
 		if i.quantity > 0:
-			display_seed_list.add_item(i.seed_name, i.seed_sprite)
+			display_seed_list.add_item(i.seed_name + "(" + str(i.quantity) + ")", i.seed_sprite)
 		else:
-			display_seed_list.add_item(i.seed_name, i.seed_sprite, false)
+			display_seed_list.add_item(i.seed_name + "(" + str(i.quantity) + ")", i.seed_sprite, false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
