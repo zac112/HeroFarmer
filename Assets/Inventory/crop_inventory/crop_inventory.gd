@@ -1,10 +1,13 @@
 extends Node
 
 var carrot : CropItem = load("res://Assets/Inventory/crop_inventory/carrot.tres")
-var potato : CropItem = load("res://Assets/Inventory/crop_inventory/potato.tres")
-var corn : CropItem = load("res://Assets/Inventory/crop_inventory/corn.tres")
+var pumpkin : CropItem = load("res://Assets/Inventory/crop_inventory/pumpkin.tres")
+var turnip : CropItem = load("res://Assets/Inventory/crop_inventory/turnip.tres")
+var tomato : CropItem = load("res://Assets/Inventory/crop_inventory/tomato.tres")
+var wheat : CropItem = load("res://Assets/Inventory/crop_inventory/wheat.tres")
 
-var crop_inventory = [carrot, potato, corn] 
+
+var crop_inventory = [carrot, pumpkin, tomato, turnip, wheat] 
 
 
 func pickup_crop(crop_id : int):

@@ -37,14 +37,13 @@ var has_double_jump = false
 
 var can_melee = true
 var can_shoot = true
-var has_shoot = false
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	has_double_jump = PowerupInventory.has_double_jump
-	has_shoot = PowerupInventory.has_shoot
 	muzzle_position = muzzle.position
 	current_state = State.Idle
 	startLevel()
@@ -67,7 +66,8 @@ func startLevel():
 	animated_sprite_2d.play("idle")
 	canControl = true
 
-
+func has_shoot():
+	return PowerupInventory.has_shoot
 
 func player_shooting(delta):
 
@@ -82,7 +82,7 @@ func player_shooting(delta):
 		$MeleeTimer.start()
 
 
-	if Input.is_action_just_pressed("Platform_shoot") and can_shoot and !is_dead and has_shoot:
+	if Input.is_action_just_pressed("Platform_shoot") and can_shoot and !is_dead and has_shoot():
 		par = particle.instantiate()
 		par.direction = last_dir	
 		par.global_position = muzzle.global_position

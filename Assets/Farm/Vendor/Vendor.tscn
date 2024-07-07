@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c72ld1sukp7c5" path="res://Assets/Platform/Boss/vendor.png" id="1_8o6xs"]
 [ext_resource type="Script" path="res://Assets/Farm/Vendor/Vendor.gd" id="2_8tfg7"]
-[ext_resource type="PackedScene" uid="uid://c8twh3se8vqx" path="res://Assets/Farm/Vendor/powerups_inventory/control.tscn" id="3_lnnvj"]
 [ext_resource type="AudioStream" uid="uid://bkbb3e8cogamu" path="res://Assets/Audio/8bit Bossa.wav" id="4_a5mra"]
+[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="5_nukq8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bye47"]
 atlas = ExtResource("1_8o6xs")
@@ -35,13 +35,6 @@ position = Vector2(354, 208)
 sprite_frames = SubResource("SpriteFrames_b5qnj")
 script = ExtResource("2_8tfg7")
 
-[node name="VendorUI" parent="." instance=ExtResource("3_lnnvj")]
-visible = false
-offset_left = -313.0
-offset_top = -502.0
-offset_right = -28.0
-offset_bottom = -146.0
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -51,16 +44,17 @@ shape = SubResource("CircleShape2D_6oy8e")
 stream = ExtResource("4_a5mra")
 
 [node name="ItemList" type="ItemList" parent="."]
-offset_left = -262.0
-offset_top = -441.0
-offset_right = -76.0
-offset_bottom = -210.0
-item_count = 5
-item_0/text = "1"
-item_1/text = "2"
-item_2/text = "3"
-item_3/text = "4"
-item_4/text = "5"
+offset_left = -296.0
+offset_top = -604.0
+offset_right = 122.0
+offset_bottom = -206.0
+item_count = 3
+item_0/text = "Shooting"
+item_0/icon = ExtResource("5_nukq8")
+item_1/text = "Double Jump"
+item_1/icon = ExtResource("5_nukq8")
+item_2/text = "Rapid Fire"
+item_2/icon = ExtResource("5_nukq8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
