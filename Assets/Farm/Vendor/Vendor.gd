@@ -43,11 +43,11 @@ func _on_area_2d_body_exited(body):
 	FarmMusic.play()
 
 func buy_powerup(select_powerup_id: int):
-	update_items()
 	if CropInventory.crop_inventory[select_powerup_id].quantity > 0:
 		CropInventory.remove_crop(select_powerup_id)
 		PowerupsInventory.add_powerup(select_powerup_id)
-	select_powerup_id = -1	
+	select_powerup_id = -1
+	update_items()
 
 
 func _on_item_list_item_selected(index):
