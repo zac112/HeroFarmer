@@ -72,8 +72,6 @@ shape = SubResource("CircleShape2D_pnijh")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
-[connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]
-[connection signal="body_exited" from="PlayerCollision" to="." method="_on_player_collision_body_exited"]
 [connection signal="timeout" from="ParticleCooldown" to="." method="_on_particle_cooldown_timeout"]
 [connection signal="body_entered" from="FleeZone" to="." method="_on_flee_zone_body_entered"]
 [connection signal="body_exited" from="FleeZone" to="." method="_on_flee_zone_body_exited"]

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const PLAYER_HURT = preload("res://Assets/Audio/01._damage_grunt_male.wav")
 
-const SPEED = 150
+@export var SPEED = 150
 const GRAVITY = 500
 var direction = 1
 
@@ -15,6 +15,7 @@ var health = 50
 
 var rng = RandomNumberGenerator.new()
 @export var seed_item : PackedScene
+@export var seed_drop_rate = 4
 var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
 
 @onready var ray_cast_left = $RayCastLeft
@@ -28,7 +29,7 @@ func _physics_process(delta):
 	if $FollowCooldown.time_left < 0.8 and !can_follow and is_on_floor():
 		velocity.y = -100
 	elif !can_follow:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, 250)
 	elif following:
 		if player.position.x - position.x > 0:
 			direction = 1
@@ -71,15 +72,12 @@ func _on_player_detection_body_exited(body):
 func _on_player_collision_body_entered(body):
 	if body.has_method("take_damage"):
 		SfxHandler.play(PLAYER_HURT, get_tree().current_scene)
-		body.take_damage()
+		colliding = true
 		can_follow = false
 		velocity.x = direction * -1 * 1500
 		velocity.y = -200
 		$FollowCooldown.start()
 		move_and_slide()
-
-
-		colliding = true
 
 
 func _on_player_collision_body_exited(body):
@@ -90,8 +88,8 @@ func _on_player_collision_body_exited(body):
 func hit(damage:int):
 	health -= damage
 	if health <= 0:
-		var drop = rng.randi_range(1,2)
-		if drop == 2:
+		var drop = rng.randi_range(1,seed_drop_rate)
+		if drop == 1:
 			var seed = seed_item.instantiate()
 			seed.position = position
 			get_parent().add_child(seed)

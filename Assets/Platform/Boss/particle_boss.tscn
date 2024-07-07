@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blebom6ynbcu"]
+[gd_scene load_steps=5 format=3 uid="uid://blebom6ynbcu"]
 
 [ext_resource type="Script" path="res://Assets/Platform/Boss/particle.gd" id="1_8dey7"]
 [ext_resource type="PackedScene" uid="uid://ciqkl5oiycy2g" path="res://Assets/Player/Platform/bullet_particle.tscn" id="2_vrray"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="3_fbukp"]
-[ext_resource type="AudioStream" uid="uid://jxx4o4uhh6xr" path="res://Assets/Audio/fire_sound_effect.wav" id="4_3i413"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2kt"]
 size = Vector2(29, 29)
@@ -23,6 +22,5 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ix2kt")
 
 [node name="BulletAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_3i413")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
