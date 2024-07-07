@@ -389,7 +389,6 @@ layer_0/tile_data = PackedInt32Array(-1048608, 65538, 0, -983072, 65538, 1, -917
 
 [node name="SceneTransition" parent="." instance=ExtResource("5_x24v0")]
 position = Vector2(5781, -1495)
-collision_mask = 3
 levelEnd = true
 
 [node name="Background" type="AudioStreamPlayer2D" parent="."]
@@ -497,7 +496,7 @@ texture = SubResource("GradientTexture2D_tnp4w")
 texture_scale = 4.11
 
 [node name="PointLight2D6" type="PointLight2D" parent="Graphics"]
-position = Vector2(-1229, -909)
+position = Vector2(-1230, -909)
 scale = Vector2(5.68552, 4.80353)
 color = Color(1, 1, 0.847059, 1)
 energy = 3.16
@@ -553,7 +552,8 @@ frame_progress = 0.53384
 [node name="Hanginglightall4" type="AnimatedSprite2D" parent="Graphics"]
 modulate = Color(0.454524, 0.454524, 0.454524, 1)
 self_modulate = Color(0.930764, 0.979263, 0.999316, 1)
-position = Vector2(-1002, 945)
+position = Vector2(-230, -619)
+scale = Vector2(45.3906, 17.25)
 sprite_frames = SubResource("SpriteFrames_0edfc")
 autoplay = "default"
 frame_progress = 0.403485
@@ -571,8 +571,8 @@ autoplay = "default"
 frame_progress = 0.623783
 
 [node name="Standingtorchall3" type="AnimatedSprite2D" parent="Graphics"]
-position = Vector2(-548, 218)
-scale = Vector2(65.0625, 48.1562)
+position = Vector2(-868.5, -141.75)
+scale = Vector2(45.0312, 25.1094)
 sprite_frames = SubResource("SpriteFrames_f243x")
 autoplay = "default"
 frame_progress = 0.839094
