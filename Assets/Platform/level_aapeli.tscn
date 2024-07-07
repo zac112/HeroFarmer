@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="2_scurm"]
 [ext_resource type="Texture2D" uid="uid://cirdan2p8mim" path="res://Assets/Platform/BASICTILESET1.png" id="3_4alr1"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="5_x24v0"]
-[ext_resource type="AudioStream" uid="uid://cqbp5erqj0hua" path="res://Assets/Audio/E1M1 Bloo - Stricken Commission.ogg" id="7_l1c6a"]
+[ext_resource type="AudioStream" uid="uid://nd3yephtpabi" path="res://Assets/Audio/enchanted tiki 86.wav" id="6_serup"]
 [ext_resource type="Texture2D" uid="uid://6qi25blllc0o" path="res://Assets/Platform/HANGINGLIGHTALL.png" id="8_4yuyj"]
 [ext_resource type="Texture2D" uid="uid://bv4kpht1v4uv5" path="res://Assets/Platform/STANDINGTORCHALL.png" id="9_ata8m"]
 [ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="9_e3rn7"]
@@ -393,7 +393,7 @@ levelEnd = true
 
 [node name="Background" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-1069, -1697)
-stream = ExtResource("7_l1c6a")
+stream = ExtResource("6_serup")
 volume_db = 7.0
 autoplay = true
 
