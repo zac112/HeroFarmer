@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ceyprv8fnrpvc"
+path="res://.godot/imported/E1M2 MFG38 - Dread Factory.ogg-8ac7cc2cf510f3c66b6459c3c2cca17d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/E1M2 MFG38 - Dread Factory.ogg"
+dest_files=["res://.godot/imported/E1M2 MFG38 - Dread Factory.ogg-8ac7cc2cf510f3c66b6459c3c2cca17d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
