@@ -1,22 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw3ikyswygkd5"]
+[gd_scene load_steps=9 format=3 uid="uid://bw3ikyswygkd5"]
 
 [ext_resource type="Script" path="res://Assets/Platform/Boss/particle.gd" id="1_15ajx"]
 [ext_resource type="PackedScene" uid="uid://ciqkl5oiycy2g" path="res://Assets/Player/Platform/bullet_particle.tscn" id="2_fgdyn"]
-[ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="3_nmji3"]
+[ext_resource type="Texture2D" uid="uid://bhp28jxdnskoa" path="res://Assets/Platform/Boss/fireball.png" id="3_mqusk"]
 [ext_resource type="AudioStream" uid="uid://cvpk07wgw7h37" path="res://Assets/Audio/Rifleprimary2.ogg" id="4_wfx2j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfktx"]
+atlas = ExtResource("3_mqusk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc74s"]
+atlas = ExtResource("3_mqusk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_llk5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfktx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc74s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2kt"]
 size = Vector2(129, 125)
 
-[node name="Particle" type="Area2D"]
+[node name="Particle2" type="Area2D"]
 collision_layer = 32
 collision_mask = 59
 script = ExtResource("1_15ajx")
 bullet_particle = ExtResource("2_fgdyn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_nmji3")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_llk5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)

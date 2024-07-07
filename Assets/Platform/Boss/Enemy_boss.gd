@@ -18,7 +18,7 @@ var hits = 0
 
 
 func _ready():
-	
+	$Sprite.play("vendor")
 	player = $"../player_platform"
 	waypoints = get_parent().find_children("Waypoint*")
 	
@@ -41,12 +41,14 @@ func shoot(dir):
 	get_parent().add_child(par)
 		
 func spiral():
+	$Sprite.play("front")
 	for i in range(30):
 		await get_tree().create_timer(0.2).timeout		
 		shoot(Vector2(cos(i/TAU),sin(i/TAU)))
 		shoot(Vector2(cos(i/TAU+PI),sin(i/TAU+PI)))
 	
 func targeted():
+	$Sprite.play("front")
 	for i in range(5):
 		await get_tree().create_timer(0.2).timeout
 		shoot(global_position.direction_to(player.global_position))
@@ -69,4 +71,6 @@ func _on_start_boss_body_entered(body):
 	timer.one_shot = true
 	timer.start()
 	timer.connect("timeout",chooseAttack)
+	$Sprite.play("left")
+	global_position = waypoints[2].global_position
 	trigger.queue_free()
