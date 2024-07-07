@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://sxq6nbt1thvm"]
+[gd_scene load_steps=8 format=3 uid="uid://sxq6nbt1thvm"]
 
 [ext_resource type="PackedScene" uid="uid://bmgb44mjeck5g" path="res://Assets/Player/Farm/Player_farm.tscn" id="1_25rqv"]
 [ext_resource type="PackedScene" uid="uid://vgofjgcnkrxk" path="res://Assets/SceneHandler/SceneTransition.tscn" id="1_eyvf1"]
 [ext_resource type="PackedScene" uid="uid://xe47faicgkl1" path="res://Assets/Farm/Plot/Plot.tscn" id="2_rhhvb"]
-[ext_resource type="Texture2D" uid="uid://c43uu0uviwmny" path="res://Assets/Farm/Background.png" id="3_tfr44"]
+[ext_resource type="Texture2D" uid="uid://dmj8ot647hnvp" path="res://Assets/Farm/background.png" id="4_114y7"]
 [ext_resource type="Texture2D" uid="uid://dy65lngyia1iq" path="res://Assets/Farm/House.png" id="4_j2vln"]
 [ext_resource type="Script" path="res://Assets/Farm/Clouds/Cloudspawner.gd" id="6_62ewd"]
-[ext_resource type="AudioStream" uid="uid://cugy4qnjt623h" path="res://Assets/Audio/Snowland Loop Short.wav" id="8_01yxi"]
 [ext_resource type="PackedScene" uid="uid://coxo0dquxqgjc" path="res://Assets/Farm/Vendor/Vendor.tscn" id="8_s1s0d"]
 
 [node name="Farm" type="Node2D"]
@@ -21,7 +20,7 @@ position = Vector2(-306, 202)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-texture = ExtResource("3_tfr44")
+texture = ExtResource("4_114y7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -35,22 +34,17 @@ script = ExtResource("6_62ewd")
 
 [node name="Plot2" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(-150, 202)
-id = 1
 
 [node name="Plot3" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(12, 203)
-id = 2
 
 [node name="Plot4" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(173, 202)
-id = 3
 
 [node name="Plot5" parent="." instance=ExtResource("2_rhhvb")]
 position = Vector2(-12, -194)
-id = 4
 
 [node name="Vendor" parent="." instance=ExtResource("8_s1s0d")]
 
-[node name="FarmMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_01yxi")
+[node name="Background2" type="AudioStreamPlayer" parent="."]
 autoplay = true

@@ -23,7 +23,6 @@ var last_dir = 1
 
 var playerHealth := 3
 var invincible = false
-var can_shoot = true
 var canControl = false
 
 @export var death_particles : PackedScene
@@ -31,10 +30,12 @@ var canControl = false
 var is_dead = false
 
 
-# TODO dummy var
+
 var doublejump = true
 var has_double_jump = false
 
+var can_melee = true
+var can_shoot = true
 var has_shoot = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -47,6 +48,12 @@ func _ready():
 	current_state = State.Idle
 	startLevel()
 
+func _process(delta):
+	if $MeleeTimer.time_left < 0.4:
+		$Marker2D/Area2D/melee_hitbox.disabled = true
+
+	if is_dead and Input.is_action_just_pressed("Platform_shoot"):
+		SceneHandler.loadScene("res://Assets/Farm/Farm.tscn")
 	
 func startLevel(): 
 	animated_sprite_2d.play("run")
@@ -58,15 +65,18 @@ func startLevel():
 	animated_sprite_2d.play("idle")
 	canControl = true
 
-func _process(delta):
-	if is_dead and Input.is_action_just_pressed("Platform_shoot"):
-		SceneHandler.loadScene("res://Assets/Farm/Farm.tscn")
 
 
 func player_shooting(delta):
 	
 	var direction = input_movement()
 	
+	if Input.is_action_just_pressed("Platform_shoot") and can_melee:
+		# TODO melee animation
+		$Marker2D/Area2D/melee_hitbox.disabled = false
+		can_melee = false
+		$MeleeTimer.start()
+
 	if Input.is_action_just_pressed("Platform_shoot") and can_shoot and !is_dead and has_shoot:
 		par = particle.instantiate()
 		par.direction = last_dir	
@@ -83,8 +93,10 @@ func player_muzzle_position():
 	
 	if direction > 0:
 		muzzle.position.x = muzzle_position.x
+
 	elif direction < 0:
 		muzzle.position.x = -muzzle_position.x
+
 
 func player_falling(delta):
 	if !is_on_floor():
@@ -180,12 +192,6 @@ func take_damage():
 		$Invisibility.start()
 
 
-func _on_invisibility_timeout():
-	invincible = false
-
-
-func _on_shoot_timer_timeout():
-	can_shoot = true
 
 func die():
 	if is_dead:
@@ -201,3 +207,19 @@ func die():
 	get_parent().add_child(deathpop)
 	background_music.stop()
 	SfxHandler.play(DEATH_SOUND, get_tree().current_scene)
+
+func _on_invisibility_timeout():
+	invincible = false
+
+
+func _on_shoot_timer_timeout():
+	can_shoot = true
+
+func _on_melee_timer_timeout():
+	can_melee = true
+	
+
+func _on_area_2d_body_entered(body):
+	if body.has_method("hit"):
+		body.hit(10000)
+
