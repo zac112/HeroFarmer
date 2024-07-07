@@ -390,11 +390,6 @@ position = Vector2(3593, -119)
 collision_mask = 3
 levelEnd = true
 
-[node name="Background" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_l1c6a")
-volume_db = 7.0
-autoplay = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.241156, 0.241156, 0.241156, 1)
 
@@ -582,3 +577,7 @@ position = Vector2(3034, -351)
 
 [node name="Enemy_ranged" parent="." instance=ExtResource("10_rp17x")]
 position = Vector2(257, -72)
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l1c6a")
+autoplay = true
