@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dpeudpmjgp7gl"]
+[gd_scene load_steps=37 format=3 uid="uid://dpeudpmjgp7gl"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="1_n5est"]
 [ext_resource type="Script" path="res://Assets/Platform/Level1/level_1.gd" id="1_weief"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://6qi25blllc0o" path="res://Assets/Platform/HANGINGLIGHTALL.png" id="8_4yuyj"]
 [ext_resource type="Texture2D" uid="uid://bv4kpht1v4uv5" path="res://Assets/Platform/STANDINGTORCHALL.png" id="9_ata8m"]
 [ext_resource type="PackedScene" uid="uid://dgc3dnychgmd4" path="res://Assets/Enemies/Enemy_melee.tscn" id="9_e3rn7"]
-[ext_resource type="PackedScene" uid="uid://dfocn8dg2df5y" path="res://Assets/Enemies/Enemy_ranged.tscn" id="10_rp17x"]
+[ext_resource type="PackedScene" path="res://Assets/Enemies/Enemy_ranged.tscn" id="10_rp17x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mysnq"]
 texture = ExtResource("2_scurm")

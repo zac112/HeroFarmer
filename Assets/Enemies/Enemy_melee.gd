@@ -51,13 +51,16 @@ func _physics_process(delta):
 
 
 func _on_player_detection_body_entered(body):
-	if !$EnemyProximitySound.playing:
-		$EnemyProximitySound.play()
+	if $SoundCooldown.is_stopped():
+		$SoundCooldown.start()
 		
 	if body.name == "player_platform":
 		player = body
 		following = true
 
+func _on_sound_cooldown_timeout():
+	$EnemyProximitySound.play()
+	$SoundCooldown.start()
 
 func _on_player_detection_body_exited(body):
 	if body.name == "player_platform":
