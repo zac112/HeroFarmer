@@ -63,7 +63,11 @@ stream = ExtResource("4_lg156")
 volume_db = 10.351
 max_distance = 444.0
 
+[node name="FollowCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]
 [connection signal="body_exited" from="PlayerCollision" to="." method="_on_player_collision_body_exited"]
+[connection signal="timeout" from="FollowCooldown" to="." method="_on_follow_cooldown_timeout"]

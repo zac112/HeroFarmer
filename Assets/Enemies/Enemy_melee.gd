@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const PLAYER_HURT = preload("res://Assets/Audio/01._damage_grunt_male.wav")
 
-const SPEED = 250
+const SPEED = 150
 const GRAVITY = 500
 var direction = 1
 
@@ -22,8 +22,12 @@ var carrot_seed = load("res://Assets/Farm/Plot/Plant/Seeds/Carrot_seed.tres")
 @onready var ray_cast_down_left = $RayCastDownLeft
 @onready var ray_cast_down_right = $RayCastDownRight
 
+var can_follow = true
+
 func _physics_process(delta):
-	if following:
+	if !can_follow:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	elif following:
 		if player.position.x - position.x > 0:
 			direction = 1
 		elif player.position.x - position.x < 0:
@@ -34,9 +38,10 @@ func _physics_process(delta):
 		if ray_cast_right.is_colliding() or ray_cast_left.is_colliding() or not ray_cast_down_left.is_colliding() or not ray_cast_down_right.is_colliding():
 			direction *= -1
 
-		velocity.x = direction * SPEED
+		velocity.x = direction * SPEED	
 
-	velocity.y = GRAVITY
+	if !is_on_floor():
+		velocity.y += GRAVITY * delta
 
 	move_and_slide()
 	
@@ -62,6 +67,11 @@ func _on_player_collision_body_entered(body):
 	if body.has_method("take_damage"):
 		SfxHandler.play(PLAYER_HURT, get_tree().current_scene)
 		body.take_damage()
+		can_follow = false
+		velocity.x = direction * -1 * 1500
+		velocity.y = -200
+		$FollowCooldown.start()
+		move_and_slide()
 
 
 		colliding = true
@@ -86,3 +96,7 @@ func hit(damage:int):
 			
 		queue_free()
 
+
+
+func _on_follow_cooldown_timeout():
+	can_follow = true
