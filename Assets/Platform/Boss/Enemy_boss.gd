@@ -13,21 +13,14 @@ var timer : Timer
 var bulletTimer
 var hits = 0
 
+@export var trigger : Area2D
 @onready var particle = preload("res://Assets/Platform/Boss/particle.tscn")
 
 
 func _ready():
 	
-	timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = 2
-	timer.one_shot = true
-	timer.start()
-	timer.connect("timeout",chooseAttack)
-	
 	player = $"../player_platform"
 	waypoints = get_parent().find_children("Waypoint*")
-	print(waypoints)
 	
 	
 func chooseAttack():
@@ -67,3 +60,13 @@ func hit(damage):
 func _physics_process(delta):
 	pass
 	
+
+
+func _on_start_boss_body_entered(body):
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 2
+	timer.one_shot = true
+	timer.start()
+	timer.connect("timeout",chooseAttack)
+	trigger.queue_free()

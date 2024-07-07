@@ -14,7 +14,6 @@ func _ready():
 	
 
 func spawnCloud():
-	print("CLOUD")
 	var y = rng.randf_range(0,600)-300
 	var c : Node2D= cloud.instantiate()
 	var scale = rng.randf_range(3,9)
