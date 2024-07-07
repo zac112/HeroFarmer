@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crpet0fak7pby"
-path="res://.godot/imported/play_button.png-9c7fa72d73059e7584739b392de12827.ctex"
+path="res://.godot/imported/play_button.png-072a44f4604633db0015bae5a7cac2e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kuvat/play_button.png"
-dest_files=["res://.godot/imported/play_button.png-9c7fa72d73059e7584739b392de12827.ctex"]
+source_file="res://Assets/TheStart/play_button.png"
+dest_files=["res://.godot/imported/play_button.png-072a44f4604633db0015bae5a7cac2e7.ctex"]
 
 [params]
 

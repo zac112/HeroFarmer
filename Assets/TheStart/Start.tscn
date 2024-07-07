@@ -1,24 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6m8b8lh4fgmw"]
+[gd_scene load_steps=8 format=3 uid="uid://b6m8b8lh4fgmw"]
 
 [ext_resource type="Script" path="res://Assets/TheStart/Start.gd" id="1_7o5qv"]
+[ext_resource type="Texture2D" uid="uid://431v3dwt6xhv" path="res://Assets/TheStart/start_screen.png" id="2_3sied"]
+[ext_resource type="Texture2D" uid="uid://crpet0fak7pby" path="res://Assets/TheStart/play_button.png" id="3_ujclu"]
+[ext_resource type="Texture2D" uid="uid://d02tri8jm3afb" path="res://Assets/TheStart/start_screen_picture.png" id="4_kvm8p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v7ub"]
+atlas = ExtResource("3_ujclu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0rdm"]
+atlas = ExtResource("3_ujclu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jywj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v7ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0rdm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Start" type="Node2D"]
 script = ExtResource("1_7o5qv")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 448.0
-offset_top = 348.0
-offset_right = 540.0
-offset_bottom = 371.0
-text = "Start Game!"
-
 [node name="Credits" type="Label" parent="."]
-offset_left = 418.0
-offset_top = 516.0
-offset_right = 529.0
-offset_bottom = 591.0
+offset_left = 590.0
+offset_top = 266.0
+offset_right = 701.0
+offset_bottom = 341.0
 text = "Art:
 
 Programming:
 
 Sounds and music from: https://opengameart.org"
+
+[node name="StartScreen" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_3sied")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayButton" type="AnimatedSprite2D" parent="."]
+position = Vector2(178, -101)
+sprite_frames = SubResource("SpriteFrames_jywj2")
+
+[node name="StartScreenPicture" type="Sprite2D" parent="."]
+position = Vector2(-304, 155)
+texture = ExtResource("4_kvm8p")
