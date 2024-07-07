@@ -14,7 +14,7 @@ var bulletTimer
 var hits = 0
 
 @export var trigger : Area2D
-@onready var particle = preload("res://Assets/Platform/Boss/particle_boss.tscn")
+@onready var particle = preload("res://Assets/Platform/Boss/particle.tscn")
 
 
 func _ready():
