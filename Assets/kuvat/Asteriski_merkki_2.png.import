@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f4b15sx5gvgn"
-path="res://.godot/imported/Digit_merkki_1.png-98577519d8264945bc8e3fdc53564079.ctex"
+uid="uid://dp4pks7x2njtj"
+path="res://.godot/imported/Asteriski_merkki_2.png-0d9b7a65c9a01278fc72fc00753128f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Digit_merkki_1.png"
-dest_files=["res://.godot/imported/Digit_merkki_1.png-98577519d8264945bc8e3fdc53564079.ctex"]
+source_file="res://Assets/kuvat/Asteriski_merkki_2.png"
+dest_files=["res://.godot/imported/Asteriski_merkki_2.png-0d9b7a65c9a01278fc72fc00753128f2.ctex"]
 
 [params]
 
