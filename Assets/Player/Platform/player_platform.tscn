@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Player/Platform/player_platform.gd" id="1_uttb6"]
 [ext_resource type="Texture2D" uid="uid://b7hex7r7x46h6" path="res://Assets/Player/Platform/peli.png" id="2_86gsd"]
-[ext_resource type="PackedScene" uid="uid://bfkdqfodthehd" path="res://Assets/Player/Platform/player_death_particles.tscn" id="2_smvec"]
+[ext_resource type="PackedScene" path="res://Assets/Player/Platform/player_death_particles.tscn" id="2_smvec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtt0y"]
 atlas = ExtResource("2_86gsd")
@@ -68,7 +68,6 @@ death_particles = ExtResource("2_smvec")
 sprite_frames = SubResource("SpriteFrames_82py8")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.204928
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)

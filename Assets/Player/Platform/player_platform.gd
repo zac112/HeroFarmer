@@ -22,6 +22,7 @@ var last_dir = 1
 var playerHealth := 3
 var invincible = false
 var can_shoot = true
+var canControl = false
 
 @export var death_particles : PackedScene
 @export var death_popup : PackedScene
@@ -39,12 +40,22 @@ func _ready():
 	has_double_jump = PowerupInventory.has_double_jump
 	muzzle_position = muzzle.position
 	current_state = State.Idle
+	startLevel()
 
 	
+func startLevel(): 
+	animated_sprite_2d.play("run")
+	for i in range(50):
+		velocity.x = 1*SPEED
+		player_falling(0.01)
+		move_and_slide()
+		await get_tree().process_frame
+	animated_sprite_2d.play("idle")
+	canControl = true
+
 func _process(delta):
 	if is_dead and Input.is_action_just_pressed("Platform_shoot"):
 		SceneHandler.loadScene("res://Assets/Farm/Farm.tscn")
-	pass
 
 
 func player_shooting(delta):
@@ -136,15 +147,15 @@ func player_animation():
 		
 
 func _physics_process(delta):
-	player_falling(delta)
-	player_idle(delta)
-	player_run(delta)
-	player_jump(delta)
-	move_and_slide()
-	player_animation()
-	move_and_slide()
-	player_muzzle_position()
-	player_shooting(delta)
+	if canControl:
+		player_falling(delta)
+		player_idle(delta)
+		player_run(delta)
+		player_jump(delta)
+		player_animation()
+		move_and_slide()
+		player_muzzle_position()
+		player_shooting(delta)
 	
 func input_movement():
 	if is_dead:
