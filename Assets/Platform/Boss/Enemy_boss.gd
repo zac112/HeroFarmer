@@ -18,6 +18,8 @@ var timer : Timer
 var bulletTimer
 # hits taken by boss
 var hits = 0
+# hit indicator
+var is_hit = false
 # phase counter
 var phase = 0
 # cutscene trigger
@@ -44,26 +46,26 @@ func chooseAttack():
 	If clause determines the attack with phase variable. Awaits for attack to complete
 	
 		Variables:
-			* attack (func): attack to be made
+			* attack (func): attack to be made randomly from a list of attacks
 			* waypoint (Node2D): position to be chosen for boss' global position
 			* global_position: position of boss
 			* phase (int): phase of the bossfight
 	
 	
 	"""
-	var attack = [targeted, spiral][rng.randi_range(0,1)]
+	var attack = [targeted, spiral, raining][rng.randi_range(0,2)]
 	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 
 	while true:
 		if phase == 1:
-			print("Phase ", phase,  " attack")
-			attack = targeted
-			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+			attack = raining
+			waypoint = waypoints[4]
 		elif phase == 2:
-			print("Phase ", phase,  " attack")
-			attack = spiral
+			attack = [targeted, spiral][rng.randi_range(0,1)]
 			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
-		
+		elif phase == 3:
+			attack = [targeted, spiral, raining][rng.randi_range(0,2)]
+			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		global_position = waypoint.global_position
 		
 		await attack.call()
@@ -97,6 +99,9 @@ func spiral():
 	"""
 	$Sprite.play("front")
 	for i in range(30):
+		if is_hit:
+			is_hit = false
+			return
 		i = i*2
 		await get_tree().create_timer(0.2).timeout
 		shoot(Vector2(cos(i/TAU),sin(i/TAU)))
@@ -111,9 +116,33 @@ func targeted():
 	"""
 	$Sprite.play("front")
 	for i in range(5):
+		if is_hit:
+			is_hit = false
+			return
 		await get_tree().create_timer(0.2).timeout
 		shoot(global_position.direction_to(player.global_position))
+
+func raining():
+	"""
+	Shoots particles starting from waypoint5 and progressing left on screen
+	Selects sprite as frontfacing boss.
+	sets speed to 5
+	Creates timer and awaits it to complete for shooting speed
+	Calls shoot() function
+	normalizes speed back to 300
+	"""
+	$Sprite.play("front")
+	SPEED = 5
+	for i in range(21):
+		if is_hit:
+			is_hit = false
+			return
+		global_position += Vector2(-10, 0) * SPEED
+		await get_tree().create_timer(0.2).timeout
+		shoot(global_position.direction_to(Vector2(global_position.x, -1)))
+	SPEED = 300
 	
+
 func hit(damage):
 	"""
 	Mechanism for damage control of boss.
@@ -123,14 +152,13 @@ func hit(damage):
 		1) progresses phases through damage taken
 		2) if 3 phases are done, runs TheEnd scene
 	"""
+	is_hit = true
 	hits += damage
 
 	if hits >= 10 and hits < 20:
 		phase = 2
-		print("Hit, moving to phase: ", phase)
 	elif hits >= 20 and hits < 30:
 		phase = 3
-		print("Hit, moving to phase: ", phase)
 	elif hits >= 30:
 		SceneHandler.loadScene("res://Assets/TheEnd/TheEnd.tscn")
 	
@@ -140,7 +168,6 @@ func _physics_process(delta):
 	"""
 	pass
 	
-
 
 func _on_start_boss_body_entered(body):
 	"""
@@ -155,5 +182,4 @@ func _on_start_boss_body_entered(body):
 	$Sprite.play("left")
 	global_position = waypoints[2].global_position
 	phase = 1
-	print("Fight begins, phase: ", phase)
 	trigger.queue_free()
