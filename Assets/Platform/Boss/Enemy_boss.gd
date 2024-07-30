@@ -13,6 +13,9 @@ var timer : Timer
 var bulletTimer
 var hits = 0
 
+# phase counter
+var phase = 0
+
 @export var trigger : Area2D
 @onready var particle = preload("res://Assets/Platform/Boss/particle.tscn")
 
@@ -24,9 +27,19 @@ func _ready():
 	
 	
 func chooseAttack():
+	var attack = [targeted, spiral][rng.randi_range(0,1)]
+	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+
 	while true:
-		var attack = [targeted, spiral][rng.randi_range(0,1)]
-		var waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+
+		if phase == 1:
+			print("Phase ", phase,  " attack")
+			attack = targeted
+			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+		elif phase == 2:
+			print("Phase ", phase,  " attack")
+			attack = spiral
+			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		
 		global_position = waypoint.global_position
 		
@@ -57,7 +70,14 @@ func targeted():
 func hit(damage):
 	print("final hits ",hits)
 	hits += damage
-	if hits >= 3:
+
+	if hits >= 10 and hits < 20:
+		phase = 2
+		print("Hit, moving to phase: ", phase)
+	elif hits >= 20 and hits < 30:
+		phase = 3
+		print("Hit, moving to phase: ", phase)
+	elif hits >= 30:
 		SceneHandler.loadScene("res://Assets/TheEnd/TheEnd.tscn")
 	
 func _physics_process(delta):
@@ -74,4 +94,6 @@ func _on_start_boss_body_entered(body):
 	timer.connect("timeout",chooseAttack)
 	$Sprite.play("left")
 	global_position = waypoints[2].global_position
+	phase = 1
+	print("Fight begins, phase: ", phase)
 	trigger.queue_free()

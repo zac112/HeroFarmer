@@ -438,6 +438,12 @@ position = Vector2(537, -89)
 [node name="Waypoint3" type="Node2D" parent="."]
 position = Vector2(1343, -293)
 
+[node name="Waypoint4" type="Node2D" parent="."]
+position = Vector2(544, -512)
+
+[node name="Waypoint5" type="Node2D" parent="."]
+position = Vector2(1600, -512)
+
 [node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_edxqs")
 autoplay = true
