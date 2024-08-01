@@ -54,18 +54,18 @@ func chooseAttack():
 	
 	
 	"""
-	var attack = [targeted, spiral, raining][rng.randi_range(0,2)]
+	var attack = [targeted, spiral, raining, homing_missile][rng.randi_range(0,2)]
 	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 
 	while true:
 		if phase == 1:
-			attack = homing_missile
+			attack = [targeted, spiral, raining, homing_missile][rng.randi_range(0,3)]
 			waypoint = waypoints[4]
 		elif phase == 2:
 			attack = [targeted, spiral][rng.randi_range(0,1)]
 			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		elif phase == 3:
-			attack = [targeted, spiral, raining][rng.randi_range(0,2)]
+			attack = homing
 			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		global_position = waypoint.global_position
 		
@@ -89,6 +89,15 @@ func shoot(dir):
 	get_parent().add_child(par)
 
 func homing(dir):
+	"""
+	Homing missile mechanism. Instantiates particle scene, sets it position and direction, adds to parent scene
+	
+		parameters:
+			* dir (Vector2D): direction to where the particle is going to be launched
+		
+		variables:
+			* homing (PackedScene): actual particle object
+	"""
 	var homing = homing_particle.instantiate()
 	homing.global_position = global_position
 	homing.direction = dir
@@ -96,6 +105,12 @@ func homing(dir):
 	get_parent().add_child(homing)
 
 func homing_missile():
+	"""
+	Shoots 1 homing particle that seeks player
+	Selects sprite as frontfacing boss.
+	Creates timer and awaits it to complete for shooting speed
+	Calls homing() function
+	"""
 	$Sprite.play("front")
 	await get_tree().create_timer(0.2).timeout
 	homing(global_position.direction_to(player.global_position))
