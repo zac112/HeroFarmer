@@ -95,7 +95,6 @@ func homing(dir):
 	get_parent().add_child(homing)
 
 func homing_missile():
-	print("homing missile attack")
 	$Sprite.play("front")
 	for i in range(2):
 		if is_hit:
