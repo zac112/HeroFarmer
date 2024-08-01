@@ -92,17 +92,14 @@ func homing(dir):
 	var homing = homing_particle.instantiate()
 	homing.global_position = global_position
 	homing.direction = dir
+	homing.start(global_position, player)
 	get_parent().add_child(homing)
 
 func homing_missile():
 	$Sprite.play("front")
-	for i in range(2):
-		if is_hit:
-			is_hit = false
-			return
-		await get_tree().create_timer(0.2).timeout
-		homing(global_position.direction_to(player.global_position))
-	
+	await get_tree().create_timer(0.2).timeout
+	homing(global_position.direction_to(player.global_position))
+
 
 func spiral():
 	"""
