@@ -24,8 +24,9 @@ var is_hit = false
 var phase = 0
 # cutscene trigger
 @export var trigger : Area2D
-# "fireball" particle
+# "fireball" particles
 @onready var particle = preload("res://Assets/Platform/Boss/particle.tscn")
+@onready var homing_particle = preload("res://Assets/Platform/Boss/homing_particle.tscn")
 
 
 func _ready():
@@ -58,7 +59,7 @@ func chooseAttack():
 
 	while true:
 		if phase == 1:
-			attack = raining
+			attack = homing_missile
 			waypoint = waypoints[4]
 		elif phase == 2:
 			attack = [targeted, spiral][rng.randi_range(0,1)]
@@ -86,7 +87,24 @@ func shoot(dir):
 	par.global_position = global_position
 	par.direction = dir
 	get_parent().add_child(par)
-		
+
+func homing(dir):
+	var homing = homing_particle.instantiate()
+	homing.global_position = global_position
+	homing.direction = dir
+	get_parent().add_child(homing)
+
+func homing_missile():
+	print("homing missile attack")
+	$Sprite.play("front")
+	for i in range(2):
+		if is_hit:
+			is_hit = false
+			return
+		await get_tree().create_timer(0.2).timeout
+		homing(global_position.direction_to(player.global_position))
+	
+
 func spiral():
 	"""
 	Shoots 2 particles at a time in a spiral formation.
