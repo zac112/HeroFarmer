@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb45njmkqdh0q"]
+
+[ext_resource type="Script" path="res://Assets/Platform/Boss/boss_dialogue.gd" id="1_aawjq"]
+
+[node name="BossDialogue" type="Node2D"]
+position = Vector2(-1, -1)
+script = ExtResource("1_aawjq")
+
+[node name="CharacterTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="MessageTimer" type="Timer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -329.0
+offset_top = -149.0
+offset_right = 374.0
+offset_bottom = 141.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="CharacterTimer" to="." method="_on_character_timer_timeout"]

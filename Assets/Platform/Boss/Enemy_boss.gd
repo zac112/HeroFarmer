@@ -14,8 +14,6 @@ var waypoints
 var player 
 # timer for cutscene
 var timer : Timer
-# not needed ?
-var bulletTimer
 # hits taken by boss
 var hits = 0
 # hit indicator
@@ -27,6 +25,7 @@ var phase = 0
 # "fireball" particles
 @onready var particle = preload("res://Assets/Platform/Boss/particle.tscn")
 @onready var homing_particle = preload("res://Assets/Platform/Boss/homing_particle.tscn")
+@onready var dialogue = preload("res://Assets/Platform/Boss/boss_dialogue.tscn")
 
 
 func _ready():
@@ -190,6 +189,10 @@ func hit(damage):
 	elif hits >= 20 and hits < 30:
 		phase = 3
 	elif hits >= 30:
+		# TODO exit anim
+		var ed = dialogue.instantiate()
+		add_child(ed)
+		ed.end_of_level("Placeholder end of level")
 		SceneHandler.loadScene("res://Assets/TheEnd/TheEnd.tscn")
 	
 func _physics_process(delta):
@@ -203,12 +206,18 @@ func _on_start_boss_body_entered(body):
 	"""
 	Event when player enters the "StartBoss" (Area2D) that triggers bossfight
 	"""
+	# TODO refine start anim
+	# Add border so no cheesing
 	timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = 2
+	var sd = dialogue.instantiate()
+	sd.position.y -= 100
+	timer.wait_time = 5
 	timer.one_shot = true
-	timer.start()
 	timer.connect("timeout",chooseAttack)
+	add_child(timer)
+	add_child(sd)
+	timer.start()
+	sd.start_of_level("Placeholder start of level")
 	$Sprite.play("left")
 	global_position = waypoints[2].global_position
 	phase = 1
