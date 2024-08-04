@@ -52,21 +52,28 @@ func chooseAttack():
 			* global_position: position of boss
 			* phase (int): phase of the bossfight
 	
-	
+	aaa
 	"""
-	var attack = [targeted, spiral, raining, homing_missile][rng.randi_range(0,2)]
+	var attacks = [targeted, spiral, raining, homing_missile]
 	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
-
+	var attack = attacks[0]
+	
 	while true:
 		if phase == 1:
-			attack = [targeted, spiral, raining, homing_missile][rng.randi_range(0,3)]
+			attack = attacks[2]
 			waypoint = waypoints[4]
 		elif phase == 2:
-			attack = [targeted, spiral][rng.randi_range(0,1)]
-			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+			attack = attacks[rng.randi_range(0,3)]
+			if attack == raining:
+				waypoint = waypoints[4]
+			else:
+				waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		elif phase == 3:
-			attack = homing
-			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+			attack = attacks[rng.randi_range(0,3)]
+			if attack == raining:
+				waypoint = waypoints[4]
+			else:
+				waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		global_position = waypoint.global_position
 		
 		await attack.call()
@@ -88,20 +95,14 @@ func shoot(dir):
 	par.direction = dir
 	get_parent().add_child(par)
 
-func homing(dir):
+func homing():
 	"""
 	Homing missile mechanism. Instantiates particle scene, sets it position and direction, adds to parent scene
 	
-		parameters:
-			* dir (Vector2D): direction to where the particle is going to be launched
-		
 		variables:
 			* homing (PackedScene): actual particle object
 	"""
 	var homing = homing_particle.instantiate()
-	homing.global_position = global_position
-	homing.direction = dir
-	homing.start(global_position, player)
 	get_parent().add_child(homing)
 
 func homing_missile():
@@ -112,8 +113,8 @@ func homing_missile():
 	Calls homing() function
 	"""
 	$Sprite.play("front")
-	await get_tree().create_timer(0.2).timeout
-	homing(global_position.direction_to(player.global_position))
+	homing()
+	await get_tree().create_timer(2).timeout
 
 
 func spiral():
