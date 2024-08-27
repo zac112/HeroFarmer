@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://rh02jql7a3ir"]
+[gd_scene load_steps=8 format=3 uid="uid://rh02jql7a3ir"]
 
 [ext_resource type="Script" path="res://Assets/Platform/Boss/homing_particle.gd" id="1_fmbo4"]
 [ext_resource type="Texture2D" uid="uid://bhp28jxdnskoa" path="res://Assets/Platform/Boss/fireball.png" id="2_kfwmk"]
+[ext_resource type="AudioStream" uid="uid://cvpk07wgw7h37" path="res://Assets/Audio/Rifleprimary2.ogg" id="3_r08cf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6bqf"]
 atlas = ExtResource("2_kfwmk")
@@ -41,5 +42,8 @@ frame_progress = 0.242391
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d08fh")
+
+[node name="BulletAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_r08cf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

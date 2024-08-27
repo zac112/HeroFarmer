@@ -296,6 +296,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuutx"]
+size = Vector2(41.3411, 20)
 
 [node name="Level_final" type="Node2D"]
 
@@ -453,7 +454,7 @@ position = Vector2(870, -122)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartBoss"]
-position = Vector2(272, -76)
+position = Vector2(198.8, -76)
 scale = Vector2(6.86, 20)
 shape = SubResource("RectangleShape2D_cuutx")
 

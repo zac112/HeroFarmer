@@ -14,6 +14,7 @@ func _ready():
 		* Tween is used to create "spawn effect" from boss
 		* Sets "target" and "boss" variables for position and direction of the particle
 	"""
+	$BulletAudio.play()
 	var timer = get_tree().create_timer(3)
 	timer.connect("timeout", lifetime_end)
 	var missileScaleChange = create_tween()

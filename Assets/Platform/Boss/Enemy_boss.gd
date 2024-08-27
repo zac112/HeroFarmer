@@ -20,13 +20,17 @@ var hits = 0
 var is_hit = false
 # phase counter
 var phase = 0
+# dialogues
+var dialogues = ["Welcome to my lair, no more seeds for you...", "You have defeated me. But i shall return stronger!"]
+# can attack
+var can_attack = true
+
 # cutscene trigger
 @export var trigger : Area2D
 # "fireball" particles
 @onready var particle = preload("res://Assets/Platform/Boss/particle.tscn")
 @onready var homing_particle = preload("res://Assets/Platform/Boss/homing_particle.tscn")
-@onready var dialogue = preload("res://Assets/Platform/Boss/boss_dialogue.tscn")
-
+@onready var dialogue = preload("res://Assets/Platform/Boss/dialogue.tscn")
 
 func _ready():
 	"""
@@ -36,7 +40,7 @@ func _ready():
 		* waypoints is populated from "level_final.tscn" as a parent
 	"""
 	$Sprite.play("vendor")
-	player = $"../player_platform"
+	player = get_parent().find_child("player_platform")
 	waypoints = get_parent().find_children("Waypoint*")
 	
 	
@@ -50,14 +54,12 @@ func chooseAttack():
 			* waypoint (Node2D): position to be chosen for boss' global position
 			* global_position: position of boss
 			* phase (int): phase of the bossfight
-	
-	aaa
 	"""
 	var attacks = [targeted, spiral, raining, homing_missile]
 	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 	var attack = attacks[0]
 	
-	while true:
+	while can_attack:
 		if phase == 1:
 			attack = attacks[2]
 			waypoint = waypoints[4]
@@ -68,11 +70,8 @@ func chooseAttack():
 			else:
 				waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		elif phase == 3:
-			attack = attacks[rng.randi_range(0,3)]
-			if attack == raining:
-				waypoint = waypoints[4]
-			else:
-				waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+			attack = attacks[3]
+			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
 		global_position = waypoint.global_position
 		
 		await attack.call()
@@ -189,35 +188,51 @@ func hit(damage):
 	elif hits >= 20 and hits < 30:
 		phase = 3
 	elif hits >= 30:
-		# TODO exit anim
-		var ed = dialogue.instantiate()
-		add_child(ed)
-		ed.end_of_level("Placeholder end of level")
-		SceneHandler.loadScene("res://Assets/TheEnd/TheEnd.tscn")
+		can_attack = false
+		self.playEndDialogue()
 	
 func _physics_process(delta):
 	"""
 	not used / placeholder
 	"""
 	pass
+
+
+func playStartDialogue():
+	player.setCanControl(false)
+	var sd = dialogue.instantiate().setMessage(dialogues[0])
+	sd.position.x -= 150
+	sd.position.y -= 300
+	add_child(sd)
+	await get_tree().create_timer(5.0).timeout
+	sd.queue_free()
+	player.setCanControl(true)
 	
+func playEndDialogue():
+	$"../Background".stop()
+	global_position = waypoints[0].global_position
+	player.setCanControl(false)
+	var sd = dialogue.instantiate().setMessage(dialogues[1])
+	sd.position.x -= 100
+	sd.position.y -= 300
+	add_child(sd)
+	await get_tree().create_timer(5.0).timeout
+	sd.queue_free()
+	SceneHandler.loadScene("res://Assets/TheEnd/TheEnd.tscn")
+
+
 
 func _on_start_boss_body_entered(body):
 	"""
 	Event when player enters the "StartBoss" (Area2D) that triggers bossfight
 	"""
-	# TODO refine start anim
-	# Add border so no cheesing
+	self.playStartDialogue()
 	timer = Timer.new()
-	var sd = dialogue.instantiate()
-	sd.position.y -= 100
-	timer.wait_time = 5
+	timer.wait_time = 6
 	timer.one_shot = true
 	timer.connect("timeout",chooseAttack)
 	add_child(timer)
-	add_child(sd)
 	timer.start()
-	sd.start_of_level("Placeholder start of level")
 	$Sprite.play("left")
 	global_position = waypoints[2].global_position
 	phase = 1

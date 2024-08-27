@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://iehnbfs30ds6"]
+
+[ext_resource type="Script" path="res://Assets/Platform/Boss/dialogue.gd" id="1_uk673"]
+
+[sub_resource type="Theme" id="Theme_lvcvq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ltkxr"]
+specular_color = Color(0.510258, 0.339301, 0.747106, 1)
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -1024.0
+offset_bottom = -384.0
+theme = SubResource("Theme_lvcvq")
+script = ExtResource("1_uk673")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 349.0
+offset_bottom = 182.0
+texture = SubResource("CanvasTexture_ltkxr")
+
+[node name="Content" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 349.0
+offset_bottom = 183.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "
+"
+
+[node name="TypeTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="PauseTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="TypeTimer" to="." method="_on_type_timer_timeout"]
+[connection signal="timeout" from="PauseTimer" to="." method="_on_pause_timer_timeout"]

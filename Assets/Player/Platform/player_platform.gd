@@ -238,6 +238,9 @@ func die():
 func hit(damage):
 	take_damage()
 	
+func setCanControl(state: bool):
+	self.canControl = state
+
 func _on_invisibility_timeout():
 	invincible = false
 
