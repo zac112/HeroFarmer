@@ -24,6 +24,8 @@ var phase = 0
 var dialogues = ["Welcome to my lair, no more seeds for you...", "You have defeated me. But i shall return stronger!"]
 # can attack variable to stop during dialogues
 var can_attack = true
+# can the boss take damage
+var can_take_damage = false
 
 # cutscene trigger
 @export var trigger : Area2D
@@ -40,6 +42,7 @@ func _ready():
 		* player variable is set to human player file
 		* waypoints is populated from "level_final.tscn" as a parent
 	"""
+
 	$Sprite.play("vendor")
 	player = get_parent().find_child("player_platform")
 	waypoints = get_parent().find_children("Waypoint*")
@@ -57,7 +60,7 @@ func chooseAttack():
 			* phase (int): phase of the bossfight
 	"""
 	var attacks = [targeted, spiral, raining, homing_missile]
-	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-2)]
 	var attack = attacks[0]
 	
 	while can_attack:
@@ -69,14 +72,18 @@ func chooseAttack():
 			if attack == raining:
 				waypoint = waypoints[4]
 			else:
-				waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+				waypoint = waypoints[rng.randi_range(0,len(waypoints)-2)]
 		elif phase == 3:
 			attack = attacks[3]
-			waypoint = waypoints[rng.randi_range(0,len(waypoints)-1)]
+			waypoint = waypoints[rng.randi_range(0,len(waypoints)-2)]
 		global_position = waypoint.global_position
+
+		can_take_damage = true
+
 		
 		await attack.call()
 		await get_tree().create_timer(1).timeout
+
 		
 	
 func shoot(dir):
@@ -130,6 +137,7 @@ func spiral():
 	for i in range(30):
 		if is_hit:
 			is_hit = false
+			self.goSomewhere()
 			return
 		i = i*2
 		await get_tree().create_timer(0.2).timeout
@@ -147,6 +155,7 @@ func targeted():
 	for i in range(5):
 		if is_hit:
 			is_hit = false
+			self.goSomewhere()
 			return
 		await get_tree().create_timer(0.2).timeout
 		shoot(global_position.direction_to(player.global_position))
@@ -165,6 +174,7 @@ func raining():
 	for i in range(21):
 		if is_hit:
 			is_hit = false
+			self.goSomewhere()
 			return
 		global_position += Vector2(-10, 0) * SPEED
 		await get_tree().create_timer(0.2).timeout
@@ -182,8 +192,10 @@ func hit(damage):
 		2) if 3 phases are done, runs TheEnd scene
 	"""
 	is_hit = true
-	hits += damage
-
+	if can_take_damage:
+		hits += damage
+	can_take_damage = false
+	
 	if hits >= 10 and hits < 20:
 		phase = 2
 	elif hits >= 20 and hits < 30:
@@ -197,6 +209,10 @@ func _physics_process(delta):
 	not used / placeholder
 	"""
 	pass
+	
+func goSomewhere():
+	var new_position = waypoints[rng.randi_range(0,len(waypoints)-2)]
+	global_position = new_position.global_position
 
 
 func playStartDialogue():
@@ -223,6 +239,7 @@ func playEndDialogue():
 	"""
 	$"../Background".stop()
 	global_position = waypoints[0].global_position
+	player.global_position = waypoints[5].global_position
 	player.setCanControl(false)
 	var sd = dialogue.instantiate().setMessage(dialogues[1])
 	sd.position.x -= 100

@@ -19,7 +19,6 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.name == "player_platform":
-		print("Hit",body)
 		var particle = bullet_particle.instantiate()
 		particle.emitting = true
 		particle.position = position
