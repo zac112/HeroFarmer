@@ -52,12 +52,6 @@ func chooseAttack():
 	"""
 	Choosing the attack for boss, loop that runs until game ends.
 	If clause determines the attack with phase variable. Awaits for attack to complete
-	
-		Variables:
-			* attack (func): attack to be made randomly from a list of attacks
-			* waypoint (Node2D): position to be chosen for boss' global position
-			* global_position: position of boss
-			* phase (int): phase of the bossfight
 	"""
 	var attacks = [targeted, spiral, raining, homing_missile]
 	var waypoint = waypoints[rng.randi_range(0,len(waypoints)-2)]
@@ -89,12 +83,6 @@ func chooseAttack():
 func shoot(dir):
 	"""
 	Shooting mechanism. Instantiates particle scene, sets it position and direction, adds to parent scene
-	
-		parameters:
-			* dir (Vector2D): direction to where the particle is going to be launched
-		
-		variables:
-			* par (PackedScene): actual particle object
 	"""
 	var par = particle.instantiate()
 	par.global_position = global_position
@@ -104,9 +92,6 @@ func shoot(dir):
 func homing():
 	"""
 	Homing missile mechanism. Instantiates particle scene, sets it position and direction, adds to parent scene
-	
-		variables:
-			* homing (PackedScene): actual particle object
 	"""
 	var homing = homing_particle.instantiate()
 	get_parent().add_child(homing)
@@ -129,9 +114,6 @@ func spiral():
 	Selects sprite as frontfacing boss.
 	Creates timer and awaits it to complete for shooting speed
 	Calls shoot() function
-	
-		variables:
-			* i (int): shooting times per attack
 	"""
 	$Sprite.play("front")
 	for i in range(30):
@@ -185,8 +167,7 @@ func raining():
 func hit(damage):
 	"""
 	Mechanism for damage control of boss.
-		parameters:
-			* damage (int): damage dealt by player particle or melee attack
+
 	 workflow:
 		1) progresses phases through damage taken
 		2) if 3 phases are done, runs TheEnd scene
@@ -211,6 +192,7 @@ func _physics_process(delta):
 	pass
 	
 func goSomewhere():
+	""" used to teleport the boss away from the players location after being hit """
 	var new_position = waypoints[rng.randi_range(0,len(waypoints)-2)]
 	global_position = new_position.global_position
 
