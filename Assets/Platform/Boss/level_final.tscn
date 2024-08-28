@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5jqkm43ky0av"]
+[gd_scene load_steps=17 format=3 uid="uid://b5jqkm43ky0av"]
 
 [ext_resource type="PackedScene" uid="uid://dosibav3620rd" path="res://Assets/Player/Platform/player_platform.tscn" id="2_5ans7"]
 [ext_resource type="Texture2D" uid="uid://b4jeb2tqjs18c" path="res://icon.svg" id="3_levup"]
@@ -295,9 +295,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuutx"]
-size = Vector2(41.3411, 20)
-
 [node name="Level_final" type="Node2D"]
 
 [node name="player_platform" parent="." instance=ExtResource("2_5ans7")]
@@ -453,9 +450,9 @@ autoplay = true
 position = Vector2(870, -122)
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartBoss"]
-position = Vector2(198.8, -76)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StartBoss"]
+position = Vector2(147, -31)
 scale = Vector2(6.86, 20)
-shape = SubResource("RectangleShape2D_cuutx")
+polygon = PackedVector2Array(-3.49855, -4.85, 4.81049, -9.55, 23.9067, -9.55, 24.1982, 6.65, -18.5131, 6.6, -18.0758, -4.85)
 
 [connection signal="body_entered" from="StartBoss" to="Enemy_boss" method="_on_start_boss_body_entered"]

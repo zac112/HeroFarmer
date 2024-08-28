@@ -22,7 +22,7 @@ var is_hit = false
 var phase = 0
 # dialogues
 var dialogues = ["Welcome to my lair, no more seeds for you...", "You have defeated me. But i shall return stronger!"]
-# can attack
+# can attack variable to stop during dialogues
 var can_attack = true
 
 # cutscene trigger
@@ -30,6 +30,7 @@ var can_attack = true
 # "fireball" particles
 @onready var particle = preload("res://Assets/Platform/Boss/particle.tscn")
 @onready var homing_particle = preload("res://Assets/Platform/Boss/homing_particle.tscn")
+# dialogue scene
 @onready var dialogue = preload("res://Assets/Platform/Boss/dialogue.tscn")
 
 func _ready():
@@ -199,6 +200,10 @@ func _physics_process(delta):
 
 
 func playStartDialogue():
+	""" Start of bosslevel dialogue by boss, immobilises player for the duration
+		instantiates dialogue object with message from dialogues array and adds it to tree
+		waits 5 seconds for readability and then continues
+	"""
 	player.setCanControl(false)
 	var sd = dialogue.instantiate().setMessage(dialogues[0])
 	sd.position.x -= 150
@@ -209,6 +214,13 @@ func playStartDialogue():
 	player.setCanControl(true)
 	
 func playEndDialogue():
+	"""
+	Run only if the player beats the boss, gets called by func hit
+	
+	End of bosslevel dialogue by the boss. Immobilises player for the duration
+	instantiates dialogue object with message from dialogues array and adds it to tree
+	waits 5 seconds for readability and then loads TheEnd scene
+	"""
 	$"../Background".stop()
 	global_position = waypoints[0].global_position
 	player.setCanControl(false)
